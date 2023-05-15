@@ -111,7 +111,7 @@ To verify this, note that the vectors $\Vec{b_i}$ satisfy $\Vec{b_i}\cdot\Vec{a_
 \[
 \Vec{k}=k_1\Vec{b_1}+k_2\Vec{b_2}+k_3\Vec{b_3}
 \]
-If $\Vec{R}$ is a lattice vector it is in the form of \hyperref[R]{Equation} \ref{R}, hence we have:
+If $\Vec{R}$ is a lattice vector it is in the form of \hyperref[R]{Equation (\ref{R})}, hence we have:
 \[
 \Vec{k}\cdot\Vec{R}=2\pi(k_1n_1+k_2n_2+k_3n_3)
 \]
@@ -183,7 +183,7 @@ Functions of this type are oscillating function of $\Vec{t}\cdot\Vec{k}$, with a
 \Vec{t_1}\cdot\Delta\Vec{k}=2\pi n \quad \Vec{t_2}\cdot\Delta\Vec{k}=2\pi m \quad \Vec{t_3}\cdot\Delta\Vec{k}=2\pi r
 \]
 where $n,m$ and $r$ are integer numbers. These are the Laue equations for lattice diffraction.\\
-So far, we have not considered the structure of the primitive cell but only the effect of translation symmetry. To get the total amplitude, the contribution from \hyperref[rhozero]{Equation \ref{rhozero}} have to be summed over all the points $\Vec{\rho}$ and take into account the density of scattering particles. In the case of a large number of elementary cells, it is possible to use the approximation:
+So far, we have not considered the structure of the primitive cell but only the effect of translation symmetry. To get the total amplitude, the contribution from \hyperref[rhozero]{Equation (\ref{rhozero})} have to be summed over all the points $\Vec{\rho}$ and take into account the density of scattering particles. In the case of a large number of elementary cells, it is possible to use the approximation:
 \[
 \frac{\sin^2(Nx/2)}{\sin^2(x/2)}\simeq2\pi N\delta(x)
 \]
@@ -474,7 +474,7 @@ It is now possible to express the original Hamiltonian in terms of the new displ
 \end{aligned}
 \right.
 \]
-The Hamiltonian of \hyperref[H]{Equation \ref{H}} can be written as:
+The Hamiltonian of \hyperref[H]{Equation (\ref{H})} can be written as:
 \begin{equation}
 \label{H1}
 H=\sum_q\frac{p_qp_{-q}}{2M}+\frac{1}{2}C\sum_qu_qu_{-q}(2-e^{-iqa}+e^{+iqa})=\sum_q\left[\frac{p_qp_{-q}}{2M}+\frac{1}{2}M\omega^2(q)u_qu_{-q}\right]
@@ -501,7 +501,7 @@ The displacements and the conjugated momenta gets now written in the form:
 \end{aligned}
 \right.
 \]
-The Hamiltonian of \hyperref[H1]{Equation \ref{H1}} can be expressed in second quantization form:
+The Hamiltonian of \hyperref[H1]{Equation (\ref{H1})} can be expressed in second quantization form:
 \[
 H=\sum_q\hbar\omega(q)\left(a_q^\dagger a_q+\frac{1}{2}\right)
 \]
@@ -537,4 +537,48 @@ Non-trivial solutions are obtained by solving the following:
 \norm{D_{\nu\alpha,\nu'\alpha'}(\Vec{q})-M_\nu\omega^2\delta_{\alpha\alpha'}\delta_{\nu\nu'}}=0 \quad \text{where}\;\; D_{\nu\alpha,\nu'\alpha'}(\Vec{q})=\sum_{n'}D_{n\nu\alpha,n'\nu'\alpha'}\exp{-i\Vec{q}\cdot(\Vec{t}_n-\Vec{t}_{n'})}
 \]
 The matrix $D(\Vec{q})$ has dimension $3\nu_b$, the secular equation produces $3\nu_b$ eigenvalues, called phonons or normal modes. At every vector $\Vec{q}$ there are $3\nu_b$ normal modes, giving rise to $3\nu_b$ phonon branches as $\Vec{q}$ varies inside the \nth{1} Brillouin zone. Let $\omega(\Vec{q},p)$ be the frequency of the $p$-th normal mode of wave vector $\Vec{q}$ and $\Vec{A}_\nu(\Vec{q},p)$ the corresponding polarization vectors. A mode $\omega(\Vec{q},p)$ is called \textbf{longitudinal} in case the polarization vectors $\Vec{A}_\nu(\Vec{q},p)$ are parallel to $\Vec{q}$, while it is called \textbf{transverse} if they are perpendicular to it.
-\end{document}
+\section{Thermal Properties}
+We have seen that the energy of the states of the crystal is given by the eigenvalues of the Hamiltonian in \hyperref[H1]{Equation (\ref{H1})} from which it follows that the internal energy per unit of volume is:
+\[
+u=\frac{1}{V}\left(\frac{1}{2}k_BT+\frac{1}{2}k_BT\right)3N=3nk_BT \quad \text{where}\;\;n=\frac{N}{V}
+\]
+From this, it is possible to obtain the specific heat $c_v$ by simply deriving with respect to the temperature:
+\[
+c_v=\frac{\partial u}{\partial T}=3nk_B
+\]
+which is not what it is observed experimentally. We explicitly compute $u$ given by:
+\[
+u=\frac{1}{V}\frac{\sum_iE_ie^{-\beta E_i}}{\sum_ie^{-\beta E_i}}=-\frac{\partial f}{\partial\beta} \quad \text{where}\;\;f=\frac{1}{V}\ln{\sum_ie^{-\beta E_i}}
+\]
+As usual, $\beta=1/k_BT$, $E_i$ is the energy of the $i$-th state of the crystal and the sum is extended over all possible states. The contribution to the total energy of a particular mode with angular frequency $\omega(\Vec{q}s)$ can have only a discrete set of values:
+\[
+E_{n_{\Vec{q}s}}=\hbar\omega(\Vec{q}s)\left(n_{\Vec{q}s}+\frac{1}{2}\right)
+\]
+where $n_{\Vec{q}s}$ is the excitation number of the mode. The term $\sum_ie^{-\beta E_i}$ can be calculated:
+\begin{align*}
+\sum_ie^{-\beta E_i}&=\sum_{\{n_{\Vec{q}s}\}}\exp{-\beta\sum_{\{n_{\Vec{q}s}\}}\hbar\omega(\Vec{q}s)\left(n_{\Vec{q}s}+\frac{1}{2}\right)}=\sum_{\{n_{\Vec{q}s}\}}\prod_{\Vec{q}s}\exp{-\beta\hbar\omega(\Vec{q}s)\left(n_{\Vec{q}s}+\frac{1}{2}\right)}\\
+&=\prod_{\Vec{q}s}\sum_{n_{\Vec{q}s}}\exp{-\beta\hbar\omega(\Vec{q}s)\left(n_{\Vec{q}s}+\frac{1}{2}\right)}=\prod_{\Vec{q}s}\exp{-\beta\hbar\omega(\Vec{q}s)/2}\sum_{n_{\Vec{q}s}}\exp{-\beta\hbar\omega(\Vec{q}s)n_{\Vec{q}s}}\\
+&=\prod_{\Vec{q}s}\frac{\exp{-\beta\hbar\omega(\Vec{q}s)/2}}{1-\exp{-\beta\hbar\omega(\Vec{q}s)}}
+\end{align*}
+Here we are treating the phonons as bosons. At the end of the day one gets:
+\[
+f=\frac{1}{V}\ln{\prod_{\Vec{q}s}\frac{\exp{-\beta\hbar\omega(\Vec{q}s)/2}}{1-\exp{-\beta\hbar\omega(\Vec{q}s)}}}=\frac{1}{V}\sum_{\Vec{q}s}\ln{\frac{\exp{-\beta\hbar\omega(\Vec{q}s)/2}}{1-\exp{-\beta\hbar\omega(\Vec{q}s)}}}
+\]
+By differentiating $f$ with respect to $\beta$, the internal energy density $u$ assumes the form:
+\[
+u=-\frac{\partial f}{\partial\beta}=\frac{1}{V}\sum_{\Vec{q}s}\hbar\omega(\Vec{q}s)\left(n_s(\Vec{q})+\frac{1}{2}\right) \quad \text{where}\;\; n_s(\Vec{q})=\frac{1}{\exp{\beta\hbar\omega(\Vec{q}s)}-1}
+\]
+In the quantum theory of the harmonic solid, the specific heat is no longer constant but given by:
+\[
+c_v=\frac{\partial u}{\partial T}=\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega(\Vec{q}s)}{\exp{\beta\hbar\omega(\Vec{q}s)}-1}
+\]
+In the limit $\beta\hbar\omega\ll1$, the specific heat can be approximated as:
+\[
+c_v\simeq\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega(\Vec{q}s)}{\beta\hbar\omega(\Vec{q}s)}=\frac{1}{V}\sum_{\Vec{q}s}k_B\frac{\partial T}{\partial T}=\frac{1}{V}3Nk_B=3nk_B
+\]
+The classical result is recovered in the high-temperature limit. On the other hand, moving to the low-temperature regime, i.e. $\beta\hbar\omega\gg1$, we observe that the set of discrete wave vectors which we summed over becomes dense on the scale over which the summand has an appreciable variation. Therefore, the sum is replaced by an integral:
+\[
+c_v=\frac{\partial}{\partial T}\sum_s\int\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar\omega(\Vec{q}s)}{\exp{\beta\hbar\omega(\Vec{q}s)}-1}
+\]
+where the integral is taken over the \nth{1} Brillouin zone.
+\end{document} 
