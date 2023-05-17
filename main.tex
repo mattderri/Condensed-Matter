@@ -46,6 +46,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \renewcommand{\Vec}[1]{\boldsymbol{#1}}
+\renewcommand{\refeq}[1]{\hyperref[#1]{Equation (\ref{#1})}}
 % \newcommand{\beginbox}[1]{\begin{tcolorbox}[width=\textwidth,colback={yellow!50},title={#1},colbacktitle={gray!50},coltitle=black]}
 % \renewcommand{\endbox}{\end{tcolorbox}\noindent}
 % \begin{tcolorbox}[width=\textwidth,colback={yellow!50},title={Rosenbluth Cross Section},colbacktitle={gray!50},coltitle=black]
@@ -818,12 +819,16 @@ The idea is to investigate the effect of the potential on that free electron lev
 E=E^0_{\Vec{k}-\Vec{K_1}} \quad C_{\Vec{k}-\Vec{K}}=0 \quad \Vec{K}\neq\Vec{K_1}
 \]
 We then look at:
-\[
+\begin{equation}
+\label{sub}
 (E-E^0_{\Vec{k}-\Vec{K_1}})C_{\Vec{k}-\Vec{K_1}}=\sum_{\Vec{K}\neq\Vec{K_1}}U_{\Vec{K}-\Vec{K_1}}C_{\Vec{k}-\Vec{K}}
-\]
+\end{equation}
 We are working with a solution for which $C_{\Vec{k}-\Vec{K}}$ vanishes when $\Vec{K}\neq\Vec{K_1}$ in the limit of vanishing $U$, so we expect the right hand side of the above equation to be of second order in $U$. This can be checked by writing \hyperref[ckk]{Equation (\ref{ckk})} for $\Vec{K}\neq\Vec{K_1}$:
 \[
 C_{\Vec{k}-\Vec{K}}=\frac{U_{\Vec{K_1}-\Vec{K}}C_{\Vec{k}-\Vec{K_1}}}{E-E^0_{\Vec{k}-\Vec{K}}}+\sum_{\Vec{K'}\neq\Vec{K_1}}\frac{U_{\Vec{K'}-\Vec{K}}C_{\Vec{k}-\Vec{K'}}}{E-E^0_{\Vec{k}-\Vec{K}}}=\frac{U_{\Vec{K_1}-\Vec{K}}C_{\Vec{k}-\Vec{K_1}}}{E-E^0_{\Vec{k}-\Vec{K}}}+\mathcal{O}(U^2)
 \]
-In the last step, we used the initial assumption of no near degeneracy in \hyperref[assumption]{Equation (\ref{assumption})}: such a near degeneracy could cause some of the denominators above to be of order $U$, hence cancelling the explicit $U$ in the numerator resulting in additional terms in the sum comparable to the $\Vec{K}=\Vec{K_1}$ term.
+In the last step, we used the initial assumption of no near degeneracy in \hyperref[assumption]{Equation (\ref{assumption})}: such a near degeneracy could cause some of the denominators above to be of order $U$, hence cancelling the explicit $U$ in the numerator resulting in additional terms in the sum comparable to the $\Vec{K}=\Vec{K_1}$ term. Putting this in \refeq{sub} gives us:
+\[
+(E-E^0_{\Vec{k}-\Vec{K_1}})C_{\Vec{k}-\Vec{K_1}}=\sum_{\Vec{K}\neq\Vec{K_1}}\frac{U_{\Vec{K}-\Vec{K_1}}U_{\Vec{K_1}-\Vec{K}}}{E-E^0_{\Vec{k}-\Vec{K}}}C_{\Vec{k}-\Vec{K_1}}+\mathcal{O}(U^3)
+\]
 \end{document} 
