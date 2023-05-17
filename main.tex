@@ -660,8 +660,8 @@ which gives a much more convenient expression for the density of states:
 \[
 D(\omega)d\omega=\frac{V}{(2\pi)^3}\left[\int_S\frac{dS_\omega}{|\Vec{v}_g|}\right] \quad \text{equivalently} \quad D(\omega)=\frac{V}{(2\pi)^3}\int d\Vec{k}\delta[\omega(\Vec{k})-\omega]
 \]
-\hrule
-\noindent The ions in a perfect crystals are arranged in a regular periodic array, therefore one is led to consider the problem of an electron in a potential $U(\Vec{r})$ with the periodicity of the underlying Bravais, lattice: $U(\Vec{r}+\Vec{R})=U(\Vec{r})$ for all Bravais lattice vectors $\Vec{R}$.\\
+\section{Electron Levels in a Periodic Potentials}
+The ions in a perfect crystals are arranged in a regular periodic array, therefore one is led to consider the problem of an electron in a potential $U(\Vec{r})$ with the periodicity of the underlying Bravais, lattice: $U(\Vec{r}+\Vec{R})=U(\Vec{r})$ for all Bravais lattice vectors $\Vec{R}$.\\
 The problem of electrons in a solid is in principle a many-electron problem, since the full Hamiltonian contains potentials describing the electron-electron interactions. In the independent electron approximation, these interactions are represented by an effective one-electron potential $U(\Vec{r})$. The Schr\"odinger equation for a single electron is then given by:
 \[
 H\psi(\Vec{r})=\left[-\frac{\hbar^2}{2m}\Vec{\nabla}^2+U(\Vec{r})\right]\psi(\Vec{r})=E\psi(\Vec{r})
@@ -794,8 +794,9 @@ As an example, consider the free electron bands of a simple cubic lattice: we wa
     \end{tabular}
     \caption*{}
     \label{tab:my_label}
-\end{table}\\
-\noindent When the periodic potential is zero, the solutions to the Schr\"odinger equation are plane waves therefore a reasonable starting place for the treatment of weak periodic potential is the expansion of the exact solution in plane waves. The wave function of a Bloch level with crystal momentum $\Vec{k}$ can be written as:
+\end{table}
+\section{Electrons in a Weak Periodic Potential}
+When the periodic potential is zero, the solutions to the Schr\"odinger equation are plane waves therefore a reasonable starting place for the treatment of weak periodic potential is the expansion of the exact solution in plane waves. The wave function of a Bloch level with crystal momentum $\Vec{k}$ can be written as:
 \[
 \psi_{\Vec{k}}(\Vec{r})=\sum_KC_{\Vec{k}-\Vec{K}}\exp{i(\Vec{k}-\Vec{K})x}
 \]
@@ -828,7 +829,84 @@ We are working with a solution for which $C_{\Vec{k}-\Vec{K}}$ vanishes when $\V
 C_{\Vec{k}-\Vec{K}}=\frac{U_{\Vec{K_1}-\Vec{K}}C_{\Vec{k}-\Vec{K_1}}}{E-E^0_{\Vec{k}-\Vec{K}}}+\sum_{\Vec{K'}\neq\Vec{K_1}}\frac{U_{\Vec{K'}-\Vec{K}}C_{\Vec{k}-\Vec{K'}}}{E-E^0_{\Vec{k}-\Vec{K}}}=\frac{U_{\Vec{K_1}-\Vec{K}}C_{\Vec{k}-\Vec{K_1}}}{E-E^0_{\Vec{k}-\Vec{K}}}+\mathcal{O}(U^2)
 \]
 In the last step, we used the initial assumption of no near degeneracy in \hyperref[assumption]{Equation (\ref{assumption})}: such a near degeneracy could cause some of the denominators above to be of order $U$, hence cancelling the explicit $U$ in the numerator resulting in additional terms in the sum comparable to the $\Vec{K}=\Vec{K_1}$ term. Putting this in \refeq{sub} gives us:
-\[
+\begin{equation}
+\label{nodeg}
 (E-E^0_{\Vec{k}-\Vec{K_1}})C_{\Vec{k}-\Vec{K_1}}=\sum_{\Vec{K}\neq\Vec{K_1}}\frac{U_{\Vec{K}-\Vec{K_1}}U_{\Vec{K_1}-\Vec{K}}}{E-E^0_{\Vec{k}-\Vec{K}}}C_{\Vec{k}-\Vec{K_1}}+\mathcal{O}(U^3)
+\end{equation}
+The perturbed energy level $E$ differs from the free electron value $E^0_{\Vec{k}-\Vec{K_1}}$ by terms of order $U^2$, therefore it is sufficient to replace $E$ appearing in the denominator on the right hand side by $E^0_{\Vec{k}-\Vec{K_1}}$ :
+\[
+E=E^0_{\Vec{k}-\Vec{K_1}}+\sum_{\Vec{K}}\frac{|U_{\Vec{K}-\Vec{K_1}}|^2}{E^0_{\Vec{k}-\Vec{K_1}}-E^0_{\Vec{k}-\Vec{K}}}+\mathcal{O}(U^3)
+\]
+This is telling us that weakly perturbed non-degenerate bands repel each other. Moreover, the most important feature is that the shift in energy from the free electron value is of second order in $U$.\\
+Suppose now that the value of $\Vec{k}$ is that there are reciprocal lattice vectors $\Vec{K_1},\cdots, \Vec{K_m}$ with $E^0_{\Vec{k}-\Vec{K_1}},\cdots,E^0_{\Vec{k}-\Vec{K_m}}$ all within order $U$ of each other but far apart from the other $E^0_{\Vec{k}-\Vec{K}}$:
+\[
+|E^0_{\Vec{k}-\Vec{K}}-E^0_{\Vec{k}-\Vec{K_i}}|\ll U \quad i=1,\cdots,m \quad \Vec{K}\neq\Vec{K_1},\cdots,\Vec{K_m}
+\]
+In this case, we must treat separately the equations given by \refeq{ckk} with $\Vec{K}$ equal to any of the possible $m$ values $\Vec{K_1},\cdots,\Vec{K_m}$. This gives $m$ equations where we separate from the sum the terms containing the coefficients $C_{\Vec{k}-\Vec{K_j}}$, with $j=1,\cdots,m$, which need to be not small in the limit of vanishing interactions, from the remaining $C_{\Vec{k}-\Vec{K}}$, which will be at most of order $U$.
+\[
+(E-E^0_{\Vec{k}-\Vec{K_i}})C_{\Vec{k}-\Vec{K_i}}=\sum_{j=1}^mU_{\Vec{K_j}-\Vec{K_i}}C_{\Vec{k}-\Vec{K_j}}+\sum_{\Vec{K}\neq\Vec{K_1},\cdots,\Vec{K_m}}U_{\Vec{K}-\Vec{K_i}}C_{\Vec{k}-\Vec{K}}
+\]
+For the remaining levels, it is possible to write:
+\[
+C_{\Vec{k}-\Vec{K}}=\frac{1}{E-E^0_{\Vec{k}-\Vec{K}}}\left[\sum_{j=1}^mU_{\Vec{K_j}-\Vec{K}}C_{\Vec{k}-\Vec{K_j}}+\cancelto{\mathcal{O}(U^2)}{\sum_{\Vec{K'}\neq\Vec{K_1},\cdots,\Vec{K_m}}U_{\Vec{K'}-\Vec{K}}C_{\Vec{k}-\Vec{K'}}}\right]
+\]
+Since $C_{\Vec{k}-\Vec{K}}$ will be at most of order $U$, the second term in the equation above is negligible. With this result we can then write:
+\[
+(E-E^0_{\Vec{k}-\Vec{K_i}})C_{\Vec{k}-\Vec{K_i}}=\sum_{j=1}^mU_{\Vec{K_j}-\Vec{K_i}}C_{\Vec{k}-\Vec{K_j}}+\sum_{j=1}^m\left[\sum_{\Vec{K}\neq\Vec{K_1},\cdots,\Vec{K_m}}\frac{U_{\Vec{K}-\Vec{K_i}}U_{\Vec{K_j}-\Vec{K}}}{E-E^0_{\Vec{k}-\Vec{K}}}\right]C_{\Vec{k}-\Vec{K}}+\mathcal{O}(U^3)
+\]
+Compare this with the result obtained in \refeq{nodeg} for the non-degenerate case: previously, we found an explicit expression for the shift in energy to order $U^2$, now to an accuracy of order $U^2$ the determination of the shifts in $m$ nearly degenerate levels reduces to the solution of $m$ equations for $C_{\Vec{k}-\Vec{K_i}}$. The coefficients in the second term on the right hand side are of higher order in $U$ than those in the first term, therefore we can use a simpler form:
+\[
+(E-E^0_{\Vec{k}-\Vec{K_i}})C_{\Vec{k}-\Vec{K_i}}=\sum_{j=1}^mU_{\Vec{K_j}-\Vec{K_i}}C_{\Vec{k}-\Vec{K_j}}
+\]
+which are $m$ general equations for a system of $m$ quantum levels. 
+\section{The Tight-Binding Method}
+In developing the tight-binding approximation we assume that in the vicinity of each lattice point, the full periodic crystal Hamiltonian $H$ can be approximated by the Hamiltonian $H_{\text{at}}$ of a single atom located at the lattice point. We also assume that the bound levels of $H_{\text{at}}$ are well localized, i.e. if $\psi_n$ is a bound level of $H_{\text{at}}$:
+\[
+H_{\text{at}}\psi_n=E_n\psi_n
+\]
+then we require that $\psi_n(\Vec{r})$ is very small when $r$ exceeds a distance, denoted as the range of $\psi_n$. In the extreme case in which $H$ begins to differ from $H_{\text{at}}$ only at distances that exceed the range of $\psi_n(\Vec{r})$, the wave function will be an excellent approximation to a stationary state wave function for the full Hamiltonian with eigenvalue $E_n$. To compute the corrections in this case, $H$ can be written as:
+\[
+H=H_{\text{at}}+\Delta U(\Vec{r})
+\]
+where $\Delta U(\Vec{r})$ contains all the corrections to the atomic potential required to produce the crystal full periodic potential. If $\psi_n(\Vec{r})$ satisfies the atomic Schr\"odinger equation then it will also satisfy the crystal Schr\"odinger equation if $\Delta U(\Vec{r})=0$ for $\psi_n(\Vec{r})\neq0$. In this case, each atomic level $\psi_n(\Vec{r})$ would yield $N$ levels in the periodic potential. To preserve the Bloch description, one has to find the $N$ linear combinations of these degenerate wave functions that satisfy the Block condition:
+\[
+\psi_{n\Vec{k}}(\Vec{r})=\sum_{\Vec{R}}\exp{i\Vec{k}\cdot\Vec{R}}\psi_n(\Vec{r}-\Vec{R})
+\]
+where $\Vec{k}$ ranges through the $N$ values in the first Brillouin zone consistent with the Born-von Karman periodic boundary condition. This combination satisfies the Bloch condition:
+\begin{align*}
+\psi_{n\Vec{k}}(\Vec{r}+\Vec{R})&=\sum_{\Vec{R'}}\exp{i\Vec{k}\cdot\Vec{R'}}\psi_n(\Vec{r}+\Vec{R}-\Vec{R'})\\
+&=\exp{i\Vec{k}\cdot\Vec{R}}\sum_{\Vec{R'}}\exp{i\Vec{k}\cdot(\Vec{R'}-\Vec{R})}\psi_n(\Vec{r}-(\Vec{R'}-\Vec{R}))\\
+&=\exp{i\Vec{k}\cdot\Vec{R}}\sum_{\Vec{\overline{R}}}\exp{i\Vec{k}\cdot\Vec{\overline{R}}}\psi_n(\Vec{r}-\Vec{\overline{R}})=\exp{i\Vec{k}\cdot\Vec{R}}\psi_{n\Vec{k}}(\Vec{r}) \quad \checkmark
+\end{align*}
+A more realistic assumption is that $\psi_n(\Vec{r})$ becomes small but not precisely zero before $\Delta U(\Vec{r})$ becomes appreciable. This is suggesting to seek a solution to the full crystal Schr\"odinger equation in the form:
+\begin{equation}
+\label{psiphi}
+\psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{R}}\exp{i\Vec{k}\cdot\Vec{R}}\phi(\Vec{r}-\Vec{R}) \quad \phi(\Vec{r})=\sum_nb_n\psi_n(\Vec{r})
+\end{equation}
+We now multiply the crystal Schr\"odinger equation:
+\[
+H\psi(\Vec{r})=[H_{\text{at}}+\Delta U(\Vec{r})]\psi(\Vec{r})=E_{\Vec{k}}\psi(\Vec{r})
+\]
+by the atomic wave function $\psi_m^*(\Vec{r})$, integrate over all $\Vec{r}$ and using the fact that:
+\[
+\int d\Vec{r}\psi_m^*(\Vec{r})H_{\text{at}}\psi(\Vec{r})=\int d\Vec{r}[H_{\text{at}}\psi_m(\Vec{r})]^*\psi(\Vec{r})=E_m\int d\Vec{r}\psi_m^*(\Vec{r})\psi(\Vec{r})
+\]
+one finds:
+\[
+(E_{\Vec{k}}-E_m)\int d\Vec{r}\psi_m^*(\Vec{r})\psi(\Vec{r})=\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\psi(\Vec{r})
+\]
+We now plug in this result the wave functions expressed in \refeq{psiphi} to get:
+\[
+(E_{\Vec{k}}-E_m)\int d\Vec{r}\psi_m^*(\Vec{r})\sum_{\Vec{R}}\exp{i\Vec{k}\cdot\Vec{R}}\sum_nb_n\psi_n(\Vec{r}-\Vec{R})=\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\sum_{\Vec{R}}\exp{i\Vec{k}\cdot\Vec{R}}\sum_nb_n\psi_n(\Vec{r}-\Vec{R})
+\]
+The sum is splitted in $\Vec{R}=0$ and $\Vec{R}\neq0$ and we exploit the orthonormality of the atomic wave functions to obtain:
+\begin{align*}
+(E_{\Vec{k}}-E_m)\int d\Vec{r}\psi_m^*(\Vec{r})\sum_nb_n\psi_n(\Vec{r})=(E_{\Vec{k}}-E_m)b_m=&-(E_{\Vec{k}}-E_m)\int d\Vec{r}\psi_m^*(\Vec{r})\sum_n\sum_{\Vec{R}\neq0}\exp{i\Vec{k}\cdot\Vec{R}}b_n\psi_n(\Vec{r}-\Vec{R})\\
+&+\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\sum_nb_n\psi_n(\Vec{r})\\
+&+\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\sum_n\sum_{\Vec{R}\neq0}b_n\exp{i\Vec{k}\cdot\Vec{R}}\psi_n(\Vec{r}-\Vec{R})
+\end{align*}
+The assumption of well localized atomic levels is interpreted by saying that the first term on the right hand side is small compared to unity. The integrals in the third term are also small because they contain the product of two wave functions centered at different sites while the second term is small because one expects the atomic wave functions to become small at distances large enough for the periodic potential to deviate appreciably from the atomic one. The whole right hand side is then small: this is possible if $E_{\Vec{k}}-E_m$ is small when $b_m$ is not and vice versa. $E_{\Vec{k}}$ must be close to some atomic level $E_0$ and all the $b_m$ except those going with that level must be small.
+\[
+E_{\Vec{k}}\approx E_0 \quad b_m\approx0 \quad \text{unless}\;\;E_m\approx E_0
 \]
 \end{document} 
