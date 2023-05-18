@@ -974,9 +974,101 @@ The number of such electrons in a region of position space of volume $d\Vec{r}$ 
 \[
 \Vec{J}=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\left(\frac{1}{\hbar}\frac{\partial E_n(\Vec{k})}{\partial\Vec{k}}\right)f[E_n(\Vec{k})]\stackrel{?}{=}0
 \]
-Consider now a periodic function in direct space
+Consider now a periodic function in direct space: its integral over the cell is constant under translation.
+\[
+I(\Vec{r'})=\int_Cd\Vec{r}f(\Vec{r}+\Vec{r'})\Rightarrow\Vec{\nabla'}I(\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla'}f(\Vec{r}+\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla}f(\Vec{r}+\Vec{r'})
+\]
+In the case $\Vec{r'}=0$, then the last integral is equal to zero. This holds true in reciprocal space as well and we get that $\Vec{J}=0$.\\
+The contribution to all electrons in a given band to the current density is:
+\[
+\Vec{J}=-e\int_{\text{occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})
+\]
+where the integral is over all occupied levels in the band. By exploiting the fact that a completely filled band carries no current, we get:
+\[
+0=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})=-e\int_{\text{occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})+(-e)\int_{\text{non occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})\Rightarrow\Vec{J}=e\int_{\text{non occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})
+\]
+The current produced by occupying with electrons a specified set of levels is exactly the same as the current that would be produced if the specified levels were unoccupied and all the other levels in the band were occupied with particles of charge $+e$. In equilibrium and in configurations that do not deviate substantially from equilibrium, the unoccupied levels usually lie near the top of the band. If the band energy $E(\Vec{k})$ has its maximum value at $\Vec{k_0}$ and $\Vec{k}$ is sufficiently close to $\Vec{k_0}$, it is possible to perform an expansion. The linear term in $(\Vec{k}-\Vec{k_0})$ vanishes at a maximum:
+\[
+E(\Vec{k})\simeq E(\Vec{k_0})-A(\Vec{k}-\Vec{k_0})^2 \qquad\text{with}\;\; A=\frac{\hbar^2}{2m^*}
+\]
+For levels with wave vectors near $\Vec{k_0}$ velocity and acceleration are:
+\[
+\Vec{v}(\Vec{k})=\frac{1}{\hbar}\frac{\partial E}{\partial\Vec{k}}\simeq-\frac{\hbar}{m^*}(\Vec{k}-\Vec{k_0}) \qquad \Vec{a}=\frac{d\Vec{v}(\Vec{k})}{dt}=-\frac{\hbar}{m^*}\Dot{\Vec{k}}\xleftrightarrow[]{}\hbar\Dot{\Vec{k}}=-m^*\Vec{a}
+\]
+This is telling us that as long as the electron's orbit is confined to levels close enough to the band maximum for the previous expansion to be accurate, the negative charged electron responds to the fields as it had a negative mass $-m^*$. A more intuitive picture is to see this whole situation as a positive charged particle with a positive mass $m^*$.\\
+To derive the effective mass $m^*$, imagine to have an electron accelerated by some external field:
+\[
+\Vec{a}_\alpha=\frac{1}{\hbar}\frac{d}{dt}\left[\frac{\partial E(\Vec{k})}{\partial\Vec{k}}\Bigr|_{\substack{\alpha}}\right]=\frac{1}{\hbar}\sum_\beta\frac{\partial^2E(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}\Dot{\Vec{k}}_\beta=\frac{1}{\hbar^2}\sum_\beta\frac{\partial^2E(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}\Vec{F}_\beta \qquad \text{where}\;\Dot{\Vec{k}}_\beta=\frac{\Vec{F}_\beta}{\hbar}
+\]
+It then follows that:
+\[
+\left(\frac{1}{m^*}\right)_{\alpha\beta}=\frac{1}{\hbar^2}\frac{\partial^2E(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}
+\]
+\section{Semiconductors}
+We have seen that electrons in a completely filled band cannot carry any current. This is the basis for the distinction between insulators and metals: in the ground state of an \textbf{insulator} all bands are either completely filled or completely empty, while in the ground state of a \textbf{metal} at least one band is partially filled. Insulators can be characterized by the \textbf{energy gap} $E_g$ between the top of the highest filled band and the bottom of the lowest empty band. When the temperature is not zero, there is a non-vanishing probability that some electrons get thermally excited across the energy gap into the lowest unoccupied bands, called \textbf{conduction bands}, leaving behind unoccupied levels in the highest occupied bands, called \textbf{valence bands}. Solids that are insulators at $T=0$ but whose energy gaps are such that thermal excitation can lead to observable conductivity at temperatures below the melting point are known as \textbf{semiconductors}.\\
+The most important property of any semiconductor at temperature $T$ is the number of electrons per unit volume in the conduction band $n_c$ and the number of holes per unit volume in the valence band $p_v$.
+\[
+n_c(T)=\int_{E_c}^{+\infty} dEg_c(E)\frac{1}{\exp{\beta(E-\mu)}+1} \qquad p_v(T)=\int_{-\infty}^{E_v}dEg_v(E)\frac{1}{\exp{\beta(\mu-E)}+1}
+\]
+The determination of $n_c$ and $p_v$ is affected by impurities through the chemical potential $\mu$. To determine $\mu$, one must know something about the impurity levels but it is still possible to extract some useful information independent on the precise value of $\mu$ provided that the following conditions hold true:
+\begin{equation}
+\label{nondeg}
+E_c-\mu\gg k_BT \qquad \mu-E_v\gg k_BT
+\end{equation}
+The idea now is to assume the validity of such approximations, simplify the expressions for $n_c$ and $p_v$ and from the values obtained compute the actual value of $\mu$ to see if it lies in the range provided by the above approximations. If it does, the semiconductor is described as \textbf{nondegenerate}, while if it does not one says that the semiconductor is \textbf{degenerate}. The statistical factors can be simplified as:
+\[
+\frac{1}{\exp{\beta(E-\mu)}+1}\approx\exp{-\beta(E-\mu)} \qquad \frac{1}{\exp{\beta(\mu-E)}+1}\approx\exp{-\beta(\mu-E)}
+\]
+$n_c(T)$ and $p_v(T)$ now reduces to:
+\[
+\left\{
+\begin{aligned}
+n_c(T)&\simeq\int_{E_c}^{+\infty} dEg_c(E)\exp{-\beta(E-\mu)}=\int_{E_c}^{+\infty} dEg_c(E)\exp{-\beta(E-E_c)}\exp{-\beta(E_c-\mu)}\\
+&=N_c(T)\exp{-\beta(E_c-\mu)}\\
+p_v(T)&\simeq\int_{-\infty}^{E_v} dEg_v(E)\exp{-\beta(\mu-E)}=\int_{-\infty}^{E_v} dEg_c(E)\exp{-\beta(E_v-E)}\exp{-\beta(\mu-E_v)}\\
+&=P_v(T)\exp{-\beta(\mu-E_v)}
+\end{aligned}
+\right.
+\]
+The level densities can be taken to be:
+\[
+g_{c,v}(E)=\frac{m_{c,v}^{3/2}}{\pi^2\hbar^3}\sqrt{2|E-E_{c,v}|}
+\]
+so it is possible to explicitly compute $N_c(T)$ and $P_v(T)$:
+\begin{align*}
+N_c(T)&=\int_{E_c}^{+\infty} dE\frac{m_c^{3/2}}{\pi^2\hbar^3}\sqrt{2|E-E_c|}\exp{-\beta(E-E_c)}\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize $\beta(E-E_c)=x$ };}}
+{=}\frac{m_c^{3/2}\sqrt{2}}{\pi^2\hbar^3\beta^{3/2}}\int_0^{+\infty}dxx^{1/2}e^{-x}\\
+&=\frac{\sqrt{2}}{\pi^2}\left(\frac{k_BTm_c}{\hbar^2}\right)^{3/2}\Gamma(3/2)=\frac{\sqrt{2}}{\pi^2}\left(\frac{k_BTm_c}{\hbar^2}\right)^{3/2}\frac{\sqrt{\pi}}{2}=\frac{1}{4}\left(\frac{2k_BTm_c}{\pi\hbar^2}\right)^{3/2}
+\end{align*}
+With the same reasoning, one gets for $P_v(T)$:
+\[
+P_v(T)=\cdots=\frac{1}{4}\left(\frac{2k_BTm_v}{\pi\hbar^2}\right)^{3/2}
+\]
+It is still not possible to infer $n_c(T)$ and $p_v(T)$ until the value of $\mu$ is known but one can observe that the $\mu$ dependence disappears if we take the product of the two densities:
+\begin{align*}
+n_c(T)p_v(T)&=N_c(T)\exp{-\beta(E_c-\mu)}P_v(T)\exp{-\beta(\mu-E_v)}\\
+&=N_c(T)P_v(T)\exp{-\beta(E_c-E_v)}=N_c(T)P_v(T)\exp{-\beta E_g}
+\end{align*}
+This result is telling us that at a given temperature it is sufficient to know the density of one type of carrier to determine the density of the other one.\\\\
+\textbf{Intrinsic case}\\\\
+The intrinsic case takes place if the crystal is so pure that impurities contribute negligibly to the carrier densities. Conduction band electrons can only have come from formerly occupied valence band levels leaving hole behind them. The number of conduction band electrons is then equal to the number of valence band holes:
+\[
+n_c(T)=p_v(T)=n_i(T)
+\]
+It follows that $n_i(T)$ is given by:
+\[
+n_i(T)=\sqrt{N_c(T)P_v(T)}\exp{-\beta E_g/2}=\frac{1}{4}\left(\frac{2k_BT}{\pi\hbar^2}\right)^{3/2}(m_cm_v)^{3/4}\exp{-\beta E_g/2}
+\]
+Using the fact that $n_i(T)=n_c(T)$ we get:
+\[
+\begin{aligned}
+\sqrt{N_c(T)P_v(T)}\exp{-\beta E_g/2}&=N_c(T)\exp{-\beta(E_c-\mu_i)}\\
+\sqrt{\frac{P_v(T)}{N_c(T)}}\exp{-\beta E_g/2}&=\exp{-\beta(E_c-\mu_i)}\\
+-\beta \frac{1}{2}E_g+\frac{1}{2}\ln[P_v(T)/N_c(T)]&=-\beta E_c+\beta\mu_i
+\end{aligned}
+\]
+\[
+\Rightarrow\mu_i=E_c-\frac{1}{2}E_g+\frac{1}{2}k_BT\ln[P_v(T)/N_c(T)]=E_v+\frac{1}{2}E_g+\frac{3}{4}k_BT\ln(m_v/m_c)
+\]
+where $\mu_i$ denotes the value of the chemical potential in the intrinsic case. For $T\to0$, $\mu_i$ lies precisely in the middle of the energy gap. Furthermore, since $\ln(m_v/m_c)$ is a number of order unity, $\mu_i$ will not wander from the center of the energy gap by more than order $k_BT$. Consequently, at temperatures such that $k_BT$ is small compared to $E_g$, $\mu_i$ will be found far from the boundaries and the condition for non-degeneracy [\refeq{nondeg}] will be satisfied.
 \end{document} 
-% The main problem is describing the motion of Bloch electrons between collisions, with mean velocity given by:
-% \[
-% \Vec{v_n}(\Vec{k})=\frac{1}{\hbar}\frac{\partial E_n(\Vec{k})}{\partial\Vec{k}}
-% \]
