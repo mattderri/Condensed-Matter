@@ -909,4 +909,57 @@ The assumption of well localized atomic levels is interpreted by saying that the
 \[
 E_{\Vec{k}}\approx E_0 \quad b_m\approx0 \quad \text{unless}\;\;E_m\approx E_0
 \]
+If all the coefficients $b_m$ are zero except for a single atomic $s$-level, we get the band structure of the corresponding $s$-band:
+\begin{align*}
+E_{\Vec{k}}-E_s=&-(E_{\Vec{k}}-E_s)\sum_{\Vec{R}\neq0}\exp{i\Vec{k}\cdot\Vec{R}}\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})\\
+&+\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r})+\sum_{\Vec{R}\neq0}\exp{i\Vec{k}\cdot\Vec{R}}\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})
+\end{align*}
+$E_{\Vec{k}}$ is then given by:
+\begin{align*}
+E_{\Vec{k}}&=E_s-\frac{{\color{red}{-\int d\Vec{r}|\psi_s(\Vec{r})|^2\Delta U(\Vec{r})}}-\sum_{\Vec{R}\neq0}\exp{i\Vec{k}\cdot\Vec{R}}{\color{green}{\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}{1+\sum_{\Vec{R}\neq0}\exp{i\Vec{k}\cdot\Vec{R}}{\color{blue}{\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}\\
+&=E_s-\frac{{\color{red}{\beta}}+\sum_{\Vec{R}\neq0}{\color{green}{\gamma(\Vec{R})}}\exp{i\Vec{k}\cdot\Vec{R}}}{1+\sum_{\Vec{R}\neq0}{\color{blue}{\alpha(\Vec{R})}}\exp{i\Vec{k}\cdot\Vec{R}}}\underset{\alpha\to0}{\simeq}E_s-\beta-\sum_{\Vec{R}\neq0}\gamma(\Vec{R})\exp{i\Vec{k}\cdot\Vec{R}}
+\end{align*}
+The $s$-orbital is spherical, so we have that $\alpha(\Vec{R})=\alpha(-\Vec{R})$. Moreover, the crystal has inversion symmetry:
+\[
+\Delta U(\Vec{r})=\Delta U(-\Vec{r})\Rightarrow\gamma(\Vec{R})=\gamma(-\Vec{R})
+\]
+Putting these observations together, one can write:
+\[
+E_{\Vec{k}}=E_s-\beta-\sum_{\text{n.n.}}\gamma(\Vec{R})\exp{i\Vec{k}\cdot\Vec{R}}
+\]
+where the sum runs only over those $\Vec{R}$ in the Bravais lattice that connect the origin to its nearest neighbours.
+\section{Semiclassical Model of Electron Dynamics}
+In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions was calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
+\[
+\hbar\Vec{\Dot{k}}=-e(\Vec{E}+\Vec{v}\times\Vec{B}) \quad \Vec{\Dot{r}}=\frac{\hbar\Vec{k}}{m}
+\]
+This describes the behaviour of a wave packet of free electron levels :(
+\[
+\psi(\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k'})\exp{i\left(\Vec{k'}\cdot\Vec{r}-\frac{\hbar k'^2t}{2m}\right)} \quad \text{with}\;\;g(\Vec{k'})\approx0\;\text{for}\;|\Vec{k'}-\Vec{k}|>\Delta k
+\]
+This approach has a simple generalization to electrons in a general periodic potential, known as the \textbf{semiclassical model}. Consider now a wave packet of Bloch levels from a given band, constructed in analogy to the free electron wave packet:
+\[
+\psi_n(\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k'})\psi_{n\Vec{k'}}(\Vec{r})\exp{-\frac{i}{h}E_n(\Vec{k'})t} \quad \text{with}
+\left\{
+\begin{aligned}
+&\psi_{n\Vec{k}}(\Vec{r})=u_{n\Vec{k}}(\Vec{r})\exp{i\Vec{k}\cdot\Vec{r}}\\
+&u(\Vec{r}+\Vec{R})=u(\Vec{r})
+\end{aligned}
+\right.
+\]
+Let the spread in wave vector $\Delta k$ be small compared with the dimensions of the Brillouin zone, i.e. $|\Delta k|\ll\pi/a$. This is not a big assumption, in fact if $|\Delta k|\simeq\pi/a$ one is considering electrons with all possible wave vectors which is not a physically interesting circumstance. In according with the usual uncertainty rule for wave packets $\Delta k\Delta r\sim2\pi$ this implies that $\Delta r\simeq1/\Delta k\gg a$. We are making this assumption because we want the wave packet to have a well defined $n$ in the \nth{1} Brillouin zone.\\
+The semiclassical model describes the response of electrons to externally applied electric and magnetic fields that vary slowly over the dimensions of such wave packet. The main problem is describing the motion of Bloch electrons between collisions, where the index of band $n$ is a constant. This means that only intra-band transitions can occur, if the band is completely filled then no transition happens. The mean velocity of an electron in a definite Bloch level is given by:
+\[
+\Vec{v_n}(\Vec{k})=\frac{1}{\hbar}\frac{\partial E_n(\Vec{k})}{\partial\Vec{k}}
+\]
+This can be seen as the familiar group velocity of a wave packet $\partial\omega/\partial\Vec{k}=(\partial/\partial\Vec{k})(E/\hbar)$.\\
+In the limit of zero periodic potential, the semiclassical model must break down, because in that limit the electron will be a free electron which can continuously increase its kinetic energy in a uniform electric field. However, the model forbids interband transitions, requiring that the energy of any electron remains confined within the limits of a band in which the electron originally is. It follows that there must be some minimum strength to the periodic potential before the model can be applied. 
+\[
+e\Vec{E}a\ll E_g \qquad\qquad \hbar\omega_c\ll E_g 
+\]
+with $E_g$ being the energy gap between two nearest bands and $\omega_c=e\Vec{B}/m$.
 \end{document} 
+% The main problem is describing the motion of Bloch electrons between collisions, with mean velocity given by:
+% \[
+% \Vec{v_n}(\Vec{k})=\frac{1}{\hbar}\frac{\partial E_n(\Vec{k})}{\partial\Vec{k}}
+% \]
