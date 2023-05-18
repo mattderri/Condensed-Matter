@@ -47,6 +47,9 @@
 \usepackage{amsthm}
 \renewcommand{\Vec}[1]{\boldsymbol{#1}}
 \renewcommand{\refeq}[1]{\hyperref[#1]{Equation (\ref{#1})}}
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
 % \newcommand{\beginbox}[1]{\begin{tcolorbox}[width=\textwidth,colback={yellow!50},title={#1},colbacktitle={gray!50},coltitle=black]}
 % \renewcommand{\endbox}{\end{tcolorbox}\noindent}
 % \begin{tcolorbox}[width=\textwidth,colback={yellow!50},title={Rosenbluth Cross Section},colbacktitle={gray!50},coltitle=black]
@@ -957,7 +960,21 @@ In the limit of zero periodic potential, the semiclassical model must break down
 \[
 e\Vec{E}a\ll E_g \qquad\qquad \hbar\omega_c\ll E_g 
 \]
-with $E_g$ being the energy gap between two nearest bands and $\omega_c=e\Vec{B}/m$.
+with $E_g$ being the energy gap between two nearest bands and $\omega_c=e\Vec{B}/m$.\\
+Suppose to have a metal with a resistivity $\rho=10\;\Omega\,\cdot$\,m and a current density $\Vec{J}=10^2$\,A/cm$^2$: the electric field will be $\Vec{E}=\rho\cdot\Vec{J}=10^5$\,V/cm. For $a\sim10^{-10}$\,m we will have $e\Vec{E}a\sim1$\,meV$\ll1$\,eV which is the typical energy gap of the insulators. On the other hand, the condition on the magnetic field strength is not difficult to violate: for $\Vec{B}=10^4$\,G$=1$\,T the energy $\hbar\omega_c$ is of order $10^{-4}$\,eV and the condition fails for $E_g\sim10^{-2}$\,eV. When this condition fails to hold, electrons may not follow the orbits determined by the semiclassical equations of motion. In addition to these two, there are other two conditions:
+\[
+\hbar\omega\ll E_g \qquad \qquad \lambda\ll a
+\]
+The first one prevents a single photon to supply enough energy to produce an interband transition while the second is required in order to have meaningful wave packets.\\
+Electrons in a filled band with wave vectors in a region of $k$-space of volume $d\Vec{k}$ contribute $d\Vec{k}/4\pi^3$ to the total electronic density:
+\[
+\frac{d\Vec{k}}{4\pi^3}f[E_n(\Vec{k})]=\frac{d\Vec{k}/4\pi^3}{\exp{\beta[E_n(\Vec{k})-\mu]}+1}
+\]
+The number of such electrons in a region of position space of volume $d\Vec{r}$ will then be $d\Vec{r}d\Vec{k}/4\pi^3$. A filled band can be characterized semiclassically by the fact that the density of electrons in a six-dimensional $rk$-space is $1/4\pi^3$. The equations of motion imply that a filled band remains a filled band at any time, therefore if the phase space density is $1/4\pi^3$ at time zero it must remain so at all times: semiclassical motion between collisions cannot alter the configuration of a filled band. A band with a constant phase space density cannot contribute to an electrical or thermal current. To see this, take the current:
+\[
+\Vec{J}=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\left(\frac{1}{\hbar}\frac{\partial E_n(\Vec{k})}{\partial\Vec{k}}\right)f[E_n(\Vec{k})]\stackrel{?}{=}0
+\]
+Consider now a periodic function in direct space
 \end{document} 
 % The main problem is describing the motion of Bloch electrons between collisions, with mean velocity given by:
 % \[
