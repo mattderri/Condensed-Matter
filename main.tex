@@ -1070,5 +1070,89 @@ Using the fact that $n_i(T)=n_c(T)$ we get:
 \[
 \Rightarrow\mu_i=E_c-\frac{1}{2}E_g+\frac{1}{2}k_BT\ln[P_v(T)/N_c(T)]=E_v+\frac{1}{2}E_g+\frac{3}{4}k_BT\ln(m_v/m_c)
 \]
-where $\mu_i$ denotes the value of the chemical potential in the intrinsic case. For $T\to0$, $\mu_i$ lies precisely in the middle of the energy gap. Furthermore, since $\ln(m_v/m_c)$ is a number of order unity, $\mu_i$ will not wander from the center of the energy gap by more than order $k_BT$. Consequently, at temperatures such that $k_BT$ is small compared to $E_g$, $\mu_i$ will be found far from the boundaries and the condition for non-degeneracy [\refeq{nondeg}] will be satisfied.
+where $\mu_i$ denotes the value of the chemical potential in the intrinsic case. For $T\to0$, $\mu_i$ lies precisely in the middle of the energy gap. Furthermore, since $\ln(m_v/m_c)$ is a number of order unity, $\mu_i$ will not wander from the center of the energy gap by more than order $k_BT$. Consequently, at temperatures such that $k_BT$ is small compared to $E_g$, $\mu_i$ will be found far from the boundaries and the condition for non-degeneracy [\refeq{nondeg}] will be satisfied.\\\\
+\textbf{Impurity levels}\\\\
+A perfect periodic crystal is an ideal entity, real crystals contain a number of defects. The presence of defects implies a total or partial breaking of translational symmetry and in the forbidden energy gap new levels may appear. In presence of impurities, the electronic structure of the crystal can be studied using the following Schr\"odinger equation:
+\[
+\left[-\frac{\hbar^2}{2m}\Vec{\nabla}^2+U(\Vec{r})+U_i(\Vec{r})\right]]\phi(\Vec{r})=E\phi(\Vec{r})
+\]
+where $U(\Vec{r})$ is the periodic potential and $U_i(\Vec{r})$ the modification due to impurities. Solving this equation seems impossible because the Bloch's theorem does not hold true anymore but it is convenient to use the band wave functions as a starting basis set on which to represent the wave functions of the impurity problem.
+\[
+\phi(\Vec{r})=\sum_{n'\Vec{k'}}A_{n'}(\Vec{k'})\psi_{n'}(\Vec{k'},\Vec{r})
+\]
+By substituting this wave function in the Schr\"odinger equation and projecting on $\bra{\psi_n(\Vec{k},\Vec{r})}$ one gets:
+\[
+\bra{\psi_n(\Vec{k},\Vec{r})}H\ket{\phi(\Vec{r})}=\bra{\psi_n(\Vec{k},\Vec{r})}\ket{\phi(\Vec{r})}E\to[E_n(\Vec{k})-E]A_n(\Vec{k})+\sum_{n'\Vec{k'}}U_{nn'}(\Vec{k},\Vec{k'})A_{n'}(\Vec{k'})=0
+\]
+where $\Vec{k}$ and $\Vec{k'}$ can be thought as continuous variables within the Brillouin zone and $U_{nn'}(\Vec{k},\Vec{k'})$ is given by:
+\[
+U_{nn'}(\Vec{k},\Vec{k'})=\int d\Vec{r}\psi_n^*(\Vec{k},\Vec{r})U_i(\Vec{r})\psi_{n'}(\Vec{k'},\Vec{r})
+\]
+Consider now the case in which only one band of the perfect crystal, say the lowest conduction band, is relevant for the description of the impurity electronic structure. Furthermore, assume that the band of interest is parabolic, with a unique valley of effective mass $m_c^*>0$ at $\Vec{k}=0$ and and energy dispersion $E_c(\Vec{k})=E_c+\hbar^2k^2/2m_c^*$.
+\begin{equation}
+\label{imp}
+\left[\frac{\hbar^2k^2}{2m_c^*}+E_c-E\right]A(\Vec{k})+\sum_{\Vec{k'}}U(\Vec{k},\Vec{k'})A(\Vec{k'})=0
+\end{equation}
+$U(\Vec{k},\Vec{k'})$ is written as:
+\[
+U(\Vec{k},\Vec{k'})=\int d\Vec{r}\psi_c^*(\Vec{k},\Vec{r})U_i(\Vec{r})\psi_c(\Vec{k'},\Vec{r})=\int d\Vec{r}u_c^*(\Vec{k},\Vec{r})u_c(\Vec{k'},\Vec{r})\exp{i(\Vec{k'}-\Vec{k})\cdot\Vec{r}}U_i(\Vec{r})
+\]
+where the Bloch wave functions have been written as the product of plane waves and periodic parts. In the case the impurity potential is reasonably smooth on the crystal unit cell, it is possible to replace the product of periodic functions by the average value on the volume $V$ of the
+crystal:
+\[
+u_c^*(\Vec{k},\Vec{r})u_c(\Vec{k'},\Vec{r})\Rightarrow\frac{1}{V}\int d\Vec{r}u_c^*(\Vec{k},\Vec{r})u_c(\Vec{k'},\Vec{r})=\frac{1}{V} \quad\text{for}\;\;\Vec{k}\approx\Vec{k'}
+\]
+It then follows that:
+\[
+U(\Vec{k},\Vec{k'})=\frac{1}{V}\int d\Vec{r}\exp{-i(\Vec{k}-\Vec{k'})\cdot\Vec{r}}U_i(\Vec{r})
+\]
+which can be seen as the Fourier transform of the impurity potential. \refeq{imp} now becomes:
+\[
+\left[\frac{\hbar^2k^2}{2m_c^*}+E_c-E\right]A(\Vec{k})+\sum_{\Vec{k'}}\frac{1}{V}\int d\Vec{r}\exp{-i(\Vec{k}-\Vec{k'})\cdot\Vec{r}}U_i(\Vec{r})A(\Vec{k'})=0
+\]
+Substitute now $\sum_{\Vec{k'}}$ with $V\int d\Vec{k'}$:
+\[
+\frac{\hbar^2k^2}{2m_c^*}A(\Vec{k})+\int d\Vec{k'}\int d\Vec{r}\exp{-i(\Vec{k}-\Vec{k'})\cdot\Vec{r}}U_i(\Vec{r})A(\Vec{k'})=(E-E_c)A(\Vec{k})
+\]
+Integrating the whole equation in $d\Vec{k}$ gives us:
+\[
+-\int d\Vec{k}\frac{\hbar^2\Vec{\nabla}^2}{2m_c^*}\frac{e^{i\Vec{k}\cdot\Vec{r}}}{\sqrt{V}}A(\Vec{k})+\int d\Vec{k}\frac{e^{i\Vec{k}\cdot\Vec{r}}}{\sqrt{V}}\int d\Vec{k'}\int d\Vec{r'}e^{-i(\Vec{k}-\Vec{k'})\cdot\Vec{r'}}U_i(\Vec{r'})A(\Vec{k'})=(E-E_c)\int d\Vec{k}\frac{e^{i\Vec{k}\cdot\Vec{r}}}{\sqrt{V}}A(\Vec{k})
+\]
+We now introduce the envelope function $A(\Vec{r})$, defined as:
+\[
+A(\Vec{r}):=\frac{1}{\sqrt{V}}\int d\Vec{k}A(\Vec{k})e^{i\Vec{k}\cdot\Vec{r}}
+\]
+so that one ends up with a differential eigenvalue equation for the envelope function.
+\[
+\left[-\frac{\hbar^2\Vec{\nabla}^2}{2m_c^*}+U_i(\Vec{r})\right]A(\Vec{r})=(E-E_c)A(\Vec{r})
+\]
+As an example, consider the case of donor impurities in silicon and germanium: donor impurities are formed by atoms of column \RN{5} of the periodic table entering substitutionally into the silicon or germanium crystal. The long-range part of the impurity potential can be schematized as:
+\[
+U_i(\Vec{r})\approx-\frac{e^2}{\varepsilon_sr}
+\]
+with $\varepsilon_s$ being the static dielectric constant of the host crystal. The Schr\"odinger equation for the donor impurity level now takes the form:
+\[
+\left[-\frac{\hbar^2\Vec{\nabla}^2}{2m_c^*}-\frac{e^2}{\varepsilon_sr}\right]A(\Vec{r})=(E-E_c)A(\Vec{r})
+\]
+which represents a hydrogenic atom characterized by $\varepsilon_s$ and $m_c^*$. This supports the picture of a donor impurity as an extra electron of effective mass $m_c^*$ bound to the defect by a screened Coulomb interaction. The binding energy of the donor ground state is:
+\[
+\varepsilon_d=E_c-E_d=13.606\frac{m_c^*}{m}\frac{1}{\varepsilon_s^2}\;[\text{eV}]
+\]
+and the effective radius of the donor ground state wave function is:
+\[
+a_d=a_B\frac{m}{m_c^*}\varepsilon_s
+\]
+For instance, in the case of Si and Ge we have:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|cccc}
+    \hline
+    Material & $\varepsilon_s$ & $m_c^*/m$ & $\varepsilon_d$ & $a_d$ \\
+    \hline\hline
+    Si & 11.7 & 0.3 & 30\,meV & $40\,a_B$\\
+    Ge & 16 & 0.2 & 10\,meV & $80\,a_B$\\
+    \hline
+    \end{tabular}
+\end{table}\\
+\noindent The binding energy of donors is rather small with respect to the energy gap of the material, while the effective radius is rather large with respect to the lattice parameter.
 \end{document} 
