@@ -1109,20 +1109,22 @@ Putting these observations together, one can write:
 \[
 \varepsilon(\Vec{k})=E_s-\beta-\sum_{\text{n.n.}}\gamma(\Vec{R})e^{i\Vec{k}\cdot\Vec{R}}
 \]
-where the sum runs only over those $\Vec{R}$ in the Bravais lattice that connect the origin to its nearest neighbours.
+where the sum runs only over those $\Vec{R}$ in the Bravais lattice that connect the origin to its nearest neighbours.\\
+The difference between the maximum and the minimum value of the considered band is called \textbf{bandwidth} and it is in general proportional to $\gamma$. If $\gamma$ is too large, i.e. the band is too dispersive, the tight-binding method does not apply very well: there could be some overlap between different electronic crystal bands. This behaviour is typical of metals, since valence electrons are not so tightly bound to the ions.
 \newpage
 \section{Semiclassical Model of Electron Dynamics}
 In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions was calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
-\[
-\hbar\Vec{\Dot{k}}=-e(\Vec{E}+\Vec{v}\times\Vec{B}) \quad \Vec{\Dot{r}}=\frac{\hbar\Vec{k}}{m}
-\]
-This describes the behaviour of a wave packet of free electron levels :(
+\begin{equation}
+\label{eqmot1}
+\hbar\Vec{\Dot{k}}=-e(\Vec{E}+\Vec{v}\times\Vec{B}) %\quad \Vec{\Dot{r}}=\frac{\hbar\Vec{k}}{m}
+\end{equation}
+This describes the behaviour of a wave packet of free electron levels:
 \[
 \psi(\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k'})e^{i\left(\Vec{k'}\cdot\Vec{r}-\frac{\hbar k'^2t}{2m}\right)} \quad \text{with}\;\;g(\Vec{k'})\approx0\;\text{for}\;|\Vec{k'}-\Vec{k}|>\Delta k
 \]
 This approach has a simple generalization to electrons in a general periodic potential, known as the \textbf{semiclassical model}. Consider now a wave packet of Bloch levels from a given band, constructed in analogy to the free electron wave packet:
 \[
-\psi_n(\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k'})\psi_{n\Vec{k'}}(\Vec{r})e^{-\frac{i}{h}E_n(\Vec{k'})t} \quad \text{with}
+\psi_n(\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k'})\psi_{n\Vec{k'}}(\Vec{r})e^{-\frac{i}{h}E_n(\Vec{k'})t} \quad \text{with}\;
 \left\{
 \begin{aligned}
 &\psi_{n\Vec{k}}(\Vec{r})=u_{n\Vec{k}}(\Vec{r})e^{i\Vec{k}\cdot\Vec{r}}\\
@@ -1132,34 +1134,41 @@ This approach has a simple generalization to electrons in a general periodic pot
 \]
 Let the spread in wave vector $\Delta k$ be small compared with the dimensions of the Brillouin zone, i.e. $|\Delta k|\ll\pi/a$. This is not a big assumption, in fact if $|\Delta k|\simeq\pi/a$ one is considering electrons with all possible wave vectors which is not a physically interesting circumstance. In according with the usual uncertainty rule for wave packets $\Delta k\Delta r\sim2\pi$ this implies that $\Delta r\simeq1/\Delta k\gg a$. We are making this assumption because we want the wave packet to have a well defined $n$ in the \nth{1} Brillouin zone.\\
 The semiclassical model describes the response of electrons to externally applied electric and magnetic fields that vary slowly over the dimensions of such wave packet. The main problem is describing the motion of Bloch electrons between collisions, where the index of band $n$ is a constant. This means that only intra-band transitions can occur, if the band is completely filled then no transition happens. The mean velocity of an electron in a definite Bloch level is given by:
-\[
-\Vec{v_n}(\Vec{k})=\frac{1}{\hbar}\frac{\partial E_n(\Vec{k})}{\partial\Vec{k}}
-\]
+\begin{equation}
+\label{eqmot2}
+\Vec{v}_n(\Vec{k})=\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}
+\end{equation}
 This can be seen as the familiar group velocity of a wave packet $\partial\omega/\partial\Vec{k}=(\partial/\partial\Vec{k})(E/\hbar)$.\\
 In the limit of zero periodic potential, the semiclassical model must break down, because in that limit the electron will be a free electron which can continuously increase its kinetic energy in a uniform electric field. However, the model forbids interband transitions, requiring that the energy of any electron remains confined within the limits of a band in which the electron originally is. It follows that there must be some minimum strength to the periodic potential before the model can be applied. 
 \[
-e\Vec{E}a\ll E_g \qquad\qquad \hbar\omega_c\ll E_g 
+e\Vec{E}a\ll \varepsilon_g \qquad\qquad \hbar\omega_c\ll \varepsilon_g 
 \]
-with $E_g$ being the energy gap between two nearest bands and $\omega_c=e\Vec{B}/m$.\\
-Suppose to have a metal with a resistivity $\rho=10\;\Omega\,\cdot$\,m and a current density $\Vec{J}=10^2$\,A/cm$^2$: the electric field will be $\Vec{E}=\rho\cdot\Vec{J}=10^5$\,V/cm. For $a\sim10^{-10}$\,m we will have $e\Vec{E}a\sim1$\,meV$\ll1$\,eV which is the typical energy gap of the insulators. On the other hand, the condition on the magnetic field strength is not difficult to violate: for $\Vec{B}=10^4$\,G$=1$\,T the energy $\hbar\omega_c$ is of order $10^{-4}$\,eV and the condition fails for $E_g\sim10^{-2}$\,eV. When this condition fails to hold, electrons may not follow the orbits determined by the semiclassical equations of motion. In addition to these two, there are other two conditions:
+with $\varepsilon_g$ being the energy gap between two nearest bands and $\omega_c=e\Vec{B}/m$.\\
+Suppose to have a metal with a resistivity $\rho=10\;\Omega\,\cdot$\,m and a current density $\Vec{J}=10^2$\,A/cm$^2$: the electric field will be $\Vec{E}=\rho\cdot\Vec{J}=10^7$\,V/m. For $a\sim10^{-10}$\,m we will have $e\Vec{E}a\sim1$\,meV$\ll1$\,eV which is the typical energy gap of the insulators. On the other hand, the condition on the magnetic field strength is not difficult to violate: for $\Vec{B}=10^4$\,G$=1$\,T the energy $\hbar\omega_c$ is of order $10^{-4}$\,eV and the condition fails for $\varepsilon_g\sim10^{-2}$\,eV. When this condition fails to hold, electrons may not follow the orbits determined by the semiclassical equations of motion. In addition to these two, there are other two conditions:
 \[
-\hbar\omega\ll E_g \qquad \qquad \lambda\ll a
+\hbar\omega\ll \varepsilon_g \qquad \qquad \lambda\ll a
 \]
 The first one prevents a single photon to supply enough energy to produce an interband transition while the second is required in order to have meaningful wave packets.\\
-Electrons in a filled band with wave vectors in a region of $k$-space of volume $d\Vec{k}$ contribute $d\Vec{k}/4\pi^3$ to the total electronic density:
+% Electrons in a filled band with wave vectors in a region of $k$-space of volume $d\Vec{k}$ contribute $d\Vec{k}/4\pi^3$ to the total electronic density:
+% \[
+% \frac{d\Vec{k}}{4\pi^3}f[E_n(\Vec{k})]=\frac{d\Vec{k}/4\pi^3}{e^{\beta[E_n(\Vec{k})-\mu]}+1}
+% \]
+% The number of such electrons in a region of position space of volume $d\Vec{r}$ will then be $d\Vec{r}d\Vec{k}/4\pi^3$. A filled band can be characterized semiclassically by the fact that the density of electrons in a six-dimensional $rk$-space is $1/4\pi^3$. The equations of motion imply that a filled band remains a filled band at any time, therefore if the phase space density is $1/4\pi^3$ at time zero it must remain so at all times: semiclassical motion between collisions cannot alter the configuration of a filled band. 
+A completely filled band cannot contribute to an electrical or thermal current. To see this, take the current:
 \[
-\frac{d\Vec{k}}{4\pi^3}f[E_n(\Vec{k})]=\frac{d\Vec{k}/4\pi^3}{e^{\beta[E_n(\Vec{k})-\mu]}+1}
+\Vec{J}:=-\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize Pauli principle };}}{2}e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{(2\pi)^3}\overbrace{\left(\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}\right)}^{\Vec{v}_n}\underset{\mathclap{\tikz \node {$\uparrow$} node [below=1ex] {\footnotesize Fermi-Dirac distribution};}}{f[\varepsilon_n(\Vec{k})]}
 \]
-The number of such electrons in a region of position space of volume $d\Vec{r}$ will then be $d\Vec{r}d\Vec{k}/4\pi^3$. A filled band can be characterized semiclassically by the fact that the density of electrons in a six-dimensional $rk$-space is $1/4\pi^3$. The equations of motion imply that a filled band remains a filled band at any time, therefore if the phase space density is $1/4\pi^3$ at time zero it must remain so at all times: semiclassical motion between collisions cannot alter the configuration of a filled band. A band with a constant phase space density cannot contribute to an electrical or thermal current. To see this, take the current:
+The integral is performed over the \nth{1} Brillouin zone because we are assuming that the band is completely filled. Moreover, assume to be $\sim0$\,K so that $f[E_n(\Vec{k}]=1$.
 \[
-\Vec{J}=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\left(\frac{1}{\hbar}\frac{\partial E_n(\Vec{k})}{\partial\Vec{k}}\right)f[E_n(\Vec{k})]\stackrel{?}{=}0
+\Vec{J}=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}\stackrel{?}{=}0
 \]
 Consider now a periodic function in direct space: its integral over the cell is constant under translation.
 \[
 I(\Vec{r'})=\int_Cd\Vec{r}f(\Vec{r}+\Vec{r'})\Rightarrow\Vec{\nabla'}I(\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla'}f(\Vec{r}+\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla}f(\Vec{r}+\Vec{r'})
 \]
-In the case $\Vec{r'}=0$, then the last integral is equal to zero. This holds true in reciprocal space as well and we get that $\Vec{J}=0$.\\
-The contribution to all electrons in a given band to the current density is:
+In the case $\Vec{r'}=0$, then the last integral is equal to zero. This holds true in reciprocal space as well and we get that $\Vec{J}=0$. This result holds true for completely filled bands because in this case the phase-space density is \textbf{constant} and this is related to Liouville's Theorem: since two regions of the phase space linked together by the semiclassical equations of motion [\refeq{eqmot1} and \refeq{eqmot2}] have the same number of electrons, they will have the same density.
+\subsection{Contribution of the Holes}
+The contribution to all electrons in a given band to the current density is then:
 \[
 \Vec{J}=-e\int_{\text{occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})
 \]
@@ -1167,22 +1176,24 @@ where the integral is over all occupied levels in the band. By exploiting the fa
 \[
 0=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})=-e\int_{\text{occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})+(-e)\int_{\text{non occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})\Rightarrow\Vec{J}=e\int_{\text{non occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})
 \]
-The current produced by occupying with electrons a specified set of levels is exactly the same as the current that would be produced if the specified levels were unoccupied and all the other levels in the band were occupied with particles of charge $+e$. In equilibrium and in configurations that do not deviate substantially from equilibrium, the unoccupied levels usually lie near the top of the band. If the band energy $E(\Vec{k})$ has its maximum value at $\Vec{k_0}$ and $\Vec{k}$ is sufficiently close to $\Vec{k_0}$, it is possible to perform an expansion. The linear term in $(\Vec{k}-\Vec{k_0})$ vanishes at a maximum:
+The current produced by occupying with electrons a specified set of levels is exactly the same as the current that would be produced if the specified levels were unoccupied and all the other levels in the band were occupied with particles of charge $+e$.\\
+In equilibrium and in configurations that do not deviate substantially from equilibrium, the unoccupied levels usually lie near the top of the band. If the band energy $\varepsilon(\Vec{k})$ has its maximum value at $\Vec{k_0}$ and $\Vec{k}$ is sufficiently close to $\Vec{k_0}$, it is possible to perform an expansion. The linear term in $(\Vec{k}-\Vec{k_0})$ vanishes at a maximum, so that one has:
 \[
-E(\Vec{k})\simeq E(\Vec{k_0})-A(\Vec{k}-\Vec{k_0})^2 \qquad\text{with}\;\; A=\frac{\hbar^2}{2m^*}
+\varepsilon(\Vec{k})\simeq \varepsilon(\Vec{k_0})-A(\Vec{k}-\Vec{k_0})^2 \qquad\text{with}\;\; A=\frac{\hbar^2}{2m^*}
 \]
-For levels with wave vectors near $\Vec{k_0}$ velocity and acceleration are:
+$m^*$ is called the \textbf{effective mass}.\\
+For levels with wave vectors near $\Vec{k_0}$ velocity and acceleration are given by:
 \[
-\Vec{v}(\Vec{k})=\frac{1}{\hbar}\frac{\partial E}{\partial\Vec{k}}\simeq-\frac{\hbar}{m^*}(\Vec{k}-\Vec{k_0}) \qquad \Vec{a}=\frac{d\Vec{v}(\Vec{k})}{dt}=-\frac{\hbar}{m^*}\Dot{\Vec{k}}\xleftrightarrow[]{}\hbar\Dot{\Vec{k}}=-m^*\Vec{a}
+\Vec{v}(\Vec{k})=\frac{1}{\hbar}\frac{\partial \varepsilon(\Vec{k})}{\partial\Vec{k}}\simeq-\frac{\hbar}{m^*}(\Vec{k}-\Vec{k_0}) \qquad \Vec{a}=\frac{d\Vec{v}(\Vec{k})}{dt}=-\frac{\hbar}{m^*}\Dot{\Vec{k}}\xleftrightarrow[]{}\hbar\Dot{\Vec{k}}=-m^*\Vec{a}
 \]
 This is telling us that as long as the electron's orbit is confined to levels close enough to the band maximum for the previous expansion to be accurate, the negative charged electron responds to the fields as it had a negative mass $-m^*$. A more intuitive picture is to see this whole situation as a positive charged particle with a positive mass $m^*$.\\
 To derive the effective mass $m^*$, imagine to have an electron accelerated by some external field:
 \[
-\Vec{a}_\alpha=\frac{1}{\hbar}\frac{d}{dt}\left[\frac{\partial E(\Vec{k})}{\partial\Vec{k}}\Bigr|_{\substack{\alpha}}\right]=\frac{1}{\hbar}\sum_\beta\frac{\partial^2E(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}\Dot{\Vec{k}}_\beta=\frac{1}{\hbar^2}\sum_\beta\frac{\partial^2E(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}\Vec{F}_\beta \qquad \text{where}\;\Dot{\Vec{k}}_\beta=\frac{\Vec{F}_\beta}{\hbar}
+\Vec{a}_\alpha=\frac{1}{\hbar}\frac{d}{dt}\left[\frac{\partial \varepsilon(\Vec{k})}{\partial\Vec{k}}\Bigr|_{\substack{\alpha}}\right]=\frac{1}{\hbar}\sum_\beta\frac{\partial^2\varepsilon(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}\Dot{\Vec{k}}_\beta=\frac{1}{\hbar^2}\sum_\beta\frac{\partial^2\varepsilon(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}\Vec{F}_\beta \qquad \text{where}\;\Dot{\Vec{k}}_\beta=\frac{\Vec{F}_\beta}{\hbar}
 \]
 It then follows that:
 \[
-\left(\frac{1}{m^*}\right)_{\alpha\beta}=\frac{1}{\hbar^2}\frac{\partial^2E(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}
+\left(\frac{1}{m^*}\right)_{\alpha\beta}=\frac{1}{\hbar^2}\frac{\partial^2\varepsilon(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}
 \]
 \newpage
 \section{Semiconductors}
@@ -1191,12 +1202,13 @@ The most important property of any semiconductor at temperature $T$ is the numbe
 \[
 n_c(T)=\int_{E_c}^{+\infty} dEg_c(E)\frac{1}{e^{\beta(E-\mu)}+1} \qquad p_v(T)=\int_{-\infty}^{E_v}dEg_v(E)\frac{1}{e^{\beta(\mu-E)}+1}
 \]
-The determination of $n_c$ and $p_v$ is affected by impurities through the chemical potential $\mu$. To determine $\mu$, one must know something about the impurity levels but it is still possible to extract some useful information independent on the precise value of $\mu$ provided that the following conditions hold true:
+The determination of $n_c$ and $p_v$ is affected by impurities through the \textbf{chemical potential} $\mu$. To determine $\mu$, one must know something about the impurity levels but it is still possible to extract some useful information independent on the precise value of $\mu$ provided that the following conditions hold true:
 \begin{equation}
 \label{nondeg}
 E_c-\mu\gg k_BT \qquad \mu-E_v\gg k_BT
 \end{equation}
-The idea now is to assume the validity of such approximations, simplify the expressions for $n_c$ and $p_v$ and from the values obtained compute the actual value of $\mu$ to see if it lies in the range provided by the above approximations. If it does, the semiconductor is described as \textbf{nondegenerate}, while if it does not one says that the semiconductor is \textbf{degenerate}. The statistical factors can be simplified as:
+The idea now is to assume the validity of such approximations, simplify the expressions for $n_c$ and $p_v$ and from the values obtained compute the actual value of $\mu$ to see if it lies in the range provided by the above approximations. If it does, the semiconductor is described as \textbf{nondegenerate}, while if it does not one says that the semiconductor is \textbf{degenerate}.\\
+Under such assumptions, the statistical factors can be simplified as:
 \[
 \frac{1}{e^{\beta(E-\mu)}+1}\approx e^{-\beta(E-\mu)} \qquad \frac{1}{e^{\beta(\mu-E)}+1}\approx e^{-\beta(\mu-E)}
 \]
@@ -1231,8 +1243,8 @@ It is still not possible to infer $n_c(T)$ and $p_v(T)$ until the value of $\mu$
 n_c(T)p_v(T)&=N_c(T)e^{-\beta(E_c-\mu)}P_v(T)e^{-\beta(\mu-E_v)}\\
 &=N_c(T)P_v(T)e^{-\beta(E_c-E_v)}=N_c(T)P_v(T)e^{-\beta E_g}
 \end{align*}
-This result is telling us that at a given temperature it is sufficient to know the density of one type of carrier to determine the density of the other one.\\\\
-\textbf{Intrinsic case}\\\\
+This result is telling us that at a given temperature it is sufficient to know the density of one type of carrier to determine the density of the other one.
+\subsection{Intrinsic case}
 The intrinsic case takes place if the crystal is so pure that impurities contribute negligibly to the carrier densities. Conduction band electrons can only have come from formerly occupied valence band levels leaving hole behind them. The number of conduction band electrons is then equal to the number of valence band holes:
 \[
 n_c(T)=p_v(T)=n_i(T)
@@ -1246,17 +1258,19 @@ Using the fact that $n_i(T)=n_c(T)$ we get:
 \begin{aligned}
 \sqrt{N_c(T)P_v(T)}e^{-\beta E_g/2}&=N_c(T)e^{-\beta(E_c-\mu_i)}\\
 \sqrt{\frac{P_v(T)}{N_c(T)}}e^{-\beta E_g/2}&=e^{-\beta(E_c-\mu_i)}\\
--\beta \frac{1}{2}E_g+\frac{1}{2}\ln[P_v(T)/N_c(T)]&=-\beta E_c+\beta\mu_i
+-\beta \frac{1}{2}E_g+\frac{1}{2}\ln\left[\frac{P_v(T)}{N_c(T)}\right]&=-\beta E_c+\beta\mu_i
 \end{aligned}
 \]
 \[
-\Rightarrow\mu_i=E_c-\frac{1}{2}E_g+\frac{1}{2}k_BT\ln[P_v(T)/N_c(T)]=E_v+\frac{1}{2}E_g+\frac{3}{4}k_BT\ln(m_v/m_c)
+\Rightarrow\mu_i=E_c-\frac{1}{2}E_g+\frac{1}{2}k_BT\ln\left[\frac{P_v(T)}{N_c(T)}\right]=E_c-\frac{1}{2}E_g+\frac{3}{4}k_BT\ln\left(\frac{m_v}{m_c}\right)
 \]
-where $\mu_i$ denotes the value of the chemical potential in the intrinsic case. For $T\to0$, $\mu_i$ lies precisely in the middle of the energy gap. Furthermore, since $\ln(m_v/m_c)$ is a number of order unity, $\mu_i$ will not wander from the center of the energy gap by more than order $k_BT$. Consequently, at temperatures such that $k_BT$ is small compared to $E_g$, $\mu_i$ will be found far from the boundaries and the condition for non-degeneracy [\refeq{nondeg}] will be satisfied.\\\\
-\textbf{Impurity levels}\\\\
-A perfect periodic crystal is an ideal entity, real crystals contain a number of defects. The presence of defects implies a total or partial breaking of translational symmetry and in the forbidden energy gap new levels may appear. In presence of impurities, the electronic structure of the crystal can be studied using the following Schr\"odinger equation:
+where $\mu_i$ denotes the value of the chemical potential in the intrinsic case.\\
+For $T\to0$, $\mu_i$ lies precisely in the middle of the energy gap. Furthermore, since $\ln(m_v/m_c)$ is a number of order unity, $\mu_i$ will not wander from the center of the energy gap by more than order $k_BT$. Consequently, at temperatures such that $k_BT$ is small compared to $E_g$, $\mu_i$ will be found far from the boundaries and the conditions for non-degeneracy [\refeq{nondeg}] will be satisfied.
+\subsection{Impurity levels}
+A perfect periodic crystal is an ideal entity, real crystals contain a number of defects. The presence of defects implies a total or partial breaking of translational symmetry and in the forbidden energy gap new levels may appear.\\
+In presence of impurities, the electronic structure of the crystal can be studied using the following Schr\"odinger equation:
 \[
-\left[-\frac{\hbar^2}{2m}\Vec{\nabla}^2+U(\Vec{r})+U_i(\Vec{r})\right]]\phi(\Vec{r})=E\phi(\Vec{r})
+\left[-\frac{\hbar^2}{2m}\Vec{\nabla}^2+U(\Vec{r})+U_i(\Vec{r})\right]\phi(\Vec{r})=E\phi(\Vec{r})
 \]
 where $U(\Vec{r})$ is the periodic potential and $U_i(\Vec{r})$ the modification due to impurities. Solving this equation seems impossible because the Bloch's theorem does not hold true anymore but it is convenient to use the band wave functions as a starting basis set on which to represent the wave functions of the impurity problem.
 \[
@@ -1270,7 +1284,7 @@ where $\Vec{k}$ and $\Vec{k'}$ can be thought as continuous variables within the
 \[
 U_{nn'}(\Vec{k},\Vec{k'})=\int d\Vec{r}\psi_n^*(\Vec{k},\Vec{r})U_i(\Vec{r})\psi_{n'}(\Vec{k'},\Vec{r})
 \]
-Consider now the case in which only one band of the perfect crystal, say the lowest conduction band, is relevant for the description of the impurity electronic structure. Furthermore, assume that the band of interest is parabolic, with a unique valley of effective mass $m_c^*>0$ at $\Vec{k}=0$ and and energy dispersion $E_c(\Vec{k})=E_c+\hbar^2k^2/2m_c^*$.
+Consider now the case in which only one band of the perfect crystal, say the lowest conduction band, is relevant for the description of the impurity electronic structure. Furthermore, assume that the band of interest is parabolic, with a unique valley of effective mass $m_c^*>0$ at $\Vec{k}=0$ and energy dispersion $E_c(\Vec{k})=E_c+\hbar^2k^2/2m_c^*$.
 \begin{equation}
 \label{imp}
 \left[\frac{\hbar^2k^2}{2m_c^*}+E_c-E\right]A(\Vec{k})+\sum_{\Vec{k'}}U(\Vec{k},\Vec{k'})A(\Vec{k'})=0
@@ -1300,7 +1314,7 @@ Taking the Fourier transform of the whole equation gives us:
 \[
 -\int d\Vec{k}\frac{\hbar^2\Vec{\nabla}^2}{2m_c^*}\frac{e^{i\Vec{k}\cdot\Vec{r}}}{\sqrt{V}}A(\Vec{k})+\int d\Vec{k}\frac{e^{i\Vec{k}\cdot\Vec{r}}}{\sqrt{V}}\int d\Vec{k'}\int d\Vec{r'}e^{-i(\Vec{k}-\Vec{k'})\cdot\Vec{r'}}U_i(\Vec{r'})A(\Vec{k'})=(E-E_c)\int d\Vec{k}\frac{e^{i\Vec{k}\cdot\Vec{r}}}{\sqrt{V}}A(\Vec{k})
 \]
-We now introduce the envelope function $A(\Vec{r})$, defined as:
+We now introduce the \textbf{envelope function} $A(\Vec{r})$, defined as:
 \[
 A(\Vec{r}):=\frac{1}{\sqrt{V}}\int d\Vec{k}A(\Vec{k})e^{i\Vec{k}\cdot\Vec{r}}
 \]
@@ -1316,14 +1330,14 @@ with $\varepsilon_s$ being the static dielectric constant of the host crystal. T
 \[
 \left[-\frac{\hbar^2\Vec{\nabla}^2}{2m_c^*}-\frac{e^2}{\varepsilon_sr}\right]A(\Vec{r})=(E-E_c)A(\Vec{r})
 \]
-which represents a hydrogenic atom characterized by $\varepsilon_s$ and $m_c^*$. This supports the picture of a donor impurity as an extra electron of effective mass $m_c^*$ bound to the defect by a screened Coulomb interaction. The binding energy of the donor ground state is:
+which represents a hydrogenic atom characterized by $\varepsilon_s$ and $m_c^*$. This supports the picture of a donor impurity as an extra electron of effective mass $m_c^*$ bound to the defect by a screened Coulomb interaction. The binding energy of the donor ground state $\varepsilon_d$ and the effective radius $a_d$ of the corresponding wave function are:
 \[
-\varepsilon_d=E_c-E_d=13.606\frac{m_c^*}{m}\frac{1}{\varepsilon_s^2}\;[\text{eV}]
+\varepsilon_d=E_c-E_d=13.606\frac{m_c^*}{m}\frac{1}{\varepsilon_s^2}\;[\text{eV}] \qquad a_d=a_B\frac{m}{m_c^*}\varepsilon_s
 \]
-and the effective radius of the donor ground state wave function is:
-\[
-a_d=a_B\frac{m}{m_c^*}\varepsilon_s
-\]
+% and the effective radius of the donor ground state wave function is:
+% \[
+% a_d=a_B\frac{m}{m_c^*}\varepsilon_s
+% \]
 For instance, in the case of Si and Ge we have:
 \begin{table}[h]
     \centering
@@ -1336,10 +1350,11 @@ For instance, in the case of Si and Ge we have:
     \hline
     \end{tabular}
 \end{table}\\
-\noindent The binding energy of donors is rather small with respect to the energy gap of the material, while the effective radius is rather large with respect to the lattice parameter.\\\\
-\textbf{Number of carriers}\\\\
-To assess the extent to which carriers can be thermally excited from impurity levels we have to compute the mean number of electrons at a given temperature and chemical potential. Assume that the density of impurities is low enough that the interaction of electrons bound at different impurity sites is negligible. The number density of electrons $n_d$ (or holes $p_a$) bound to donor (or acceptor) sites is obtained by multiplying the density of donors $N_d$ (or acceptors $N_a$) by the mean number of electrons (or holes) there would be if only a single impurity was present.\\
-\textbf{Donor level} Ignoring electron-electron interactions, the level could either be empty, contain one electron of either spin or two electrons of opposite spins. The Coulomb repulsion of two localized electrons raises the energy of the doubly occupied level so high that double occupation is essentially prohibited. The mean number of electrons is given by:
+\noindent The binding energy of donors is rather small with respect to the energy gap of the material, while the effective radius is rather large with respect to the lattice parameter.
+\subsection{Number of carriers}
+To assess the extent to which carriers can be thermally excited from impurity levels we have to compute the mean number of electrons at a given temperature and chemical potential. Assume that the density of impurities is low enough that the interaction of electrons bound at different impurity sites is negligible. The number density of electrons $n_d$ (or holes $p_a$) bound to donor (or acceptor) sites is obtained by multiplying the density of donors $N_d$ (or acceptors $N_a$) by the mean number of electrons (or holes) there would be if only a single impurity was present.\\\\
+\textbf{Donor level}\\\\
+Ignoring electron-electron interactions, the level could either be empty, contain one electron of either spin or two electrons of opposite spins. The Coulomb repulsion of two localized electrons raises the energy of the doubly occupied level so high that double occupation is essentially prohibited. The mean number of electrons is given by:
 \[
 \Braket{n}=\frac{\sum_iN_ie^{-\beta(E_i-\mu N_i)}}{\sum_ie^{-\beta(E_i-\mu N_i)}}
 \]
@@ -1351,7 +1366,8 @@ The number density of electrons therefore is:
 \[
 n_d=\Braket{n}N_d=\frac{N_d}{1+\frac{1}{2}e^{\beta(E_d-\mu)}}
 \]
-\textbf{Acceptor level} An acceptor level can be singly or doubly occupied, but not empty. An acceptor impurity can be seen as a fixed negatively charged attractive center superimposed on an unaltered host atom. With the same reasoning as before we calculate the mean number of electrons at an acceptor level, keeping in mind that the state with no electrons is prohibited, the state with one electron has energy $E_a$ and the state with two electrons has energy $2E_a$:
+\textbf{Acceptor level}\\\\
+An acceptor level can be singly or doubly occupied, but not empty. An acceptor impurity can be seen as a fixed negatively charged attractive center superimposed on an unaltered host atom. With the same reasoning as before we calculate the mean number of electrons at an acceptor level, keeping in mind that the state with no electrons is prohibited, the state with one electron has energy $E_a$ and the state with two electrons has energy $2E_a$:
 \[
 \Braket{n}=\frac{2e^{-\beta(E_a-\mu)}+2e^{-\beta(2E_a-2\mu)}}{2e^{-\beta(E_a-\mu)}+e^{-\beta(2E_a-2\mu)}}=\frac{1+e^{-\beta(E_a-\mu)}}{1+\frac{1}{2}e^{-\beta(E_a-\mu)}}
 \]
@@ -1363,7 +1379,8 @@ The number density of holes is then:
 \[
 p_a=\Braket{p}N_a=\frac{N_a}{1+\frac{1}{2}e^{-\beta(E_a-\mu)}}
 \]
-Consider now a semiconductor doped with $N_d$ donor impurities and $N_a$ acceptor impurities per unit volume. To determine the carrier densities, we have to generalize the constraint $n_c=p_v$ seen in the intrinsic case. Start working at $T=0$ and assume $N_d\ge N_a$: $N_a$ of the $N_d$ electrons supplied by the donor impurities can drop from the donor in the acceptor levels. This gives a ground state in which band and acceptor levels are filled, $N_d-N_a$ of the donor levels are filled and the conduction band levels are empty. At thermal equilibrium, the electrons will be redistributed among these levels:
+Consider now a semiconductor doped with $N_d$ donor impurities and $N_a$ acceptor impurities per unit volume. To determine the carrier densities, we have to generalize the constraint $n_c=p_v$ seen in the intrinsic case.\\
+Start working at $T=0$ and assume $N_d\ge N_a$: $N_a$ of the $N_d$ electrons supplied by the donor impurities can drop from the donor in the acceptor levels. This gives a ground state in which band and acceptor levels are filled, $N_d-N_a$ of the donor levels are filled and the conduction band levels are empty. At thermal equilibrium, the electrons will be redistributed among these levels:
 \begin{equation}
 \label{ncnd}
 n_c+n_d=N_d-N_a+p_v+p_a
@@ -1398,7 +1415,7 @@ where we exploited the fact that both $n_c(T)$ and $p_v(T)$ reduces to $n_i(T)$ 
 \[
 \Delta n=n_c-p_v=2n_i\sinh{[\beta(\mu-\mu_i)]}
 \]
-In the predominantly intrinsic regime, the concentration of impurities is much less than the intrinsic concentration, technically $n_i\gg|N_d-N_a|/2=|\Delta n|/2$. Therefore, we get:
+In the predominantly \textbf{intrinsic regime}, the concentration of impurities is much less than the intrinsic concentration, technically $n_i\gg|N_d-N_a|/2=|\Delta n|/2$. Therefore, we get:
 \[
 \left\{
 \begin{aligned}
@@ -1408,7 +1425,7 @@ In the predominantly intrinsic regime, the concentration of impurities is much l
 \right.
 \]
 Hence, it follows that $\mu\simeq\mu_i$.\\
-In the predominantly extrinsic behaviour $n_i\ll|N_d-N_a|/2=|\Delta n|/2$, so the previous expressions get modified as:
+In the predominantly \textbf{extrinsic behaviour} $n_i\ll|N_d-N_a|/2=|\Delta n|/2$, so the previous expressions get modified as:
 \[
 \left\{
 \begin{aligned}
@@ -1434,12 +1451,14 @@ Here we have to separate the two cases in which $N_d>N_a$ and $N_a>N_d$:
 \end{aligned}
 \right.
 \]
-From \refeq{ncpv} it is possible to obtain the expression for $\mu$ in this regime:
+Finally, from \refeq{ncpv} it is possible to obtain the expression for $\mu$ in this regime:
 \[
+\left\{
 \begin{aligned}
-&\bullet N_d>N_a: \quad n_c(T)=N_c(T)e^{-\beta(E_c-\mu)}\approx N_d-N_a\Rightarrow\mu=E_c+k_B\ln\left(\frac{N_d-N_a}{N_c(T)}\right)\\
-&\bullet N_a>N_n: \quad n_c(T)=N_c(T)e^{-\beta(E_c-\mu)}\approx \frac{n_i^2}{N_a-N_d}\Rightarrow\mu=E_c+k_B\ln\left(\frac{n_i^2}{N_c(T)(N_a-N_d)}\right)
+&\bullet N_d>N_a: \quad n_c(T)=N_c(T)e^{-\beta(E_c-\mu)}\approx N_d-N_a\Rightarrow\mu=E_c+k_BT\ln\left[\frac{N_d-N_a}{N_c(T)}\right]\\
+&\bullet N_a>N_n: \quad n_c(T)=N_c(T)e^{-\beta(E_c-\mu)}\approx \frac{n_i^2}{N_a-N_d}\Rightarrow\mu=E_c+k_BT\ln\left[\frac{n_i^2}{N_c(T)(N_a-N_d)}\right]
 \end{aligned}
+\right.
 \]
 \end{document} 
 % What is the temperature which separates the two cases? Assume that $n_i=(N_d-N_a)/2$ and $N_c(T)$ and $P_v(T)$ are constant with respect to the temperature.
