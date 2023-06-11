@@ -822,12 +822,14 @@ u=\int_0^{+\infty}dEE\frac{m}{\pi^2\hbar^3}\sqrt{2mE}\frac{1}{e^{\beta(E-\mu)}-1
 \]
 which is the exact expression giving Sommerfeld's result.
 \newpage
-\section{Electron Levels in a Periodic Potentials}
-The ions in a perfect crystals are arranged in a regular periodic array, therefore one is led to consider the problem of an electron in a potential $U(\Vec{r})$ with the periodicity of the underlying Bravais, lattice: $U(\Vec{r}+\Vec{R})=U(\Vec{r})$ for all Bravais lattice vectors $\Vec{R}$.\\
+\section{Electron Levels in a Potential}
+\subsection{Periodic Potential}
+The ions in a perfect crystals are arranged in a regular periodic array, therefore one is led to consider the problem of an electron in a potential $U(\Vec{r})$ with the periodicity of the underlying Bravais lattice: $U(\Vec{r}+\Vec{R})=U(\Vec{r})$ for all Bravais lattice vectors $\Vec{R}$.\\
 The problem of electrons in a solid is in principle a many-electron problem, since the full Hamiltonian contains potentials describing the electron-electron interactions. In the independent electron approximation, these interactions are represented by an effective one-electron potential $U(\Vec{r})$. The Schr\"odinger equation for a single electron is then given by:
 \[
 H\psi(\Vec{r})=\left[-\frac{\hbar^2}{2m}\Vec{\nabla}^2+U(\Vec{r})\right]\psi(\Vec{r})=E\psi(\Vec{r})
 \]
+One important theorem regarding plane-wave functions in a periodic potential is the \textbf{Bloch's Theorem}.
 \begin{mybox}
 Bloch's Theorem{\color{blue!30}{g}}
 \hrule
@@ -886,49 +888,49 @@ It is always possible to expand any function obeying the Born-von Karman boundar
 \]
 For the potential $U(\Vec{r})$, we know it is periodic in the lattice so its plane wave expansion contains only plane waves with the periodicity of the lattice, hence with wave vectors that are vectors of the reciprocal lattice:
 \[
-U(\Vec{r})=\sum_{\Vec{K}}U_{\Vec{K}}e^{i\Vec{K}\cdot\Vec{r}} \quad \text{where} \quad U_{\Vec{K}}=\frac{1}{v}\int_{\text{cell}}d\Vec{r}U(\Vec{r})e^{-i\Vec{K}\cdot\Vec{r}}
+U(\Vec{r})=\sum_{\Vec{G}}U_{\Vec{G}}e^{i\Vec{G}\cdot\Vec{r}} \quad \text{where} \quad U_{\Vec{G}}=\frac{1}{v}\int_{\text{cell}}d\Vec{r}U(\Vec{r})e^{-i\Vec{G}\cdot\Vec{r}}
 \]
-The potential $U(\Vec{r})$ is real, so the Fourier coefficients satisfy $U_{\Vec{K}}^*=U_{-\Vec{K}}$. In addition, if we assume inversion symmetry $U(\Vec{r})=U(-\Vec{r})$ the coefficients $U_{\Vec{K}}$ are real.\\
+The potential $U(\Vec{r})$ is real, so the Fourier coefficients satisfy $U_{\Vec{G}}^*=U_{-\Vec{G}}$. In addition, if we assume inversion symmetry $U(\Vec{r})=U(-\Vec{r})$ the coefficients $U_{\Vec{G}}$ are real.\\
 We now substitute the expressions for $\psi(\Vec{r})$ and $U(\Vec{r})$ in the Hamiltonian:
 \[
 \left\{
 \begin{aligned}
 &-\frac{\hbar^2}{2m}\Vec{\nabla}^2\psi(\Vec{r})=\sum_{\Vec{q}}\frac{\hbar^2q^2}{2m}C_{\Vec{q}}e^{i\Vec{q}\cdot\Vec{r}}\\
-&U(\Vec{r})\psi(\Vec{r})=\sum_{\Vec{K}}U_{\Vec{K}}e^{i\Vec{K}\cdot\Vec{r}}\sum_{\Vec{q}}C_{\Vec{q}}e^{i\Vec{q}\cdot\Vec{r}}=\sum_{\Vec{K}\Vec{q}}U_{\Vec{K}}C_{\Vec{q}}e^{i(\Vec{K}+\Vec{q})\cdot\Vec{r}}=\sum_{\Vec{K}\Vec{q'}}U_{\Vec{K}}C_{\Vec{q'}-\Vec{K}}e^{i\Vec{q'}\cdot\Vec{r}}
+&U(\Vec{r})\psi(\Vec{r})=\sum_{\Vec{G}}U_{\Vec{G}}e^{i\Vec{G}\cdot\Vec{r}}\sum_{\Vec{q}}C_{\Vec{q}}e^{i\Vec{q}\cdot\Vec{r}}=\sum_{\Vec{G}\Vec{q}}U_{\Vec{G}}C_{\Vec{q}}e^{i(\Vec{G}+\Vec{q})\cdot\Vec{r}}=\sum_{\Vec{G}\Vec{q'}}U_{\Vec{G}}C_{\Vec{q'}-\Vec{G}}e^{i\Vec{q'}\cdot\Vec{r}}
 \end{aligned}
 \right.
 \]
 The Schr\"odinger equation now gives us:
 \[
-\left(\frac{\hbar^2q^2}{2m}-E\right)C_{\Vec{q}}+\sum_{\Vec{K'}}U_{\Vec{K'}}C_{\Vec{q}-\Vec{K'}}=0
+\left(\frac{\hbar^2q^2}{2m}-E\right)C_{\Vec{q}}+\sum_{\Vec{G'}}U_{\Vec{G'}}C_{\Vec{q}-\Vec{G'}}=0
 \]
-It is convenient to write $\Vec{q}$ as $\Vec{q}=\Vec{k}-\Vec{K}$ where $\Vec{K}$ is chosen so that $\Vec{k}$ lies in the \nth{1} Brillouin zone.
+It is convenient to write $\Vec{q}$ as $\Vec{q}=\Vec{k}-\Vec{G}$ where $\Vec{K}$ is chosen so that $\Vec{k}$ lies in the \nth{1} Brillouin zone.
 \begin{equation}
 \label{central}
-\left[\frac{\hbar^2}{2m}(\Vec{k}-\Vec{K})^2-E\right]C_{\Vec{k}-\Vec{K}}+\sum_{\Vec{K'}}U_{\Vec{K'}}C_{\Vec{k}-\Vec{K}-\Vec{K'}}=0
+\left[\frac{\hbar^2}{2m}(\Vec{k}-\Vec{G})^2-E\right]C_{\Vec{k}-\Vec{G}}+\sum_{\Vec{G'}}U_{\Vec{G'}}C_{\Vec{k}-\Vec{G}-\Vec{G'}}=0
 \end{equation}
-This is telling us that the wave vector $\Vec{q}$ assumes only the values $\Vec{k},\Vec{k}-\Vec{K'}, \Vec{k}-\Vec{K''},\cdots$ which means that the wave function will be of the form:
+This is telling us that the wave vector $\Vec{q}$ assumes only the values $\Vec{k},\Vec{k}-\Vec{G'}, \Vec{k}-\Vec{G''},\cdots$ which means that the wave function will be of the form:
 \[
-\psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{K}}C_{\Vec{k}-\Vec{K}}e^{i(\Vec{k}-\Vec{K})\cdot\Vec{r}}=e^{i\Vec{k}\cdot\Vec{r}}\sum_{\Vec{K}}C_{\Vec{k}-\Vec{K}}e^{-i\Vec{K}\cdot\Vec{r}}
+\psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{i(\Vec{k}-\Vec{G})\cdot\Vec{r}}=e^{i\Vec{k}\cdot\Vec{r}}\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{-i\Vec{G}\cdot\Vec{r}}
 \]
 which is a function of the Bloch form with the periodic function $u_{\Vec{k}}(\Vec{r})$ given by:
 \[
-u_{\Vec{k}}(\Vec{r})=\sum_{\Vec{K}}C_{\Vec{k}-\Vec{K}}e^{-i\Vec{K}\cdot\Vec{r}}
+u_{\Vec{k}}(\Vec{r})=\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{-i\Vec{G}\cdot\Vec{r}}
 \]
 \end{proof}
-\noindent Performing the substitution $\Vec{k'}=\Vec{k}-\Vec{K}$ in \hyperref[central]{Equation (\ref{central})} allows us to write it as:
+\noindent Performing the substitution $\Vec{k'}=\Vec{k}-\Vec{G}$ in \hyperref[central]{Equation (\ref{central})} allows us to write it as:
 \[
-\left(\frac{\hbar^2}{2m}\Vec{k}^2-E\right)C_{\Vec{k}}+\sum_{\Vec{K}}U_{\Vec{K}}C_{\Vec{k}-\Vec{K}}=0
+\left(\frac{\hbar^2}{2m}\Vec{k}^2-E\right)C_{\Vec{k}}+\sum_{\Vec{G}}U_{\Vec{G}}C_{\Vec{k}-\Vec{G}}=0
 \]
-which is a more compact way of writing the \textbf{central equation}. This set of algebraic equations appears unpleasant because there is in principle an infinite number of coefficients $C_{\Vec{k}-\Vec{K}}$ to be determined but in reality only a few of them will suffice. To see that, work in one dimension, denote with $g$ the shortest $K$ and assume that the potential contains only a single Fourier component, $U_g=U_{-g}=U$, while $U_{K=0}=0$ which is nothing but the mean value of the crystal potential. Moreover, we assume to have $C_{k-ng}=0$ for $n\ge3$.
+which is a more compact way of writing the \textbf{central equation}. This set of algebraic equations appears unpleasant because there is in principle an infinite number of coefficients $C_{\Vec{k}-\Vec{G}}$ to be determined but in reality only a few of them will suffice. To see that, work in one dimension, denote with $g$ the shortest $G$ and assume that the potential contains only a single Fourier component, $U_g=U_{-g}=U$, while $U_{G=0}=0$ which is nothing but the mean value of the crystal potential. Moreover, we assume to have $C_{k-ng}=0$ for $n\ge3$.
 \[
 \left\{
 \begin{aligned}
-&K=0: &&\left[\frac{\hbar^2k^2}{2m}-E\right]C_k+UC_{k-g}+UC_{k+g}=0\\
-&K=+g: &&\left[\frac{\hbar^2(k-g)^2}{2m}-E\right]C_{k-g}+UC_k+UC_{k-2g}=0\\
-&K=-g: &&\left[\frac{\hbar^2(k+g)^2}{2m}-E\right]C_{k+g}+UC_k+UC_{k+2g}=0\\
-&K=+2g: &&\left[\frac{\hbar^2(k-2g)^2}{2m}-E\right]C_{k-2g}+UC_{k-g}=0\\
-&K=-2g: &&\left[\frac{\hbar^2(k+2g)^2}{2m}-E\right]C_{k+2g}+UC_{k+g}=0
+&G=0: &&\left[\frac{\hbar^2k^2}{2m}-E\right]C_k+UC_{k-g}+UC_{k+g}=0\\
+&G=+g: &&\left[\frac{\hbar^2(k-g)^2}{2m}-E\right]C_{k-g}+UC_k+UC_{k-2g}=0\\
+&G=-g: &&\left[\frac{\hbar^2(k+g)^2}{2m}-E\right]C_{k+g}+UC_k+UC_{k+2g}=0\\
+&G=+2g: &&\left[\frac{\hbar^2(k-2g)^2}{2m}-E\right]C_{k-2g}+UC_{k-g}=0\\
+&G=-2g: &&\left[\frac{\hbar^2(k+2g)^2}{2m}-E\right]C_{k+2g}+UC_{k+g}=0
 \end{aligned}
 \right.
 \]
@@ -942,104 +944,113 @@ This system has a non-trivial solution only if the determinant of the coefficien
     0 & 0 & 0 & U & \frac{\hbar^2(k+2g)^2}{2m}-E
 \end{array}\right)
 \]
-The determinant is in principle infinite in extent, but it is sufficient to set equal to zero just the portion shown here. This is because it is a Fourier expansion, where the amplitude decreases as the order increases. At a given $k$, each root $E$ lies on a different energy band, the solution of the determinant gives a set of energy eigenvalues.\\
-What would happen if instead of $\Vec{k}$ we have $\Vec{k'}=\Vec{k}+\Vec{K}$, i.e. outside of the first Brillouin zone? The free electron energy can always be written as:
+The determinant is in principle infinite in extent, but it is sufficient to set equal to zero just the portion shown here. This is because it is a Fourier expansion, where the amplitude decreases as the order increases. At a given $k$, each root $E$ lies on a different energy band, the solution of the determinant gives a set of energy eigenvalues.
+% What would happen if instead of $\Vec{k}$ we have $\Vec{k'}=\Vec{k}+\Vec{G}$, i.e. outside of the \nth{1} Brillouin zone? The free electron energy can always be written as:
+% \[
+% \frac{\hbar^2}{2m}(\Vec{k}+\Vec{G})^2=\frac{\hbar^2}{2m}[(k_x+G_x)^2+(k_y+G_y)^2+(k_z+G_z)^2]
+% \]
+% As an example, consider the free electron bands of a simple cubic lattice: we want to exhibit the energy as a function of $\Vec{k}$ in the [100] direction (for convenience, $\hbar^2/2m=1$).
+% \begin{table}[h!]
+%     \centering
+%     \begin{tabular}{cccc}
+%     \hline
+%     Band & $Ga/2\pi$ & $E(000)$ & $E(k_x00)$ \\
+%     \hline\hline
+%     1 & 000 & 0 & $k_x^2$ \\
+%     2,3 & $100,\overline{1}00$ & $(2\pi/a)^2$ & $(k_x\pm2\pi/a)^2$\\
+%     4,5,6,7 & $010, 0\overline{1}0, 001, 00\overline{1}$ & $(2\pi/a)^2$ & $k_x^2\pm(2\pi/a)^2$\\
+%     \hline
+%     \end{tabular}
+%     \caption*{}
+%     \label{tab:my_label}
+% \end{table}
+\subsection{Weak Periodic Potential}
+What is the criterion to choose which terms to consider? One possibility is to work in the \textbf{weak potential approximation}, or \textbf{nearly free electrons}. With a (very) brutal approximation, set the potential $U_{\Vec{G}}$ to zero.
 \[
-\frac{\hbar^2}{2m}(\Vec{k}+\Vec{K})^2=\frac{\hbar^2}{2m}[(k_x+K_x)^2+(k_y+K_y)^2+(k_z+K_z)^2]
+\left[\frac{\hbar^2}{2m}(\Vec{k}-\Vec{G})^2-E\right]C_{\Vec{k}-\Vec{G}}=0
 \]
-As an example, consider the free electron bands of a simple cubic lattice: we want to exhibit the energy as a function of $\Vec{k}$ in the [100] direction (for convenience, $\hbar^2/2m=1$).
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{cccc}
-    \hline
-    Band & $Ka/2\pi$ & $E(000)$ & $E(k_x00)$ \\
-    \hline\hline
-    1 & 000 & 0 & $k_x^2$ \\
-    2,3 & $100,\overline{1}00$ & $(2\pi/a)^2$ & $(k_x\pm2\pi/a)^2$\\
-    4,5,6,7 & $010, 0\overline{1}0, 001, 00\overline{1}$ & $(2\pi/a)^2$ & $k_x^2\pm(2\pi/a)^2$\\
-    \hline
-    \end{tabular}
-    \caption*{}
-    \label{tab:my_label}
-\end{table}
-\section{Electrons in a Weak Periodic Potential}
 When the periodic potential is zero, the solutions to the Schr\"odinger equation are plane waves therefore a reasonable starting place for the treatment of weak periodic potential is the expansion of the exact solution in plane waves. The wave function of a Bloch level with crystal momentum $\Vec{k}$ can be written as:
 \[
-\psi_{\Vec{k}}(\Vec{r})=\sum_KC_{\Vec{k}-\Vec{K}}e^{i(\Vec{k}-\Vec{K})x}
+\psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{i(\Vec{k}-\Vec{G})\cdot\Vec{r}}
 \]
-where the coefficients $C_{\Vec{k}-\Vec{K}}$ and the energy levels are determined by:
+where the coefficients $C_{\Vec{k}-\Vec{G}}$ and the energy levels are determined by:
 \begin{equation}
 \label{ckk}
-\left[\frac{\hbar^2}{2m}(\Vec{k}-\Vec{K})^2-E\right]C_{\Vec{k}-\Vec{K}}+\sum_{K'}U_{\Vec{K'}-\Vec{K}}C_{\Vec{k}-\Vec{K'}}=0
+\left[\frac{\hbar^2}{2m}(\Vec{k}-\Vec{G})^2-E\right]C_{\Vec{k}-\Vec{G}}+\sum_{\Vec{G'}}U_{\Vec{G'}-\Vec{G}}C_{\Vec{k}-\Vec{G'}}=0
 \end{equation}
-For fixed $\Vec{k}$ there is an equation of the form displayed above for each reciprocal lattice vector $\Vec{K}$. In the free electron case, all the Fourier components $U_{\Vec{K}}$ are precisely zero, hence the equation reduces to:
+For fixed $\Vec{k}$ there is an equation of the form displayed above for each reciprocal lattice vector $\Vec{G}$. In the free electron case, all the Fourier components $U_{\Vec{G}}$ are precisely zero, hence the equation reduces to:
 \[
-(E^0_{\Vec{k}-\Vec{K}}-E)C_{\Vec{k}-\Vec{K}}=0 \quad \text{where} \quad E^0_{\Vec{q}}=\frac{\hbar^2q^2}{2m}
+(E^0_{\Vec{k}-\Vec{G}}-E)C_{\Vec{k}-\Vec{G}}=0 \quad \text{where} \quad E^0_{\Vec{q}}=\frac{\hbar^2q^2}{2m}
 \]
-This requires that for each $\Vec{K}$ either $C_{\Vec{k}-\Vec{K}}=0$ or $E=E^0_{\Vec{k}-\Vec{K}}$. The latter possibility can occur for only a single $\Vec{K}$ (\textit{no degeneracy}) or it might happen that some of the $E^0_{\Vec{k}-\Vec{K}}$ are equal for different choices of $\Vec{K}$ (\textit{degeneracy}). If we are in the second case, there will be independent degenerate plane wave solutions. Since any linear combination of degenerate solutions is also a solution, there is complete freedom in choosing the coefficients $C_{\Vec{k}-\Vec{K}}$.\\
-Fix now $\Vec{k}$ and consider a particular reciprocal lattice vector $\Vec{K_1}$ such that:
+This requires that for each $\Vec{G}$ either $C_{\Vec{k}-\Vec{G}}=0$ or $E=E^0_{\Vec{k}-\Vec{G}}$. The latter possibility can occur for only a single $\Vec{G}$ (\textit{no degeneracy}) or it might happen that some of the $E^0_{\Vec{k}-\Vec{G}}$ are equal for different choices of $\Vec{G}$ (\textit{degeneracy}).\\\\
+\textbf{Non-degenerate case}\\\\
+If we are in the second case, there will be independent degenerate plane wave solutions. Since any linear combination of degenerate solutions is also a solution, there is complete freedom in choosing the coefficients $C_{\Vec{k}-\Vec{G}}$.\\
+Fix now $\Vec{k}$ and consider a particular reciprocal lattice vector $\Vec{G_1}$ such that:
 \begin{equation}
 \label{assumption}
-|E^0_{\Vec{k}-\Vec{K_1}}-E^0_{\Vec{k}-\Vec{K}}|\gg U \quad \forall\;\Vec{K}\neq\Vec{K_1}
+|E^0_{\Vec{k}-\Vec{G_1}}-E^0_{\Vec{k}-\Vec{G}}|\gg U \quad \forall\;\Vec{G}\neq\Vec{G_1}
 \end{equation}
 The idea is to investigate the effect of the potential on that free electron level given by:
 \[
-E=E^0_{\Vec{k}-\Vec{K_1}} \quad C_{\Vec{k}-\Vec{K}}=0 \quad \Vec{K}\neq\Vec{K_1}
+E=E^0_{\Vec{k}-\Vec{G_1}} \quad C_{\Vec{k}-\Vec{G}}=0 \quad \Vec{G}\neq\Vec{G_1}
 \]
 We then look at:
 \begin{equation}
 \label{sub}
-(E-E^0_{\Vec{k}-\Vec{K_1}})C_{\Vec{k}-\Vec{K_1}}=\sum_{\Vec{K}\neq\Vec{K_1}}U_{\Vec{K}-\Vec{K_1}}C_{\Vec{k}-\Vec{K}}
+(E-E^0_{\Vec{k}-\Vec{G_1}})C_{\Vec{k}-\Vec{G_1}}=\sum_{\Vec{G}\neq\Vec{G_1}}U_{\Vec{G}-\Vec{G_1}}C_{\Vec{k}-\Vec{G}}
 \end{equation}
-We are working with a solution for which $C_{\Vec{k}-\Vec{K}}$ vanishes when $\Vec{K}\neq\Vec{K_1}$ in the limit of vanishing $U$, so we expect the right hand side of the above equation to be of second order in $U$. This can be checked by writing \hyperref[ckk]{Equation (\ref{ckk})} for $\Vec{K}\neq\Vec{K_1}$:
+We are working with a solution for which $C_{\Vec{k}-\Vec{G}}$ vanishes when $\Vec{G}\neq\Vec{G_1}$ in the limit of vanishing $U$, so we expect the right hand side of the above equation to be of second order in $U$. This can be checked by writing \hyperref[ckk]{Equation (\ref{ckk})} for $\Vec{G}\neq\Vec{G_1}$:
 \[
-C_{\Vec{k}-\Vec{K}}=\frac{U_{\Vec{K_1}-\Vec{K}}C_{\Vec{k}-\Vec{K_1}}}{E-E^0_{\Vec{k}-\Vec{K}}}+\sum_{\Vec{K'}\neq\Vec{K_1}}\frac{U_{\Vec{K'}-\Vec{K}}C_{\Vec{k}-\Vec{K'}}}{E-E^0_{\Vec{k}-\Vec{K}}}=\frac{U_{\Vec{K_1}-\Vec{K}}C_{\Vec{k}-\Vec{K_1}}}{E-E^0_{\Vec{k}-\Vec{K}}}+\mathcal{O}(U^2)
+C_{\Vec{k}-\Vec{G}}=\frac{U_{\Vec{G_1}-\Vec{G}}C_{\Vec{k}-\Vec{G_1}}}{E-E^0_{\Vec{k}-\Vec{G}}}+\sum_{\Vec{G'}\neq\Vec{G_1}}\frac{U_{\Vec{G'}-\Vec{G}}C_{\Vec{k}-\Vec{G'}}}{E-E^0_{\Vec{k}-\Vec{G}}}=\frac{U_{\Vec{G_1}-\Vec{G}}C_{\Vec{k}-\Vec{G_1}}}{E-E^0_{\Vec{k}-\Vec{G}}}+\mathcal{O}(U^2)
 \]
-In the last step, we used the initial assumption of no near degeneracy in \hyperref[assumption]{Equation (\ref{assumption})}: such a near degeneracy could cause some of the denominators above to be of order $U$, hence cancelling the explicit $U$ in the numerator resulting in additional terms in the sum comparable to the $\Vec{K}=\Vec{K_1}$ term. Putting this in \refeq{sub} gives us:
+In the last step, we used the initial assumption of no near degeneracy in \hyperref[assumption]{Equation (\ref{assumption})}: such a near degeneracy could cause some of the denominators above to be of order $U$, hence cancelling the explicit $U$ in the numerator resulting in additional terms in the sum comparable to the $\Vec{G}=\Vec{G_1}$ term. Putting this in \refeq{sub} gives us:
 \begin{equation}
 \label{nodeg}
-(E-E^0_{\Vec{k}-\Vec{K_1}})C_{\Vec{k}-\Vec{K_1}}=\sum_{\Vec{K}\neq\Vec{K_1}}\frac{U_{\Vec{K}-\Vec{K_1}}U_{\Vec{K_1}-\Vec{K}}}{E-E^0_{\Vec{k}-\Vec{K}}}C_{\Vec{k}-\Vec{K_1}}+\mathcal{O}(U^3)
+(E-E^0_{\Vec{k}-\Vec{G_1}})C_{\Vec{k}-\Vec{G_1}}=\sum_{\Vec{G}\neq\Vec{G_1}}\frac{U_{\Vec{G}-\Vec{G_1}}U_{\Vec{G_1}-\Vec{G}}}{E-E^0_{\Vec{k}-\Vec{G}}}C_{\Vec{k}-\Vec{G_1}}+\mathcal{O}(U^3)
 \end{equation}
-The perturbed energy level $E$ differs from the free electron value $E^0_{\Vec{k}-\Vec{K_1}}$ by terms of order $U^2$, therefore it is sufficient to replace $E$ appearing in the denominator on the right hand side by $E^0_{\Vec{k}-\Vec{K_1}}$ :
+The perturbed energy level $E$ differs from the free electron value $E^0_{\Vec{k}-\Vec{G_1}}$ by terms of order $U^2$, therefore it is sufficient to replace $E$ appearing in the denominator on the right hand side by $E^0_{\Vec{k}-\Vec{G_1}}$ :
 \[
-E=E^0_{\Vec{k}-\Vec{K_1}}+\sum_{\Vec{K}}\frac{|U_{\Vec{K}-\Vec{K_1}}|^2}{E^0_{\Vec{k}-\Vec{K_1}}-E^0_{\Vec{k}-\Vec{K}}}+\mathcal{O}(U^3)
+E=E^0_{\Vec{k}-\Vec{G_1}}+\sum_{\Vec{K}}\frac{|U_{\Vec{G}-\Vec{G_1}}|^2}{E^0_{\Vec{k}-\Vec{G_1}}-E^0_{\Vec{k}-\Vec{G}}}+\mathcal{O}(U^3)
 \]
-This is telling us that weakly perturbed non-degenerate bands repel each other. Moreover, the most important feature is that the shift in energy from the free electron value is of second order in $U$.\\
-Suppose now that the value of $\Vec{k}$ is that there are reciprocal lattice vectors $\Vec{K_1},\cdots, \Vec{K_m}$ with $E^0_{\Vec{k}-\Vec{K_1}},\cdots,E^0_{\Vec{k}-\Vec{K_m}}$ all within order $U$ of each other but far apart from the other $E^0_{\Vec{k}-\Vec{K}}$:
+This is telling us that weakly perturbed non-degenerate bands repel each other. Moreover, the most important feature is that the shift in energy from the free electron value is of second order in $U$.\\\\
+\textbf{Degenerate case}\\\\
+Suppose now that the value of $\Vec{k}$ is that there are reciprocal lattice vectors $\Vec{G_1},\cdots, \Vec{G_m}$ with $E^0_{\Vec{k}-\Vec{G_1}},\cdots,E^0_{\Vec{k}-\Vec{G_m}}$ all within order $U$ of each other but far apart from the other $E^0_{\Vec{k}-\Vec{G}}$:
 \[
-|E^0_{\Vec{k}-\Vec{K}}-E^0_{\Vec{k}-\Vec{K_i}}|\ll U \quad i=1,\cdots,m \quad \Vec{K}\neq\Vec{K_1},\cdots,\Vec{K_m}
+|E^0_{\Vec{k}-\Vec{G}}-E^0_{\Vec{k}-\Vec{G_i}}|\gg U \quad i=1,\cdots,m \quad \Vec{G}\neq\Vec{G_1},\cdots,\Vec{G_m}
 \]
-In this case, we must treat separately the equations given by \refeq{ckk} with $\Vec{K}$ equal to any of the possible $m$ values $\Vec{K_1},\cdots,\Vec{K_m}$. This gives $m$ equations where we separate from the sum the terms containing the coefficients $C_{\Vec{k}-\Vec{K_j}}$, with $j=1,\cdots,m$, which need to be not small in the limit of vanishing interactions, from the remaining $C_{\Vec{k}-\Vec{K}}$, which will be at most of order $U$.
+In this case, we must treat separately the equations given by \refeq{ckk} with $\Vec{G}$ equal to any of the possible $m$ values $\Vec{G_1},\cdots,\Vec{G_m}$. This gives $m$ equations where we separate from the sum the terms containing the coefficients $C_{\Vec{k}-\Vec{G_j}}$, with $j=1,\cdots,m$, which need to be not small in the limit of vanishing interactions, from the remaining $C_{\Vec{k}-\Vec{G}}$, which will be at most of order $U$.
 \[
-(E-E^0_{\Vec{k}-\Vec{K_i}})C_{\Vec{k}-\Vec{K_i}}=\sum_{j=1}^mU_{\Vec{K_j}-\Vec{K_i}}C_{\Vec{k}-\Vec{K_j}}+\sum_{\Vec{K}\neq\Vec{K_1},\cdots,\Vec{K_m}}U_{\Vec{K}-\Vec{K_i}}C_{\Vec{k}-\Vec{K}}
+(E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}+\sum_{\Vec{G}\neq\Vec{G_1},\cdots,\Vec{G_m}}U_{\Vec{G}-\Vec{G_i}}C_{\Vec{k}-\Vec{G}}
 \]
 For the remaining levels, it is possible to write:
 \[
-C_{\Vec{k}-\Vec{K}}=\frac{1}{E-E^0_{\Vec{k}-\Vec{K}}}\left[\sum_{j=1}^mU_{\Vec{K_j}-\Vec{K}}C_{\Vec{k}-\Vec{K_j}}+\cancelto{\mathcal{O}(U^2)}{\sum_{\Vec{K'}\neq\Vec{K_1},\cdots,\Vec{K_m}}U_{\Vec{K'}-\Vec{K}}C_{\Vec{k}-\Vec{K'}}}\right]
+C_{\Vec{k}-\Vec{G}}=\frac{1}{E-E^0_{\Vec{k}-\Vec{G}}}\left[\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G}}C_{\Vec{k}-\Vec{G_j}}+\cancelto{\mathcal{O}(U^2)}{\sum_{\Vec{G'}\neq\Vec{G_1},\cdots,\Vec{G_m}}U_{\Vec{G'}-\Vec{G}}C_{\Vec{k}-\Vec{G'}}}\right]
 \]
-Since $C_{\Vec{k}-\Vec{K}}$ will be at most of order $U$, the second term in the equation above is negligible. With this result we can then write:
+Since $C_{\Vec{k}-\Vec{G}}$ will be at most of order $U$, the second term in the equation above is negligible. With this result we can then write:
 \[
-(E-E^0_{\Vec{k}-\Vec{K_i}})C_{\Vec{k}-\Vec{K_i}}=\sum_{j=1}^mU_{\Vec{K_j}-\Vec{K_i}}C_{\Vec{k}-\Vec{K_j}}+\sum_{j=1}^m\left[\sum_{\Vec{K}\neq\Vec{K_1},\cdots,\Vec{K_m}}\frac{U_{\Vec{K}-\Vec{K_i}}U_{\Vec{K_j}-\Vec{K}}}{E-E^0_{\Vec{k}-\Vec{K}}}\right]C_{\Vec{k}-\Vec{K}}+\mathcal{O}(U^3)
+(E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}+\sum_{j=1}^m\left[\sum_{\Vec{G}\neq\Vec{G_1},\cdots,\Vec{G_m}}\frac{U_{\Vec{G}-\Vec{G_i}}U_{\Vec{G_j}-\Vec{G}}}{E-E^0_{\Vec{k}-\Vec{G}}}\right]C_{\Vec{k}-\Vec{G}}+\mathcal{O}(U^3)
 \]
-Compare this with the result obtained in \refeq{nodeg} for the non-degenerate case: previously, we found an explicit expression for the shift in energy to order $U^2$, now to an accuracy of order $U^2$ the determination of the shifts in $m$ nearly degenerate levels reduces to the solution of $m$ equations for $C_{\Vec{k}-\Vec{K_i}}$. The coefficients in the second term on the right hand side are of higher order in $U$ than those in the first term, therefore we can use a simpler form:
+Compare this with the result obtained in \refeq{nodeg} for the non-degenerate case: previously, we found an explicit expression for the shift in energy to order $U^2$, now to an accuracy of order $U^2$ the determination of the shifts in $m$ nearly degenerate levels reduces to the solution of $m$ equations for $C_{\Vec{k}-\Vec{G_i}}$. The coefficients in the second term on the right hand side are of higher order in $U$ than those in the first term, therefore we can use a simpler form:
 \[
-(E-E^0_{\Vec{k}-\Vec{K_i}})C_{\Vec{k}-\Vec{K_i}}=\sum_{j=1}^mU_{\Vec{K_j}-\Vec{K_i}}C_{\Vec{k}-\Vec{K_j}}
+(E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}
 \]
 which are $m$ general equations for a system of $m$ quantum levels. 
+\newpage
 \section{The Tight-Binding Method}
 In developing the tight-binding approximation we assume that in the vicinity of each lattice point, the full periodic crystal Hamiltonian $H$ can be approximated by the Hamiltonian $H_{\text{at}}$ of a single atom located at the lattice point. We also assume that the bound levels of $H_{\text{at}}$ are well localized, i.e. if $\psi_n$ is a bound level of $H_{\text{at}}$:
 \[
 H_{\text{at}}\psi_n=E_n\psi_n
 \]
-then we require that $\psi_n(\Vec{r})$ is very small when $r$ exceeds a distance, denoted as the range of $\psi_n$. In the extreme case in which $H$ begins to differ from $H_{\text{at}}$ only at distances that exceed the range of $\psi_n(\Vec{r})$, the wave function will be an excellent approximation to a stationary state wave function for the full Hamiltonian with eigenvalue $E_n$. To compute the corrections in this case, $H$ can be written as:
+then we require that $\psi_n(\Vec{r})$ is very small when $r$ exceeds a certain distance, denoted as the range of $\psi_n$. In the extreme case in which $H$ begins to differ from $H_{\text{at}}$ only at distances that exceed the range of $\psi_n(\Vec{r})$, the wave function will be an excellent approximation to a stationary state wave function for the full Hamiltonian with eigenvalue $E_n$. To compute the corrections in this case, $H$ can be written as:
 \[
 H=H_{\text{at}}+\Delta U(\Vec{r})
 \]
-where $\Delta U(\Vec{r})$ contains all the corrections to the atomic potential required to produce the crystal full periodic potential. If $\psi_n(\Vec{r})$ satisfies the atomic Schr\"odinger equation then it will also satisfy the crystal Schr\"odinger equation if $\Delta U(\Vec{r})=0$ for $\psi_n(\Vec{r})\neq0$. In this case, each atomic level $\psi_n(\Vec{r})$ would yield $N$ levels in the periodic potential. To preserve the Bloch description, one has to find the $N$ linear combinations of these degenerate wave functions that satisfy the Block condition:
+where $\Delta U(\Vec{r})$ contains all the corrections to the atomic potential required to produce the crystal full periodic potential.\\
+If $\psi_n(\Vec{r})$ satisfies the atomic Schr\"odinger equation then it will also satisfy the crystal Schr\"odinger equation if $\Delta U(\Vec{r})=0$ for $\psi_n(\Vec{r})\neq0$. In this case, each atomic level $\psi_n(\Vec{r})$ would yield $N$ levels in the periodic potential. To preserve the Bloch description, one has to find the $N$ linear combinations of these degenerate wave functions that satisfy the Bloch condition:
 \[
 \psi_{n\Vec{k}}(\Vec{r})=\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\psi_n(\Vec{r}-\Vec{R})
 \]
-where $\Vec{k}$ ranges through the $N$ values in the first Brillouin zone consistent with the Born-von Karman periodic boundary condition. This combination satisfies the Bloch condition:
+where $\Vec{k}$ ranges through the $N$ values in the \nth{1} Brillouin zone consistent with the Born-von Karman periodic boundary condition. This combination satisfies the Bloch condition:
 \begin{align*}
 \psi_{n\Vec{k}}(\Vec{r}+\Vec{R})&=\sum_{\Vec{R'}}e^{i\Vec{k}\cdot\Vec{R'}}\psi_n(\Vec{r}+\Vec{R}-\Vec{R'})\\
 &=e^{i\Vec{k}\cdot\Vec{R}}\sum_{\Vec{R'}}e^{i\Vec{k}\cdot(\Vec{R'}-\Vec{R})}\psi_n(\Vec{r}-(\Vec{R'}-\Vec{R}))\\
@@ -1048,11 +1059,11 @@ where $\Vec{k}$ ranges through the $N$ values in the first Brillouin zone consis
 A more realistic assumption is that $\psi_n(\Vec{r})$ becomes small but not precisely zero before $\Delta U(\Vec{r})$ becomes appreciable. This is suggesting to seek a solution to the full crystal Schr\"odinger equation in the form:
 \begin{equation}
 \label{psiphi}
-\psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\phi(\Vec{r}-\Vec{R}) \quad \phi(\Vec{r})=\sum_nb_n\psi_n(\Vec{r})
+\psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\phi(\Vec{r}-\Vec{R}) \quad \text{where} \quad \phi(\Vec{r})=\sum_nb_n\psi_n(\Vec{r})
 \end{equation}
 We now multiply the crystal Schr\"odinger equation:
 \[
-H\psi(\Vec{r})=[H_{\text{at}}+\Delta U(\Vec{r})]\psi(\Vec{r})=E_{\Vec{k}}\psi(\Vec{r})
+H\psi(\Vec{r})=[H_{\text{at}}+\Delta U(\Vec{r})]\psi(\Vec{r})=\varepsilon(\Vec{k})\psi(\Vec{r})
 \]
 by the atomic wave function $\psi_m^*(\Vec{r})$, integrate over all $\Vec{r}$ and using the fact that:
 \[
@@ -1060,30 +1071,34 @@ by the atomic wave function $\psi_m^*(\Vec{r})$, integrate over all $\Vec{r}$ an
 \]
 one finds:
 \[
-(E_{\Vec{k}}-E_m)\int d\Vec{r}\psi_m^*(\Vec{r})\psi(\Vec{r})=\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\psi(\Vec{r})
+[\varepsilon(\Vec{k})-E_m]\int d\Vec{r}\psi_m^*(\Vec{r})\psi(\Vec{r})=\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\psi(\Vec{r})
 \]
 We now plug in this result the wave functions expressed in \refeq{psiphi} to get:
 \[
-(E_{\Vec{k}}-E_m)\int d\Vec{r}\psi_m^*(\Vec{r})\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\sum_nb_n\psi_n(\Vec{r}-\Vec{R})=\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\sum_nb_n\psi_n(\Vec{r}-\Vec{R})
+[\varepsilon(\Vec{k})-E_m]\int d\Vec{r}\psi_m^*(\Vec{r})\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\sum_nb_n\psi_n(\Vec{r}-\Vec{R})=\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\sum_nb_n\psi_n(\Vec{r}-\Vec{R})
 \]
 The sum is splitted in $\Vec{R}=0$ and $\Vec{R}\neq0$ and we exploit the orthonormality of the atomic wave functions to obtain:
 \begin{align*}
-(E_{\Vec{k}}-E_m)\int d\Vec{r}\psi_m^*(\Vec{r})\sum_nb_n\psi_n(\Vec{r})=(E_{\Vec{k}}-E_m)b_m=&-(E_{\Vec{k}}-E_m)\int d\Vec{r}\psi_m^*(\Vec{r})\sum_n\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}b_n\psi_n(\Vec{r}-\Vec{R})\\
+[\varepsilon(\Vec{k})-E_m]\int d\Vec{r}\psi_m^*(\Vec{r})\sum_nb_n\psi_n(\Vec{r})&=[\varepsilon(\Vec{k})-E_m]b_m\\
+&=-[\varepsilon(\Vec{k})-E_m]\int d\Vec{r}\psi_m^*(\Vec{r})\sum_n\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}b_n\psi_n(\Vec{r}-\Vec{R})\\
 &+\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\sum_nb_n\psi_n(\Vec{r})\\
 &+\int d\Vec{r}\psi_m^*(\Vec{r})\Delta U(\Vec{r})\sum_n\sum_{\Vec{R}\neq0}b_ne^{i\Vec{k}\cdot\Vec{R}}\psi_n(\Vec{r}-\Vec{R})
 \end{align*}
-The assumption of well localized atomic levels is interpreted by saying that the first term on the right hand side is small compared to unity. The integrals in the third term are also small because they contain the product of two wave functions centered at different sites while the second term is small because one expects the atomic wave functions to become small at distances large enough for the periodic potential to deviate appreciably from the atomic one. The whole right hand side is then small: this is possible if $E_{\Vec{k}}-E_m$ is small when $b_m$ is not and vice versa. $E_{\Vec{k}}$ must be close to some atomic level $E_0$ and all the $b_m$ except those going with that level must be small.
+The assumption of well localized atomic levels is interpreted by saying that the first and the third terms on the right hand side are small compared to unity because the integrals contain the product of two wave functions centered at different sites. The second term instead is small because one expects the atomic wave functions to become small at distances large enough for the periodic potential to deviate appreciably from the atomic one. This is a bit brutal and not completely right, one can argue that this term does not depend on $\Vec{k}$ so it would not affect much $\varepsilon(\Vec{k})$.\\
+At the end of the day we get that $[\varepsilon(\Vec{k})-E_m]b_m$ is small: this is possible if $\varepsilon(\Vec{k})-E_m$ is small when $b_m$ is not and vice versa. $\varepsilon(\Vec{k})$ must be close to some atomic level $E_0$ and all the $b_m$ except those going with that level must be small.
 \[
-E_{\Vec{k}}\approx E_0 \quad b_m\approx0 \quad \text{unless}\;\;E_m\approx E_0
+\begin{aligned}
+&\bullet\;\text{if}\;\varepsilon(\Vec{k})\approx E_0 \Rightarrow b_m\approx0\;\text{everywhere but where $E_m\approx E_0$}\\ &\bullet\;\text{if}\;\varepsilon(\Vec{k})\neq E_m\Rightarrow b_m\approx0
+\end{aligned}
 \]
 If all the coefficients $b_m$ are zero except for a single atomic $s$-level, we get the band structure of the corresponding $s$-band:
 \begin{align*}
-E_{\Vec{k}}-E_s=&-(E_{\Vec{k}}-E_s)\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})\\
+\varepsilon(\Vec{k})-E_s=&-[\varepsilon(\Vec{k})-E_s]\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})\\
 &+\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r})+\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})
 \end{align*}
-$E_{\Vec{k}}$ is then given by:
+$\varepsilon(\Vec{k})$ is then given by:
 \begin{align*}
-E_{\Vec{k}}&=E_s-\frac{{\color{red}{-\int d\Vec{r}|\psi_s(\Vec{r})|^2\Delta U(\Vec{r})}}-\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{green}{\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}{1+\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{blue}{\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}\\
+\varepsilon(\Vec{k})&=E_s-\frac{{\color{red}{-\int d\Vec{r}|\psi_s(\Vec{r})|^2\Delta U(\Vec{r})}}-\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{green}{\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}{1+\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{blue}{\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}\\
 &=E_s-\frac{{\color{red}{\beta}}+\sum_{\Vec{R}\neq0}{\color{green}{\gamma(\Vec{R})}}e^{i\Vec{k}\cdot\Vec{R}}}{1+\sum_{\Vec{R}\neq0}{\color{blue}{\alpha(\Vec{R})}}e^{i\Vec{k}\cdot\Vec{R}}}\underset{\alpha\to0}{\simeq}E_s-\beta-\sum_{\Vec{R}\neq0}\gamma(\Vec{R})e^{i\Vec{k}\cdot\Vec{R}}
 \end{align*}
 The $s$-orbital is spherical, so we have that $\alpha(\Vec{R})=\alpha(-\Vec{R})$. Moreover, the crystal has inversion symmetry:
@@ -1092,9 +1107,10 @@ The $s$-orbital is spherical, so we have that $\alpha(\Vec{R})=\alpha(-\Vec{R})$
 \]
 Putting these observations together, one can write:
 \[
-E_{\Vec{k}}=E_s-\beta-\sum_{\text{n.n.}}\gamma(\Vec{R})e^{i\Vec{k}\cdot\Vec{R}}
+\varepsilon(\Vec{k})=E_s-\beta-\sum_{\text{n.n.}}\gamma(\Vec{R})e^{i\Vec{k}\cdot\Vec{R}}
 \]
 where the sum runs only over those $\Vec{R}$ in the Bravais lattice that connect the origin to its nearest neighbours.
+\newpage
 \section{Semiclassical Model of Electron Dynamics}
 In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions was calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
 \[
@@ -1168,6 +1184,7 @@ It then follows that:
 \[
 \left(\frac{1}{m^*}\right)_{\alpha\beta}=\frac{1}{\hbar^2}\frac{\partial^2E(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}
 \]
+\newpage
 \section{Semiconductors}
 We have seen that electrons in a completely filled band cannot carry any current. This is the basis for the distinction between insulators and metals: in the ground state of an \textbf{insulator} all bands are either completely filled or completely empty, while in the ground state of a \textbf{metal} at least one band is partially filled. Insulators can be characterized by the \textbf{energy gap} $E_g$ between the top of the highest filled band and the bottom of the lowest empty band. When the temperature is not zero, there is a non-vanishing probability that some electrons get thermally excited across the energy gap into the lowest unoccupied bands, called \textbf{conduction bands}, leaving behind unoccupied levels in the highest occupied bands, called \textbf{valence bands}. Solids that are insulators at $T=0$ but whose energy gaps are such that thermal excitation can lead to observable conductivity at temperatures below the melting point are known as \textbf{semiconductors}.\\
 The most important property of any semiconductor at temperature $T$ is the number of electrons per unit volume in the conduction band $n_c$ and the number of holes per unit volume in the valence band $p_v$.
