@@ -91,7 +91,8 @@ for $x_i$ ranging continuously between 0 and 1. This choice has the disadvantage
     \item \textbf{Wigner-Seitz primitive cell}: one can choose a primitive cell with the full symmetry of the lattice. The most common choice is the Wigner-Seitz cell which is defined as the region of space that is closer to a specific point than to any other lattice point. Since there is nothing in this definition that refers to any particular choice of primitive vectors, the Wigner-Seitz cell will be as symmetrical as the Bravais lattice. Since any lattice point has a unique lattice point as its nearest neighbour it will belong to exactly one Wigner-Seitz cell. Translating the Wigner-Seitz cell through all the lattice vectors will just fill the space without overlapping, hence the Wigner-Seitz cell is primitive.
 \end{itemize}
 \newpage
-\subsection{Examples of Cubic Lattices}
+\noindent
+\textbf{Examples of Cubic Lattices}\\\\
 \begin{wrapfigure}{r}{0.45\textwidth}
     \vspace{-0.75cm}
     \includegraphics[width=0.45\textwidth]{simple_cubic_lattice.png}
@@ -270,17 +271,17 @@ A\propto\frac{e^{i\Vec{k}\cdot\Vec{\rho}}e^{i\Vec{k'}\cdot(\Vec{R}-\Vec{\rho}\co
 \]
 The factor $e^{i\Vec{k'}\cdot\Vec{R}}$ does not depend on the diffusion point, hence it can be treated as a constant. The factor $e^{-i\Vec{k'}\Vec{\rho}\cos\theta}$ can be written as:
 \[
-e^{-i\Vec{k'}\Vec{\rho}\cos\theta}\simeq e^{-i\Vec{\rho}\Vec{k'}\frac{\Vec{R}}{|\Vec{R}|}}\approx e^{-i\Vec{k'}\Vec{\rho}\cdot\Vec{\hat{r}}}=e^{-i\Vec{\rho}\cdot\Vec{k}'}
+e^{-i\Vec{k'}\Vec{\rho}\cos\theta}\simeq e^{-i\Vec{k'}\Vec{\rho}\frac{\Vec{R}}{|\Vec{R}|}}\approx e^{-i\Vec{k'}\Vec{\rho}\cdot\Vec{\hat{r}}}=e^{-i\Vec{k'}\cdot\Vec{\rho}}
 \]
-$\Vec{k}'$ defines the direction of the scattered wave. It follows that we have an amplitude of the type:
+$\Vec{k'}$ defines the direction of the scattered wave. It follows that we have an amplitude of the type:
 \[
-A\propto e^{i\Vec{k}\cdot\Vec{\rho}}e^{-i\Vec{k}'\cdot\Vec{\rho}}=e^{-i\Vec{\rho}\cdot(\Vec{k}'-\Vec{k})}=e^{-i\Vec{\rho}\cdot\Delta\Vec{k}} \quad \Delta\Vec{k}=\Vec{k}'-\Vec{k}
+A\propto e^{i\Vec{k}\cdot\Vec{\rho}}e^{-i\Vec{k}'\cdot\Vec{\rho}}=e^{-i\Vec{\rho}\cdot(\Vec{k}'-\Vec{k})}=e^{-i\Vec{\rho}\cdot\Delta\Vec{k}} \qquad \Delta\Vec{k}=\Vec{k}'-\Vec{k}
 \]
 Considering all the terms we have:
 \[
 A=\frac{e^2}{mc^2}\sqrt{\frac{1+\cos^2\phi}{2}}\frac{F_0}{\Vec{R}}e^{i\Vec{k'}\cdot\Vec{R}}e^{-i\Vec{\rho}\cdot\Delta\Vec{k}}=C(\phi)e^{-i\Vec{\rho}\cdot\Delta\Vec{k}}
 \]
-The wave vector of the scattered wave $\Vec{k}'$ and the wave vector of the incoming wave $\Vec{k}$ must have equal modulus because we are considering elastic scattering.\\
+The wave vector of the scattered wave $\Vec{k'}$ and the wave vector of the incoming wave $\Vec{k}$ must have equal modulus because we are considering elastic scattering.\\
 If the points $\Vec{\rho}$ belong to a crystal lattice, it is possible to relate them to the points $\Vec{\rho_0}$ of the primitive cell:
 \[
 \Vec{\rho}=\Vec{\rho_0}+n_1\Vec{t_1}+n_2\Vec{t_2}+n_3\Vec{t_3}
@@ -294,7 +295,7 @@ Summing over the translations will give e meaningful contribution only if the te
 \[
 e^{-i\Vec{t_n}\cdot\Delta\Vec{k}}=1
 \]
-Using the definition of reciprocal lattice, this can be written as $\Delta\Vec{k}=\Vec{h}$ where $\Vec{h}$ is a generic vector of the reciprocal lattice. This is the \textbf{Laue law}.\\
+Using the definition of reciprocal lattice, this can be written as $\Delta\Vec{k}=\Vec{G}$ where $\Vec{G}$ is a generic vector of the reciprocal lattice. This is the \textbf{Laue law}.\\
 It is possible to show that when the number of lattice points is large enough, there will be scattering of noticeable intensity only in the directions defined by the Laue condition. The scattered intensity is proportional to the product of three terms of the form:
 \[
 \left|\sum_{n=0}^{N-1}e^{-in\Vec{t}\cdot\Delta\Vec{k}}\right|^2=\left|\frac{1-e^{-iN\Vec{t}\cdot\Delta\Vec{k}}}{1-e^{-i\Vec{t}\cdot\Delta\Vec{k}}}\right|^2=\frac{\sin^2(N\Vec{t}\cdot\Delta\Vec{k}/2)}{\sin^2(\Vec{t}\cdot\Delta\Vec{k}/2)}
@@ -329,6 +330,7 @@ where $\Vec{\rho_j}$ is the position of each atom in the cell. If we substitute 
 \int_\Omega d\Vec{\rho_0}\sum_jn_j(\Vec{\rho_0}-\Vec{\rho_j})e^{-i\Vec{\rho_0}\cdot\Vec{G}}&=\sum_je^{-i\Vec{G}\cdot\Vec{\rho_j}}\int_\Omega d\Vec{\rho_0}n_j(\Vec{\rho_0}-\Vec{\rho_j})e^{-i\Vec{G}\cdot(\Vec{\rho_0}-\Vec{\rho_j})}\\
 &=\sum_je^{-i\Vec{G}\cdot\Vec{\rho_j}}f_j(\Vec{G})
 \end{align*}
+where $f_j(\Vec{G})$ is nothing but the Fourier transform of $n_j(\Vec{\rho_0}-\Vec{\rho_j})$.\\
 If there are equal atoms in different points of the elementary cells, the factors $f_j(\Vec{G})$ are equal and the scattering amplitude is proportional to the \textbf{geometrical structure factor}:
 \[
 S(\Vec{G})=\sum_je^{-i\Vec{G}\cdot\Vec{\rho_j}}
@@ -417,13 +419,13 @@ where $I$ denotes the coordinates of the nuclear positions. Then there are the p
 \end{aligned}
 \right.
 \]
-The last term accounts for relativistic corrections on electrons. The Schr\"odinger equation can be simplified by decomposing the wave function in a product of simpler functions:
+The last term $C_e^{\text{rel}}$ accounts for relativistic corrections on electrons. The Schr\"odinger equation can be simplified by decomposing the wave function in a product of simpler functions:
 \[
 \Psi_{nv}(\Vec{r},\Vec{R})=F_{n,v}(\Vec{R})\psi_n(\Vec{r},\Vec{R})
 \]
 $\Vec{r}$ denotes the electronic coordinates while $\Vec{R}$ the nuclear ones. This approximation is due to the enormous difference in speed between nuclei and electrons. For electrons, the speed can be computed by using the virial theorem:
 \[
-\frac{m_ev^2}{2}\sim\frac{Ze^2}{4\pi\varepsilon_0a_0}\Rightarrow v\sim\sqrt{\frac{Ze^2}{4\pi\varepsilon_0m_ea_0}}=Z\alpha c
+\frac{m_ev^2}{2}\sim\frac{Ze^2}{4\pi\varepsilon_0a_0}\Rightarrow v\sim\sqrt{\frac{Ze^2}{4\pi\varepsilon_0m_e{\color{red}{a_0}}}}=\sqrt{\frac{Ze^2}{4\pi\varepsilon_0m_e}{\color{red}{\frac{Zm_ec\alpha}{\hbar}}}}=Z\alpha c
 \]
 To estimate the velocity of nuclei, we note that when we try to \textit{pull away} the electron cloud, the nuclei respond elastically. Under the assumption that for the elastic constants $K_e\sim K_N$, we then have:
 \[
@@ -499,11 +501,18 @@ Performing the same substitution as before with $u_n(t)=Ae^{i(qna-\omega t)}$ on
 \[
 -M\omega^2=-C(2-e^{iqa}-e^{-iqa})=-4C\sin^2(qa/2)\Rightarrow\omega(q)=\sqrt{\frac{4C}{M}}|\sin(qa/2)|
 \]
-Notice that the spectrum of vibrational frequencies extends from zero to a cutoff frequency of $\omega_{\max}=\sqrt{4C/M}$. In the long wavelength limit, i.e. $qa\ll1$, the dispersion relation takes the form:
+\begin{figure}[h]
+    \centering
+    \includegraphics{omega(q).pdf}
+    \label{fig:omega(q)}
+\end{figure}\\
+\noindent 
+Notice that the spectrum of vibrational frequencies extends from zero to a cutoff frequency of $\omega_{\max}=\sqrt{4C/M}$ and the whole meaningful physical information is contained inside the \nth{1} Brillouin zone, highlighted in red.\\
+In the long wavelength limit, i.e. $qa\ll1$, the dispersion relation takes the form:
 \[
-\omega(q)\simeq\sqrt{\frac{C}{M}}aq=v_sq \quad qa\ll1
+\omega(q)\simeq\sqrt{\frac{C}{M}}a|q|=v_s|q| 
 \]
-The proportionality coefficient $v_s$ between phonon frequency and phonon wave number represents the velocity of the sound in the medium. The periodic nature of the sine function appearing in the expression of $\omega(q)$ is telling us that the whole information is contained inside the \nth{1} Brillouin zone, i.e. between $-\pi/a$ and $+\pi/a$.\\
+The proportionality coefficient $v_s$ between phonon frequency and phonon wave number represents the velocity of the sound in the medium.\\
 The ratio between the amplitudes of two nearest neighbours is given by:
 \[
 \frac{u_{n+1}}{u_n}=\frac{Ae^{i(qna+qa-\omega t)}}{Ae^{i(qna-\omega t)}}=e^{iqa}
@@ -537,7 +546,7 @@ It is now possible to evaluate the number of of phononic states that can be acco
 \[
 dN=\frac{2dq}{\Delta q}=\frac{2dq}{\frac{2\pi}{L}}=\frac{L}{\pi}dq
 \]
-The density of states then becomes:
+where the factor $2$ has been included to take into account the contribution of negative and positive interval. The density of states then becomes:
 \[
 D(\omega)=\frac{L}{\pi L}\frac{dq}{d\omega}=\frac{1}{\pi}\frac{dq}{d\omega}=\frac{1}{\pi v_g}
 \]
@@ -594,7 +603,14 @@ Imposing the determinant to be equal to 0 gives us a second degree equation in $
 \[
 \omega^2=\frac{(C_1+C_2)(M_1+M_2)}{2M_1M_2}\pm\sqrt{\frac{(C_1+C_2)^2(M_1+M_2)^2}{4(M_1M_2)^2}-\frac{4C_1C_2\sin^2(qa/2)}{M_1M_2}}
 \]
-The main difference with the monoatomic case is that here we get two possible values of $\omega$ instead of one. The $(+)$ solution corresponds to the \textbf{optical branch} while the $(-)$ solution is the \textbf{acoustic branch}. In the case $C_1=C_2=C$ we get:
+The main difference with the monoatomic case is that here for each $q$ there are two possible values of $\omega$ instead of one.
+\begin{figure}[h]
+    \centering
+    \includegraphics{omega+-.pdf}
+    \label{fig:omega+-}
+\end{figure}\\
+\noindent
+The $(+)$ solution corresponds to the \textbf{optical branch} while the $(-)$ solution is the \textbf{acoustic branch}. In the case $C_1=C_2=C$ we get:
 \[
 \omega^2=C\left(\frac{1}{M_1}+\frac{1}{M_2}\right)\pm C\sqrt{\left(\frac{1}{M_1}+\frac{1}{M_2}\right)^2-\frac{4\sin^2(qa/2)}{M_1M_2}}
 \]
