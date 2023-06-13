@@ -906,9 +906,10 @@ One may take a shortcut and compute:
 u\sim g(E_F)k_BTk_BT=g(E_F)(k_BT)^2\Rightarrow c_V\propto g(E_F)k_B^2T
 \]
 The exact calculation gives $u=\frac{\pi^2}{6}g(E_F)(k_BT)^2$. What is left to compute is the electron density of states:
-\begin{align*}
+\begin{equation}
+\label{density}
 g(E)&=\frac{1}{(2\pi)^3}2\int\frac{dS_E}{\norm{\Vec{\nabla}_{\Vec{k}}E}}=\frac{2 m}{8\pi^3\hbar^2}\int\frac{d\varphi d\theta\sin\theta k^2}{k}=\frac{8\pi m}{8\pi^3\hbar^2}\frac{\sqrt{2mE}}{\hbar}=\frac{m}{\pi^2\hbar^3}\sqrt{2mE}
-\end{align*}
+\end{equation}
 Substituting this in the previous expression for $u$, one obtains:
 \[
 u=\int_0^{+\infty}dEE\frac{m}{\pi^2\hbar^3}\sqrt{2mE}\frac{1}{e^{\beta(E-\mu)}-1}
@@ -1196,7 +1197,7 @@ If all the coefficients $b_m$ are zero except for a single atomic $s$-level, we 
 \end{align*}
 $\varepsilon(\Vec{k})$ is then given by:
 \begin{align*}
-\varepsilon(\Vec{k})&=E_s-\frac{{\color{red}{-\int d\Vec{r}|\psi_s(\Vec{r})|^2\Delta U(\Vec{r})}}-\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{green}{\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}{1+\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{blue}{\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}\\
+\varepsilon(\Vec{k})&=E_s-\frac{{\color{red}{-\int d\Vec{r}|\psi_s(\Vec{r})|^2\Delta U(\Vec{r})}}{\color{green}{-}}\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{green}{\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}{1+\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{blue}{\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}\\
 &=E_s-\frac{{\color{red}{\beta}}+\sum_{\Vec{R}\neq0}{\color{green}{\gamma(\Vec{R})}}e^{i\Vec{k}\cdot\Vec{R}}}{1+\sum_{\Vec{R}\neq0}{\color{blue}{\alpha(\Vec{R})}}e^{i\Vec{k}\cdot\Vec{R}}}\underset{\alpha\to0}{\simeq}E_s-\beta-\sum_{\Vec{R}\neq0}\gamma(\Vec{R})e^{i\Vec{k}\cdot\Vec{R}}
 \end{align*}
 The $s$-orbital is spherical, so we have that $\alpha(\Vec{R})=\alpha(-\Vec{R})$. Moreover, the crystal has inversion symmetry:
@@ -1208,10 +1209,24 @@ Putting these observations together, one can write:
 \varepsilon(\Vec{k})=E_s-\beta-\sum_{\text{n.n.}}\gamma(\Vec{R})e^{i\Vec{k}\cdot\Vec{R}}
 \]
 where the sum runs only over those $\Vec{R}$ in the Bravais lattice that connect the origin to its nearest neighbours.\\
-The difference between the maximum and the minimum value of the considered band is called \textbf{bandwidth} and it is in general proportional to $\gamma$. If $\gamma$ is too large, i.e. the band is too dispersive, the tight-binding method does not apply very well: there could be some overlap between different electronic crystal bands. This behaviour is typical of metals, since valence electrons are not so tightly bound to the ions.
+For example, in the simple cubic case there are 6 nearest neighbours, identified by:
+\[
+(\pm a,0,0) \qquad (0,\pm a,0) \qquad (0,0,\pm a)
+\]
+With the approximation of having $\gamma(\Vec{R})=\gamma$, we can write:
+\begin{align*}
+\sum_{\text{n.n.}}\gamma e^{i\Vec{k}\cdot\Vec{R}}&=\gamma\left[e^{ik_xa}+e^{-ik_xa}+e^{ik_ya}+e^{-ik_ya}+e^{ik_za}+e^{-ik_za}\right]\\
+&=\gamma\left[2\cos(k_xa)+2\cos(k_ya)+2\cos(k_za)\right]
+\end{align*}
+The dispersion band now takes the form:
+\[
+\varepsilon(\Vec{k})=E_s-\beta-2\gamma\left[\cos(k_xa)+\cos(k_ya)+\cos(k_za)\right]
+\]
+For bcc and fcc things get complicated just by the fact that one has to consider more nearest neighbours.\\
+The difference between the maximum and the minimum value of the considered band is called \textbf{bandwidth} and it is proportional to the small overlap integral $\gamma$. If $\gamma$ is too large, i.e. the band is too dispersive, the tight-binding method does not apply very well: there could be some overlap between different electronic crystal bands. This behaviour is typical of metals, since valence electrons are not so tightly bound to the ions. In the limit of vanishing overlap, the bandwidth also vanishes and the band becomes degenerate, corresponding to the case in which the electron simply resides on any one of the isolated atoms.
 \newpage
 \section{Semiclassical Model of Electron Dynamics}
-In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions was calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
+In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions is calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
 \begin{equation}
 \label{eqmot1}
 \hbar\Vec{\Dot{k}}=-e(\Vec{E}+\Vec{v}\times\Vec{B}) %\quad \Vec{\Dot{r}}=\frac{\hbar\Vec{k}}{m}
@@ -1280,7 +1295,7 @@ In equilibrium and in configurations that do not deviate substantially from equi
 \varepsilon(\Vec{k})\simeq \varepsilon(\Vec{k_0})-A(\Vec{k}-\Vec{k_0})^2 \qquad\text{with}\;\; A=\frac{\hbar^2}{2m^*}
 \]
 $m^*$ is called the \textbf{effective mass}.\\
-For levels with wave vectors near $\Vec{k_0}$ velocity and acceleration are given by:
+For levels with wave vectors near $\Vec{k_0}$, velocity and acceleration are given by:
 \[
 \Vec{v}(\Vec{k})=\frac{1}{\hbar}\frac{\partial \varepsilon(\Vec{k})}{\partial\Vec{k}}\simeq-\frac{\hbar}{m^*}(\Vec{k}-\Vec{k_0}) \qquad \Vec{a}=\frac{d\Vec{v}(\Vec{k})}{dt}=-\frac{\hbar}{m^*}\Dot{\Vec{k}}\xleftrightarrow[]{}\hbar\Dot{\Vec{k}}=-m^*\Vec{a}
 \]
@@ -1289,10 +1304,11 @@ To derive the effective mass $m^*$, imagine to have an electron accelerated by s
 \[
 \Vec{a}_\alpha=\frac{1}{\hbar}\frac{d}{dt}\left[\frac{\partial \varepsilon(\Vec{k})}{\partial\Vec{k}}\Bigr|_{\substack{\alpha}}\right]=\frac{1}{\hbar}\sum_\beta\frac{\partial^2\varepsilon(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}\Dot{\Vec{k}}_\beta=\frac{1}{\hbar^2}\sum_\beta\frac{\partial^2\varepsilon(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}\Vec{F}_\beta \qquad \text{where}\;\Dot{\Vec{k}}_\beta=\frac{\Vec{F}_\beta}{\hbar}
 \]
-It then follows that:
-\[
+It then follows that the effective mass can be written as a tensor:
+\begin{equation}
+\label{masstensor}
 \left(\frac{1}{m^*}\right)_{\alpha\beta}=\frac{1}{\hbar^2}\frac{\partial^2\varepsilon(\Vec{k})}{\partial\Vec{k}_\beta\partial\Vec{k}_\alpha}
-\]
+\end{equation}
 \newpage
 \section{Semiconductors}
 We have seen that electrons in a completely filled band cannot carry any current. This is the basis for the distinction between insulators and metals: in the ground state of an \textbf{insulator} all bands are either completely filled or completely empty, while in the ground state of a \textbf{metal} at least one band is partially filled. Insulators can be characterized by the \textbf{energy gap} $E_g$ between the top of the highest filled band and the bottom of the lowest empty band. When the temperature is not zero, there is a non-vanishing probability that some electrons get thermally excited across the energy gap into the lowest unoccupied bands, called \textbf{conduction bands}, leaving behind unoccupied levels in the highest occupied bands, called \textbf{valence bands}. Solids that are insulators at $T=0$ but whose energy gaps are such that thermal excitation can lead to observable conductivity at temperatures below the melting point are known as \textbf{semiconductors}.\\
@@ -1300,6 +1316,7 @@ The most important property of any semiconductor at temperature $T$ is the numbe
 \[
 n_c(T)=\int_{E_c}^{+\infty} dEg_c(E)\frac{1}{e^{\beta(E-\mu)}+1} \qquad p_v(T)=\int_{-\infty}^{E_v}dEg_v(E)\frac{1}{e^{\beta(\mu-E)}+1}
 \]
+$E_c$ and $E_v$ represents, respectively, the bottom of the conduction band and the top of the valence band.\\
 The determination of $n_c$ and $p_v$ is affected by impurities through the \textbf{chemical potential} $\mu$. To determine $\mu$, one must know something about the impurity levels but it is still possible to extract some useful information independent on the precise value of $\mu$ provided that the following conditions hold true:
 \begin{equation}
 \label{nondeg}
@@ -1322,11 +1339,12 @@ p_v(T)&\simeq\int_{-\infty}^{E_v} dEg_v(E)e^{-\beta(\mu-E)}=\int_{-\infty}^{E_v}
 \end{aligned}
 \right.
 \end{equation}
-The level densities can be taken to be:
+From \refeq{density}, 
+the level densities can be taken to be:
 \[
 g_{c,v}(E)=\frac{m_{c,v}^{3/2}}{\pi^2\hbar^3}\sqrt{2|E-E_{c,v}|}
 \]
-so it is possible to explicitly compute $N_c(T)$ and $P_v(T)$:
+It is now possible to explicitly compute $N_c(T)$ and $P_v(T)$:
 \begin{align*}
 N_c(T)&=\int_{E_c}^{+\infty} dE\frac{m_c^{3/2}}{\pi^2\hbar^3}\sqrt{2|E-E_c|}e^{-\beta(E-E_c)}\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize $\beta(E-E_c)=x$ };}}
 {=}\frac{m_c^{3/2}\sqrt{2}}{\pi^2\hbar^3\beta^{3/2}}\int_0^{+\infty}dxx^{1/2}e^{-x}\\
@@ -1336,12 +1354,13 @@ With the same reasoning, one gets for $P_v(T)$:
 \[
 P_v(T)=\cdots=\frac{1}{4}\left(\frac{2k_BTm_v}{\pi\hbar^2}\right)^{3/2}
 \]
+$m_c$ is taken as the product of the principal values of the conduction band effective mass tensor [\refeq{masstensor}], i.e. its determinant, and $m_v$ is similarly defined.\\
 It is still not possible to infer $n_c(T)$ and $p_v(T)$ until the value of $\mu$ is known but one can observe that the $\mu$ dependence disappears if we take the product of the two densities:
 \begin{align*}
 n_c(T)p_v(T)&=N_c(T)e^{-\beta(E_c-\mu)}P_v(T)e^{-\beta(\mu-E_v)}\\
 &=N_c(T)P_v(T)e^{-\beta(E_c-E_v)}=N_c(T)P_v(T)e^{-\beta E_g}
 \end{align*}
-This result is telling us that at a given temperature it is sufficient to know the density of one type of carrier to determine the density of the other one.
+This goes under the name of \textbf{law of mass action} and it is telling us that at a given temperature it is sufficient to know the density of one type of carrier to determine the density of the other one.
 \subsection{Intrinsic case}
 The intrinsic case takes place if the crystal is so pure that impurities contribute negligibly to the carrier densities. Conduction band electrons can only have come from formerly occupied valence band levels leaving hole behind them. The number of conduction band electrons is then equal to the number of valence band holes:
 \[
@@ -1491,7 +1510,7 @@ This condition combined with the expression we found for $n_d$ and $p_a$ tells u
 \[
 \Delta n=n_c-p_v=N_d-N_a
 \]
-Carrier densities get now expressed as:
+The law of mass action holds true regardless of the importance of impurities, so we can still write $n_i^2=n_cp_v$. Combining the expressions of $\Delta n$ and $n_i$ as functions of $n_c$ and $p_v$, we get that carrier densities get now expressed as:
 \[
 \left\{
 \begin{aligned}
@@ -1513,7 +1532,7 @@ where we exploited the fact that both $n_c(T)$ and $p_v(T)$ reduces to $n_i(T)$ 
 \[
 \Delta n=n_c-p_v=2n_i\sinh{[\beta(\mu-\mu_i)]}
 \]
-In the predominantly \textbf{intrinsic regime}, the concentration of impurities is much less than the intrinsic concentration, technically $n_i\gg|N_d-N_a|/2=|\Delta n|/2$. Therefore, we get:
+ In the predominantly \textbf{intrinsic regime}, the concentration of impurities is much less than the intrinsic concentration, technically $n_i\gg|N_d-N_a|/2=|\Delta n|/2$. Therefore, we get:
 \[
 \left\{
 \begin{aligned}
