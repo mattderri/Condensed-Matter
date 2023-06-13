@@ -756,46 +756,51 @@ which is not what it is observed experimentally. This is a purely classical resu
 \[
 u=\frac{1}{V}\frac{\sum_iE_ie^{-\beta E_i}}{\sum_ie^{-\beta E_i}}=-\frac{\partial f}{\partial\beta} \quad \text{where}\;\;f=\frac{1}{V}\ln{\sum_ie^{-\beta E_i}}
 \]
-As usual, $\beta=1/k_BT$, $E_i$ is the energy of the $i$-th state of the crystal and the sum is extended over all possible states. The contribution to the total energy of a particular mode with angular frequency $\omega(\Vec{q}s)$ can have only a discrete set of values:
+As usual, $\beta=1/k_BT$, $E_i$ is the energy of the $i$-th state of the crystal and the sum is extended over all possible states. The contribution to the total energy of a particular mode with angular frequency $\omega_s(\Vec{q})$ can have only a discrete set of values:
 \[
-E_{n_{\Vec{q}s}}=\hbar\omega(\Vec{q}s)\left(n_{\Vec{q}s}+\frac{1}{2}\right)
+E_{n_{\Vec{q}s}}=\hbar\omega_s(\Vec{q})\left(n_{\Vec{q}s}+\frac{1}{2}\right)
 \]
 where $n_{\Vec{q}s}$ is the excitation number of the mode. The term $\sum_ie^{-\beta E_i}$ can be calculated:
 \begin{align*}
-\sum_ie^{-\beta E_i}&=\sum_{\{n_{\Vec{q}s}\}}e^{-\beta\sum_{\{n_{\Vec{q}s}\}}\hbar\omega(\Vec{q}s)\left(n_{\Vec{q}s}+\frac{1}{2}\right)}=\sum_{\{n_{\Vec{q}s}\}}\prod_{\Vec{q}s}e^{-\beta\hbar\omega(\Vec{q}s)\left(n_{\Vec{q}s}+\frac{1}{2}\right)}\\
-&=\prod_{\Vec{q}s}\sum_{n_{\Vec{q}s}}e^{-\beta\hbar\omega(\Vec{q}s)\left(n_{\Vec{q}s}+\frac{1}{2}\right)}=\prod_{\Vec{q}s}e^{-\beta\hbar\omega(\Vec{q}s)/2}\sum_{n_{\Vec{q}s}}e^{-\beta\hbar\omega(\Vec{q}s)n_{\Vec{q}s}}\\
-&=\prod_{\Vec{q}s}\frac{e^{-\beta\hbar\omega(\Vec{q}s)/2}}{1-e^{-\beta\hbar\omega(\Vec{q}s)}}
+\sum_ie^{-\beta E_i}&=\sum_{\{n_{\Vec{q}s}\}}e^{-\beta\sum_{\{n_{\Vec{q}s}\}}\hbar\omega_s(\Vec{q})\left(n_{\Vec{q}s}+\frac{1}{2}\right)}=\sum_{\{n_{\Vec{q}s}\}}\prod_{\Vec{q}s}e^{-\beta\hbar\omega_s(\Vec{q})\left(n_{\Vec{q}s}+\frac{1}{2}\right)}\\
+&=\prod_{\Vec{q}s}\sum_{n_{\Vec{q}s}}e^{-\beta\hbar\omega_s(\Vec{q})\left(n_{\Vec{q}s}+\frac{1}{2}\right)}=\prod_{\Vec{q}s}e^{-\beta\hbar\omega_s(\Vec{q})/2}\sum_{n_{\Vec{q}s}}e^{-\beta\hbar\omega_s(\Vec{q})n_{\Vec{q}s}}\\
+&=\prod_{\Vec{q}s}\frac{e^{-\beta\hbar\omega_s(\Vec{q})/2}}{1-e^{-\beta\hbar\omega_s(\Vec{q})}}
 \end{align*}
 Here we are treating the phonons as bosons. At the end of the day one gets:
 \[
-f=\frac{1}{V}\ln{\prod_{\Vec{q}s}\frac{e^{-\beta\hbar\omega(\Vec{q}s)/2}}{1-e^{-\beta\hbar\omega(\Vec{q}s)}}}=\frac{1}{V}\sum_{\Vec{q}s}\ln{\frac{e^{-\beta\hbar\omega(\Vec{q}s)/2}}{1-e^{-\beta\hbar\omega(\Vec{q}s)}}}
+f=\frac{1}{V}\ln{\prod_{\Vec{q}s}\frac{e^{-\beta\hbar\omega_s(\Vec{q})/2}}{1-e^{-\beta\hbar\omega_s(\Vec{q})}}}=\frac{1}{V}\sum_{\Vec{q}s}\ln{\frac{e^{-\beta\hbar\omega_s(\Vec{q})/2}}{1-e^{-\beta\hbar\omega_s(\Vec{q})}}}
 \]
 By differentiating $f$ with respect to $\beta$, the internal energy density $u$ assumes the form:
 \[
-u=-\frac{\partial f}{\partial\beta}=\frac{1}{V}\sum_{\Vec{q}s}\hbar\omega(\Vec{q}s)\left(n_s(\Vec{q})+\frac{1}{2}\right) \quad \text{where}\;\; n_s(\Vec{q})=\frac{1}{e^{\beta\hbar\omega(\Vec{q}s)}-1}
+u=-\frac{\partial f}{\partial\beta}=\frac{1}{V}\sum_{\Vec{q}s}\hbar\omega_s(\Vec{q})\left(n_s(\Vec{q})+\frac{1}{2}\right) \quad \text{where}\;\; n_s(\Vec{q})=\frac{1}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
 \]
 In the quantum theory of the harmonic solid, the specific heat is no longer constant but given by:
 \[
-c_v=\frac{\partial u}{\partial T}=\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega(\Vec{q}s)}{e^{\beta\hbar\omega(\Vec{q}s)}-1}
+c_v=\frac{\partial u}{\partial T}=\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega_s(\Vec{q})}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
 \]
 In the limit $\beta\hbar\omega\ll1$, i.e. high-temperature limit, the specific heat can be approximated as:
 \[
-c_v\simeq\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega(\Vec{q}s)}{\beta\hbar\omega(\Vec{q}s)}=\frac{1}{V}\sum_{\Vec{q}s}k_B\frac{\partial T}{\partial T}=\frac{1}{V}3Nk_B=3nk_B
+c_v\simeq\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega_s(\Vec{q})}{\beta\hbar\omega_s(\Vec{q})}=\frac{1}{V}\sum_{\Vec{q}s}k_B\frac{\partial T}{\partial T}=\frac{1}{V}3Nk_B=3nk_B
 \]
 This tells us that the classical result is recovered in the high-temperature limit. On the other hand, moving to the low-temperature regime, i.e. $\beta\hbar\omega\gg1$, we observe that the set of discrete wave vectors which we summed over becomes dense on the scale over which the summand has an appreciable variation. Therefore, the sum is replaced by an integral:
 \begin{equation}
 \label{general}
-c_v=\frac{\partial}{\partial T}\sum_s\int_{\text{\RN{1}BZ}}\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar\omega(\Vec{q}s)}{e^{\beta\hbar\omega(\Vec{q}s)}-1}
+c_v=\frac{\partial}{\partial T}\sum_s\int_{\text{\RN{1}BZ}}\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar\omega_s(\Vec{q})}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
 \end{equation}
-where the integral is taken over the \nth{1} Brillouin zone. At very low temperature, modes with $\hbar\omega(\Vec{q}s)\gg k_BT$ contribute negligibly to the integral, since the integrand will vanish exponentially. This condition will not be satisfied by acoustic modes of sufficiently long wavelength, since $\omega(\Vec{q}s)\to0$ as $\Vec{q}\to0$. These modes will continue to contribute appreciably to $c_v$. With this in minds, we can make some simplifications:
+where the integral is taken over the \nth{1} Brillouin zone. At very low temperature, modes with $\hbar\omega_s(\Vec{q})\gg k_BT$ contribute negligibly to the integral, since the integrand will vanish exponentially. This condition will not be satisfied by acoustic modes of sufficiently long wavelength, since $\omega_s(\Vec{q})\to0$ as $\Vec{q}\to0$. These modes will continue to contribute appreciably to $c_v$. With this in mind, we can make some simplifications:
 \begin{enumerate}
     \item It is possible to ignore the optical modes in the sum over $s$
-    \item We can replace $\omega(\Vec{q}s)$ for the three acoustic branches with its long wavelength form $c_s(\hat{\Vec{q}})k$
-    \item The integration can be extended over all the $k$-space because the integrand is small unless $\hbar c_s(\hat{\Vec{q}})k$ is of order $k_BT$, which happens in the proximity of $\Vec{k}=\Vec{0}$ at low temperatures
+    \item We can replace $\omega_s(\Vec{q})$ for the acoustic branches with its long wavelength form $c_s(\hat{\Vec{q}})q$
+    \item The integration can be extended over all the $q$-space because the integrand is small unless $\hbar c_s(\hat{\Vec{q}})q$ is of order $k_BT$, which happens in the proximity of $\Vec{q}=\Vec{0}$ at low temperatures
 \end{enumerate}
-At very low temperatures the expression for the specific heat gets simplified as:
+\begin{figure}[h]
+    \centering
+    \includegraphics{simplifications.pdf}
+    \label{fig:simplifications}
+\end{figure}
+With these approximations, at very low temperatures the expression for the specific heat gets simplified as:
 \[
-c_v=\frac{\partial}{\partial T}\sum_s\int_{\text{\RN{1}BZ}}\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar c_s(\hat{\Vec{q}})q}{e^{\beta\hbar c_s(\hat{\Vec{q}})q}-1}
+c_v=\frac{\partial}{\partial T}\sum_s\int\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar c_s(\hat{\Vec{q}})q}{e^{\beta\hbar c_s(\hat{\Vec{q}})q}-1}
 \]
 The integral gets evaluated in spherical coordinates, $d\Vec{q}=dqd\Omega q^2$, and by performing a change of variables $\beta\hbar c_s(\hat{\Vec{q}})q=x$.
 \[
@@ -816,7 +821,7 @@ c_v=\frac{\partial}{\partial T}\frac{\pi^2}{10}\frac{(k_BT)^4}{(\hbar c)^3}=\fra
 which agrees with the experimental results.
 \subsection{Debye-Einstein Model}
 There is still a considerable temperature range over which neither the high- nor the low-temperature limit work and one has to work with the general form [\hyperref[general]{Equation (\ref{general})}]. Nevertheless, it is common to use an approximate interpolation scheme for this intermediate temperature range.\\
-The \textbf{Debye model} replaces all branches of the vibrational spectrum with three branches, each of them characterized by $\omega=cq$. Moreover, the integral over the \nth{1} Brillouin zone is replaced by an integral over a sphere of radius $q_D$ such that the volume associated to each allowed $q$ is equal to $N$, where $N$ is the number of ions in the crystal. This requires:
+The \textbf{Debye model} replaces all branches of the vibrational spectrum with three branches, each of them characterized by $\omega=cq$. Moreover, the integral over the \nth{1} Brillouin zone is replaced by an integral over a sphere of radius $q_D$ chosen to contain precisely $N$ allowed wave vectors, where $N$ is the number of ions in the crystal. This requires:
 \[
 \frac{4}{3}\pi q_D^3=\frac{N}{V}(2\pi)^3\Rightarrow n=\frac{q_D^3}{6\pi^2}
 \]
@@ -861,19 +866,19 @@ c_V\sim3nk_B+pnk_B=3nk_B+nk_B[3(s-1)]=3nsk_B
 where $s$ is the number of atoms in the basis and in 3D we have that $p=3(s-1)$.\\
 For very low temperatures, the Debye model gives correct results, while there are some discrepancies at medium temperatures. Such discrepancies are due to the fact that, as the temperature increases, phonons of higher frequency are created. It is then needed to take into account the real dispersion curves of the crystal and compute for each of them the density of states $D(\omega)$, given by:
 \[
-D(\omega)d\omega=\frac{V}{(2\pi)^3}\int_\Delta d\Vec{k}
+D(\omega)d\omega=\frac{V}{(2\pi)^3}\int_\Delta d\Vec{q}
 \]
-where the integral is extended over a volume $\Delta$ of the $\Vec{k}$ space where the frequency is between $\omega$ and $\omega+d\omega$. Consider now two surfaces, one identified by $\omega(k)=\omega$ and the other by $\omega(k)=\omega+d\omega$ infinitely close. The following relation holds true:
+where the integral is extended over a volume $\Delta$ of the $\Vec{q}$ space where the frequency is between $\omega$ and $\omega+d\omega$. Consider now two surfaces, one identified by $\omega(q)=\omega$ and the other by $\omega(q)=\omega+d\omega$ infinitely close. The following relation holds true:
 \[
-d\omega=\frac{\partial\omega}{\partial k_x}dk_x+\frac{\partial\omega}{\partial k_y}dk_y+\frac{\partial\omega}{\partial k_z}dk_z=\Vec{\nabla}_{\Vec{k}}\omega\cdot d\Vec{k}=|\Vec{\nabla}_{\Vec{k}}\omega|dk_\perp
+d\omega=\frac{\partial\omega}{\partial q_x}dq_x+\frac{\partial\omega}{\partial q_y}dq_y+\frac{\partial\omega}{\partial q_z}dq_z=\Vec{\nabla}_{\Vec{q}}\omega\cdot d\Vec{q}=|\Vec{\nabla}_{\Vec{q}}\omega|dq_\perp
 \]
-because $\Vec{\nabla}_{\Vec{k}}\omega$ is perpendicular to the surface $\omega(k)=\omega$. We can exploit this fact by writing: 
+because $\Vec{\nabla}_{\Vec{q}}\omega$ is perpendicular to the surface $\omega(q)=\omega$. We can exploit this fact by writing: 
 \[
-d\Vec{k}=dS_\omega\cdot dk_\perp=\frac{dS_\omega}{|\Vec{\nabla}_{\Vec{k}}\omega|}d\omega
+d\Vec{q}=dS_\omega\cdot dq_\perp=\frac{dS_\omega}{|\Vec{\nabla}_{\Vec{q}}\omega|}d\omega
 \]
 which gives a much more convenient expression for the density of states:
 \[
-D(\omega)d\omega=\frac{V}{(2\pi)^3}\left[\int_S\frac{dS_\omega}{|\Vec{v}_g|}\right] \quad \text{equivalently} \quad D(\omega)=\frac{V}{(2\pi)^3}\int d\Vec{k}\delta[\omega(\Vec{k})-\omega]
+D(\omega)d\omega=\frac{V}{(2\pi)^3}\left[\int_S\frac{dS_\omega}{|\Vec{v}_g|}\right] \quad \text{equivalently} \quad D(\omega)=\frac{V}{(2\pi)^3}\int d\Vec{q}\delta[\omega(\Vec{q})-\omega]
 \]
 Another way to compute $D(\omega)$ in 3D is to write:
 \[
@@ -913,7 +918,7 @@ which is the exact expression giving Sommerfeld's result.
 \section{Electron Levels in a Potential}
 \subsection{Periodic Potential}
 The ions in a perfect crystals are arranged in a regular periodic array, therefore one is led to consider the problem of an electron in a potential $U(\Vec{r})$ with the periodicity of the underlying Bravais lattice: $U(\Vec{r}+\Vec{R})=U(\Vec{r})$ for all Bravais lattice vectors $\Vec{R}$.\\
-The problem of electrons in a solid is in principle a many-electron problem, since the full Hamiltonian contains potentials describing the electron-electron interactions. In the independent electron approximation, these interactions are represented by an effective one-electron potential $U(\Vec{r})$. The Schr\"odinger equation for a single electron is then given by:
+The problem of electrons in a solid is in principle a many-electron problem, since the full Hamiltonian contains potentials describing the electron-electron interactions. In the \textbf{independent electron approximation}, these interactions are represented by an effective one-electron potential $U(\Vec{r})$. The Schr\"odinger equation for a single electron is then given by:
 \[
 H\psi(\Vec{r})=\left[-\frac{\hbar^2}{2m}\Vec{\nabla}^2+U(\Vec{r})\right]\psi(\Vec{r})=E\psi(\Vec{r})
 \]
@@ -992,12 +997,12 @@ The Schr\"odinger equation now gives us:
 \[
 \left(\frac{\hbar^2q^2}{2m}-E\right)C_{\Vec{q}}+\sum_{\Vec{G'}}U_{\Vec{G'}}C_{\Vec{q}-\Vec{G'}}=0
 \]
-It is convenient to write $\Vec{q}$ as $\Vec{q}=\Vec{k}-\Vec{G}$ where $\Vec{K}$ is chosen so that $\Vec{k}$ lies in the \nth{1} Brillouin zone.
+It is convenient to write $\Vec{q}$ as $\Vec{q}=\Vec{k}-\Vec{G}$ where $\Vec{G}$ is a reciprocal lattice vector chosen so that $\Vec{k}$ lies in the \nth{1} Brillouin zone.
 \begin{equation}
 \label{central}
 \left[\frac{\hbar^2}{2m}(\Vec{k}-\Vec{G})^2-E\right]C_{\Vec{k}-\Vec{G}}+\sum_{\Vec{G'}}U_{\Vec{G'}}C_{\Vec{k}-\Vec{G}-\Vec{G'}}=0
 \end{equation}
-This is telling us that the wave vector $\Vec{q}$ assumes only the values $\Vec{k},\Vec{k}-\Vec{G'}, \Vec{k}-\Vec{G''},\cdots$ which means that the wave function will be of the form:
+For a fixed $\Vec{k}$ in the \nth{1} Brillouin zone, this set of equations for reciprocal lattice vectors $\Vec{G}$ couples only those coefficients $c_{\Vec{k}},c_{Vec{k}-\Vec{G}},c_{\Vec{k}-\Vec{G'}}, c_{\Vec{k}-\Vec{G''}},\cdots$ whose wave vectors differ from $\Vec{k}$ by a reciprocal lattice vector. The original problem has been separated into $N$ different problems, one for each allowed value of $\Vec{k}$ in the \nth{1} Brillouin zone. The wave function will then be of the form:
 \[
 \psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{i(\Vec{k}-\Vec{G})\cdot\Vec{r}}=e^{i\Vec{k}\cdot\Vec{r}}\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{-i\Vec{G}\cdot\Vec{r}}
 \]
@@ -1010,7 +1015,8 @@ u_{\Vec{k}}(\Vec{r})=\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{-i\Vec{G}\cdot\Vec{r}}
 \[
 \left(\frac{\hbar^2}{2m}\Vec{k}^2-E\right)C_{\Vec{k}}+\sum_{\Vec{G}}U_{\Vec{G}}C_{\Vec{k}-\Vec{G}}=0
 \]
-which is a more compact way of writing the \textbf{central equation}. This set of algebraic equations appears unpleasant because there is in principle an infinite number of coefficients $C_{\Vec{k}-\Vec{G}}$ to be determined but in reality only a few of them will suffice. To see that, work in one dimension, denote with $g$ the shortest $G$ and assume that the potential contains only a single Fourier component, $U_g=U_{-g}=U$, while $U_{G=0}=0$ which is nothing but the mean value of the crystal potential. Moreover, we assume to have $C_{k-ng}=0$ for $n\ge3$.
+which is a more compact way of writing the \textbf{central equation}. This set of algebraic equations appears unpleasant because there is in principle an infinite number of coefficients $C_{\Vec{k}-\Vec{G}}$ to be determined but in reality only a few of them will suffice.\\
+To see that, work in one dimension, denote with $g$ the shortest $G$ and assume that the potential contains only a single Fourier component, $U_g=U_{-g}=U$, while $U_{G=0}=0$ which is nothing but the mean value of the crystal potential. Moreover, we assume to have $C_{k-ng}=0$ for $n\ge3$.
 \[
 \left\{
 \begin{aligned}
@@ -1072,7 +1078,7 @@ For fixed $\Vec{k}$ there is an equation of the form displayed above for each re
 \]
 This requires that for each $\Vec{G}$ either $C_{\Vec{k}-\Vec{G}}=0$ or $E=E^0_{\Vec{k}-\Vec{G}}$. The latter possibility can occur for only a single $\Vec{G}$ (\textit{no degeneracy}) or it might happen that some of the $E^0_{\Vec{k}-\Vec{G}}$ are equal for different choices of $\Vec{G}$ (\textit{degeneracy}).\\\\
 \textbf{Non-degenerate case}\\\\
-If we are in the second case, there will be independent degenerate plane wave solutions. Since any linear combination of degenerate solutions is also a solution, there is complete freedom in choosing the coefficients $C_{\Vec{k}-\Vec{G}}$.\\
+In this case, there will be independent non-degenerate plane wave solutions. Since any linear combination of non-degenerate solutions is also a solution, there is complete freedom in choosing the coefficients $C_{\Vec{k}-\Vec{G}}$.\\
 Fix now $\Vec{k}$ and consider a particular reciprocal lattice vector $\Vec{G_1}$ such that:
 \begin{equation}
 \label{assumption}
@@ -1087,18 +1093,22 @@ We then look at:
 \label{sub}
 (E-E^0_{\Vec{k}-\Vec{G_1}})C_{\Vec{k}-\Vec{G_1}}=\sum_{\Vec{G}\neq\Vec{G_1}}U_{\Vec{G}-\Vec{G_1}}C_{\Vec{k}-\Vec{G}}
 \end{equation}
-We are working with a solution for which $C_{\Vec{k}-\Vec{G}}$ vanishes when $\Vec{G}\neq\Vec{G_1}$ in the limit of vanishing $U$, so we expect the right hand side of the above equation to be of second order in $U$. This can be checked by writing \hyperref[ckk]{Equation (\ref{ckk})} for $\Vec{G}\neq\Vec{G_1}$:
+We are working with a solution for which $C_{\Vec{k}-\Vec{G}}$ vanishes when $\Vec{G}\neq\Vec{G_1}$ in the limit of vanishing $U$, so we expect the right hand side of the above equation to be of second order in $U$. This can be checked by writing \hyperref[ckk]{Equation (\ref{ckk})} for $\Vec{G}\neq\Vec{G_1}$ as:
 \[
-C_{\Vec{k}-\Vec{G}}=\frac{U_{\Vec{G_1}-\Vec{G}}C_{\Vec{k}-\Vec{G_1}}}{E-E^0_{\Vec{k}-\Vec{G}}}+\sum_{\Vec{G'}\neq\Vec{G_1}}\frac{U_{\Vec{G'}-\Vec{G}}C_{\Vec{k}-\Vec{G'}}}{E-E^0_{\Vec{k}-\Vec{G}}}=\frac{U_{\Vec{G_1}-\Vec{G}}C_{\Vec{k}-\Vec{G_1}}}{E-E^0_{\Vec{k}-\Vec{G}}}+\mathcal{O}(U^2)
+C_{\Vec{k}-\Vec{G}}=\frac{U_{\Vec{G_1}-\Vec{G}}C_{\Vec{k}-\Vec{G_1}}}{E-E^0_{\Vec{k}-\Vec{G}}}+\sum_{\Vec{G'}\neq\Vec{G_1}}\frac{U_{\Vec{G'}-\Vec{G}}C_{\Vec{k}-\Vec{G'}}}{E-E^0_{\Vec{k}-\Vec{G}}}
 \]
-In the last step, we used the initial assumption of no near degeneracy in \hyperref[assumption]{Equation (\ref{assumption})}: such a near degeneracy could cause some of the denominators above to be of order $U$, hence cancelling the explicit $U$ in the numerator resulting in additional terms in the sum comparable to the $\Vec{G}=\Vec{G_1}$ term. Putting this in \refeq{sub} gives us:
+We have separated out in the sum above the term containing $C_{\Vec{k}-\Vec{G_1}}$ since it will be much larger than the remaining terms involving $C_{\Vec{k}-\Vec{G'}}$ for $\Vec{G'}\neq\Vec{G_1}$. This conclusion depends on the initial assumption of no near degeneracy made in \refeq{assumption}: such a near degeneracy could cause some of the denominators above to be of order $U$, hence cancelling the explicit $U$ in the numerator resulting in additional terms in the sum comparable to the $\Vec{G}=\Vec{G_1}$ term. Provided there is no near degeneracy, we then have:
+\[
+C_{\Vec{k}-\Vec{G}}=\frac{U_{\Vec{G_1}-\Vec{G}}C_{\Vec{k}-\Vec{G_1}}}{E-E^0_{\Vec{k}-\Vec{G}}}+\mathcal{O}(U^2)
+\]
+Putting this in \refeq{sub} gives us:
 \begin{equation}
 \label{nodeg}
 (E-E^0_{\Vec{k}-\Vec{G_1}})C_{\Vec{k}-\Vec{G_1}}=\sum_{\Vec{G}\neq\Vec{G_1}}\frac{U_{\Vec{G}-\Vec{G_1}}U_{\Vec{G_1}-\Vec{G}}}{E-E^0_{\Vec{k}-\Vec{G}}}C_{\Vec{k}-\Vec{G_1}}+\mathcal{O}(U^3)
 \end{equation}
 The perturbed energy level $E$ differs from the free electron value $E^0_{\Vec{k}-\Vec{G_1}}$ by terms of order $U^2$, therefore it is sufficient to replace $E$ appearing in the denominator on the right hand side by $E^0_{\Vec{k}-\Vec{G_1}}$ :
 \[
-E=E^0_{\Vec{k}-\Vec{G_1}}+\sum_{\Vec{K}}\frac{|U_{\Vec{G}-\Vec{G_1}}|^2}{E^0_{\Vec{k}-\Vec{G_1}}-E^0_{\Vec{k}-\Vec{G}}}+\mathcal{O}(U^3)
+E=E^0_{\Vec{k}-\Vec{G_1}}+\sum_{\Vec{G}}\frac{|U_{\Vec{G}-\Vec{G_1}}|^2}{E^0_{\Vec{k}-\Vec{G_1}}-E^0_{\Vec{k}-\Vec{G}}}+\mathcal{O}(U^3)
 \]
 This is telling us that weakly perturbed non-degenerate bands repel each other. Moreover, the most important feature is that the shift in energy from the free electron value is of second order in $U$.\\\\
 \textbf{Degenerate case}\\\\
@@ -1108,15 +1118,15 @@ Suppose now that the value of $\Vec{k}$ is that there are reciprocal lattice vec
 \]
 In this case, we must treat separately the equations given by \refeq{ckk} with $\Vec{G}$ equal to any of the possible $m$ values $\Vec{G_1},\cdots,\Vec{G_m}$. This gives $m$ equations where we separate from the sum the terms containing the coefficients $C_{\Vec{k}-\Vec{G_j}}$, with $j=1,\cdots,m$, which need to be not small in the limit of vanishing interactions, from the remaining $C_{\Vec{k}-\Vec{G}}$, which will be at most of order $U$.
 \[
-(E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}+\sum_{\Vec{G}\neq\Vec{G_1},\cdots,\Vec{G_m}}U_{\Vec{G}-\Vec{G_i}}C_{\Vec{k}-\Vec{G}}
+(E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}+\sum_{\Vec{G}\neq\Vec{G_1},\cdots,\Vec{G_m}}U_{\Vec{G}-\Vec{G_i}}C_{\Vec{k}-\Vec{G}} \qquad i=1,\cdots,m
 \]
-For the remaining levels, it is possible to write:
+For the remaining non-degenerate levels, it is possible to write:
 \[
 C_{\Vec{k}-\Vec{G}}=\frac{1}{E-E^0_{\Vec{k}-\Vec{G}}}\left[\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G}}C_{\Vec{k}-\Vec{G_j}}+\cancelto{\mathcal{O}(U^2)}{\sum_{\Vec{G'}\neq\Vec{G_1},\cdots,\Vec{G_m}}U_{\Vec{G'}-\Vec{G}}C_{\Vec{k}-\Vec{G'}}}\right]
 \]
 Since $C_{\Vec{k}-\Vec{G}}$ will be at most of order $U$, the second term in the equation above is negligible. With this result we can then write:
 \[
-(E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}+\sum_{j=1}^m\left[\sum_{\Vec{G}\neq\Vec{G_1},\cdots,\Vec{G_m}}\frac{U_{\Vec{G}-\Vec{G_i}}U_{\Vec{G_j}-\Vec{G}}}{E-E^0_{\Vec{k}-\Vec{G}}}\right]C_{\Vec{k}-\Vec{G}}+\mathcal{O}(U^3)
+(E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}+\sum_{j=1}^m\left[\sum_{\Vec{G}\neq\Vec{G_1},\cdots,\Vec{G_m}}\frac{U_{\Vec{G}-\Vec{G_i}}U_{\Vec{G_j}-\Vec{G}}}{E-E^0_{\Vec{k}-\Vec{G}}}\right]C_{\Vec{k}-\Vec{G_j}}+\mathcal{O}(U^3)
 \]
 Compare this with the result obtained in \refeq{nodeg} for the non-degenerate case: previously, we found an explicit expression for the shift in energy to order $U^2$, now to an accuracy of order $U^2$ the determination of the shifts in $m$ nearly degenerate levels reduces to the solution of $m$ equations for $C_{\Vec{k}-\Vec{G_i}}$. The coefficients in the second term on the right hand side are of higher order in $U$ than those in the first term, therefore we can use a simpler form:
 \[
