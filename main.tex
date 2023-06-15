@@ -908,7 +908,7 @@ u\sim g(E_F)k_BTk_BT=g(E_F)(k_BT)^2\Rightarrow c_V\propto g(E_F)k_B^2T
 The exact calculation gives $u=\frac{\pi^2}{6}g(E_F)(k_BT)^2$. What is left to compute is the electron density of states:
 \begin{equation}
 \label{density}
-g(E)&=\frac{1}{(2\pi)^3}2\int\frac{dS_E}{\norm{\Vec{\nabla}_{\Vec{k}}E}}=\frac{2 m}{8\pi^3\hbar^2}\int\frac{d\varphi d\theta\sin\theta k^2}{k}=\frac{8\pi m}{8\pi^3\hbar^2}\frac{\sqrt{2mE}}{\hbar}=\frac{m}{\pi^2\hbar^3}\sqrt{2mE}
+g(E)=\frac{1}{(2\pi)^3}2\int\frac{dS_E}{\norm{\Vec{\nabla}_{\Vec{k}}E}}=\frac{2 m}{8\pi^3\hbar^2}\int\frac{d\varphi d\theta\sin\theta k^2}{k}=\frac{8\pi m}{8\pi^3\hbar^2}\frac{\sqrt{2mE}}{\hbar}=\frac{m}{\pi^2\hbar^3}\sqrt{2mE}
 \end{equation}
 Substituting this in the previous expression for $u$, one obtains:
 \[
@@ -1222,8 +1222,90 @@ The dispersion band now takes the form:
 \[
 \varepsilon(\Vec{k})=E_s-\beta-2\gamma\left[\cos(k_xa)+\cos(k_ya)+\cos(k_za)\right]
 \]
-For bcc and fcc things get complicated just by the fact that one has to consider more nearest neighbours.\\
-The difference between the maximum and the minimum value of the considered band is called \textbf{bandwidth} and it is proportional to the small overlap integral $\gamma$. If $\gamma$ is too large, i.e. the band is too dispersive, the tight-binding method does not apply very well: there could be some overlap between different electronic crystal bands. This behaviour is typical of metals, since valence electrons are not so tightly bound to the ions. In the limit of vanishing overlap, the bandwidth also vanishes and the band becomes degenerate, corresponding to the case in which the electron simply resides on any one of the isolated atoms.
+For bcc and fcc things get complicated just by the fact that one has to consider more nearest neighbours.
+% The difference between the maximum and the minimum value of the considered band is called \textbf{bandwidth} and it is proportional to the small overlap integral $\gamma$. If $\gamma$ is too large, i.e. the band is too dispersive, the tight-binding method does not apply very well: there could be some overlap between different electronic crystal bands. This behaviour is typical of metals, since valence electrons are not so tightly bound to the ions. In the limit of vanishing overlap, the bandwidth also vanishes and the band becomes degenerate, corresponding to the case in which the electron simply resides on any one of the isolated atoms.
+\subsection{Polyacetylene Bands}
+We now want to see the case of polyacetylene, which has a basis therefore one expects to have two bands.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{polyacetylene.pdf}
+    \label{fig:polyacetylene}
+\end{figure}\\
+\noindent
+Given its electronic configuration, there are $sp^2$ orbitals in the plane and a $p_z$ orbital left free. The idea here is to decouple the $\sigma$-bands [$sp^2$] and the $p_z$ bands. The wave function is given by:
+\[
+\psi_k(x)=\sum_{m\in\mathbb{Z}}e^{ikma}[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)] \qquad m=-1,0,+1
+\]
+On the plane, we can forget about the hydrogen atom and schematically represent the problem in the following way:
+\begin{figure}[h]
+    \centering
+    \includegraphics{polyscheme.pdf}
+    \label{fig:polyscheme}
+\end{figure}\\
+\noindent
+The problem we have to solve is:
+\[
+[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\varepsilon_{\Vec{k}}\ket{\psi_k}(x)
+\]
+First of all, we project on $\phi_A$ and $\phi_B$:
+\[
+\left\{
+\begin{aligned}
+&\bra{\phi_A(x)}[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\bra{\phi_A(x)}\varepsilon_k\ket{\psi_{\Vec{k}}(x)}\\
+&\bra{\phi_B(x-a_0)}[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\bra{\phi_B(x-a_0)}\varepsilon_k\ket{\psi_k(x)}
+\end{aligned}
+\right.
+\]
+Start with the first equation and compute the term relative to $H_{\text{at}}$:
+\begin{align*}
+\bra{\phi_A(x)}H_{\text{at}}\ket{\psi_k(x)}=&\sum_me^{ikma}\int dx\phi_A^*(x)H_{\text{at}}[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
+=&\sum_me^{ikma}\int dx[H_{\text{at}}\phi_A^*(x)]^*[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
+=&\sum_me^{ikma}E_A\int dx\phi_A^*(x)[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
+=&E_A\int dx\phi_A^*(x)C_A\phi_A(x)+E_A\int dx\phi_A^*(x)C_B\phi_B(x-a_0)\\
+&+E_Ae^{ika}\int dx\phi_A^*(x)C_B\phi_B(x-a-a_0)\\
+=&E_AC_A
+\end{align*}
+Of the final six terms, only the first one survives because the other ones involve the product of wave functions centered at different sites, hence they are all equal to zero. Let's look now at the term with the potential:
+\begin{align*}
+\bra{\phi_A(x)}\Delta U(x)\ket{\psi_k(x)}=&\sum_me^{ikma}\int dx\phi_A^*(x)\Delta U(x)[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
+=&\int dx\phi_A^*(x)\Delta U(x)C_A\phi_A(x)+\int dx\phi_A^*(x)\Delta U(x)C_B\phi_B(x-a_0)\\
+&+e^{ika}\int dx\phi_A^*(x)\Delta U(x)C_B\phi_B(x-a-a_0)\\
+=&-C_A\beta-C_B\gamma-e^{ika}C_B\gamma=-C_A\beta-C_B\gamma(1+e^{ika})
+\end{align*}
+The term $\bra{\phi_A(x)}\varepsilon_k\ket{\psi_k(x)}$ is simply equal to $C_A\varepsilon_k$, so putting everything together we have:
+\[
+C_A[E_A-\varepsilon_k-\beta]-C_B\gamma[1+e^{ika}]=0
+\]
+Repeating exactly the same arguments for the projection on $\phi_B(x-a_0)$ we end up with:
+\[
+C_B[E_B-\varepsilon_k-\beta]-C_B\gamma[1+e^{-ika}]=0
+\]
+In both cases we made the assumption to have equal transfer integrals $\gamma$. $\beta$ represents just an offset, so it is possible to set it equal to zero. Non-trivial solutions are found by imposing:
+\[
+\det\left(\begin{array}{cc}
+    E_A-\varepsilon_k & -\gamma(1+e^{ika}) \\
+    -\gamma(1+e^{-ika}) & E_B-\varepsilon_k
+\end{array}\right)=0
+\]
+This gives us the following second order equation:
+\[
+\varepsilon_k^2-\varepsilon_k(E_A+E_B)+E_AE_B-2\gamma^2[1+\cos(ka)]=0
+\]
+Solving this leaves us with:
+\begin{align*}
+\varepsilon_k&=\frac{(E_A+E_B)\pm\sqrt{(E_A+E_B)^2-4E_AE_B+8\gamma^2[1+\cos(ka)]}}{2}\\
+&=\frac{(E_A+E_B)\pm\sqrt{(E_A-E_B)^2+16\gamma^2\cos^2(ka/2)}}{2}
+\end{align*}
+For $E_A=0$\,eV, $E_B=1$\,eV and $\gamma=1$\,eV in the \nth{1} Brillouin zone one finds:
+\begin{figure}[h]
+    \centering
+    \includegraphics{polybands.pdf}
+    \label{fig:polybands}
+\end{figure}\\
+\noindent
+Notice that if the valence band (in red) is completely filled and the conduction band (in blue) the material becomes as an insulator: electrons will not go spontaneously on the anti-bonding level. In reality, the the difference in energy between the two bands is small ($\sim$\,eV), so the material behaves more like a semiconductor since thermal excitation is enough to move the electrons to the conduction band.\\
+If instead of carbon there was lithium, with an odd valence, the valence band would be filled only by half of its occupation, making the material behaving as a conductor.
+\subsection{Graphene Bands}
 \newpage
 \section{Semiclassical Model of Electron Dynamics}
 In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions is calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
@@ -1455,6 +1537,8 @@ which represents a hydrogenic atom characterized by $\varepsilon_s$ and $m_c^*$.
 % \[
 % a_d=a_B\frac{m}{m_c^*}\varepsilon_s
 % \]
+\newpage
+\noindent
 For instance, in the case of Si and Ge we have:
 \begin{table}[h]
     \centering
@@ -1469,6 +1553,16 @@ For instance, in the case of Si and Ge we have:
 \end{table}\\
 \noindent The binding energy of donors is rather small with respect to the energy gap of the material, while the effective radius is rather large with respect to the lattice parameter.
 \subsection{Number of carriers}
+Impurities that contribute to the carrier density of a semiconductor are called \textbf{donors} if they supply additional electrons to the conduction band and \textbf{acceptors} if they supply additional holes to the valence band.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{semiconductors.pdf}
+    \label{fig:semiconductors}
+\end{figure}\\
+\noindent
+Looking at picture (a), we have the schematic substitution of a donor impurity (arsenic) in germanium. Ge has valence 4 while As has valence 5: the four external electrons form four covalent bonds with the neighbouring Ge atoms. Each As$^+$ ion introduces a donor level below the minimum of the conduction band, the fifth electron is bound to the As$^+$ ion by Coulomb attraction and it is donated to the conduction band at sufficiently high temperature.\\
+In picture (b) instead we can see the schematic substitution of an acceptor impurity (gallium) in germanium. Ga has valence 3: the four external electrons form four covalent bonds with the neighbouring Ge atoms. Each Ga$^-$ ion introduces an acceptor level above the maximum of the valence band, the hole is bound to the Ga$^-$ ion by Coulomb attraction and it is donated to the valence band at sufficiently high temperature.\\
+In this framework, each donor atom contributes with one free electron to the crystal, becoming positively charged after giving it off. On the other hand, each acceptor atom contributes with one hole to the crystal by \textit{accepting} one electron from a neighbouring bond, becoming negatively charged after giving off the hole (or equivalently accepting an electron).\\
 To assess the extent to which carriers can be thermally excited from impurity levels we have to compute the mean number of electrons at a given temperature and chemical potential. Assume that the density of impurities is low enough that the interaction of electrons bound at different impurity sites is negligible. The number density of electrons $n_d$ (or holes $p_a$) bound to donor (or acceptor) sites is obtained by multiplying the density of donors $N_d$ (or acceptors $N_a$) by the mean number of electrons (or holes) there would be if only a single impurity was present.\\\\
 \textbf{Donor level}\\\\
 Ignoring electron-electron interactions, the level could either be empty, contain one electron of either spin or two electrons of opposite spins. The Coulomb repulsion of two localized electrons raises the energy of the doubly occupied level so high that double occupation is essentially prohibited. The mean number of electrons is given by:
@@ -1484,11 +1578,16 @@ The number density of electrons therefore is:
 n_d=\Braket{n}N_d=\frac{N_d}{1+\frac{1}{2}e^{\beta(E_d-\mu)}}
 \]
 \textbf{Acceptor level}\\\\
-An acceptor level can be singly or doubly occupied, but not empty. An acceptor impurity can be seen as a fixed negatively charged attractive center superimposed on an unaltered host atom. With the same reasoning as before we calculate the mean number of electrons at an acceptor level, keeping in mind that the state with no electrons is prohibited, the state with one electron has energy $E_a$ and the state with two electrons has energy $2E_a$:
+Just like the donor level, an acceptor level can be empty or singly occupied. The configuration with two holes localized in the presence of the acceptor impurity has a very high energy due to Coulomb repulsion, so double occupation is essentially prohibited.\\
+To compute the mean number of hols $\Braket{p}$ we take the difference between the maximum number of electrons the level can hold and the mean number of electrons in the level, i.e.:
+\[
+\Braket{p}=2-\Braket{n}
+\]
+The mean number of electrons at an acceptor level is calculated with the same procedure illustrated for the donor level: singly occupied states correspond to states with one electron of energy $E_a$ while an empty state is state with two electrons of energy $2E_a$:
 \[
 \Braket{n}=\frac{2e^{-\beta(E_a-\mu)}+2e^{-\beta(2E_a-2\mu)}}{2e^{-\beta(E_a-\mu)}+e^{-\beta(2E_a-2\mu)}}=\frac{1+e^{-\beta(E_a-\mu)}}{1+\frac{1}{2}e^{-\beta(E_a-\mu)}}
 \]
-The mean number of holes $\Braket{p}$ in the acceptor level is the difference between the maximum number of electrons the level can hold (two) and the mean number of electrons in the level $(\Braket{n})$:
+It follows that the mean number of holes $\Braket{p}$ in the acceptor level is:
 \[
 \Braket{p}=2-\Braket{n}=2-\frac{1+e^{-\beta(E_a-\mu)}}{1+\frac{1}{2}e^{-\beta(E_a-\mu)}}=\frac{1}{1+\frac{1}{2}e^{-\beta(E_a-\mu)}}
 \]
