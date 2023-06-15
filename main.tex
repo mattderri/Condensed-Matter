@@ -1196,10 +1196,13 @@ If all the coefficients $b_m$ are zero except for a single atomic $s$-level, we 
 &+\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r})+\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})
 \end{align*}
 $\varepsilon(\Vec{k})$ is then given by:
-\begin{align*}
+\begin{equation}
+\label{betagamma}
+\begin{aligned}
 \varepsilon(\Vec{k})&=E_s-\frac{{\color{red}{-\int d\Vec{r}|\psi_s(\Vec{r})|^2\Delta U(\Vec{r})}}{\color{green}{-}}\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{green}{\int d\Vec{r}\psi_s^*(\Vec{r})\Delta U(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}{1+\sum_{\Vec{R}\neq0}e^{i\Vec{k}\cdot\Vec{R}}{\color{blue}{\int d\Vec{r}\psi_s^*(\Vec{r})\psi_s(\Vec{r}-\Vec{R})}}}\\
 &=E_s-\frac{{\color{red}{\beta}}+\sum_{\Vec{R}\neq0}{\color{green}{\gamma(\Vec{R})}}e^{i\Vec{k}\cdot\Vec{R}}}{1+\sum_{\Vec{R}\neq0}{\color{blue}{\alpha(\Vec{R})}}e^{i\Vec{k}\cdot\Vec{R}}}\underset{\alpha\to0}{\simeq}E_s-\beta-\sum_{\Vec{R}\neq0}\gamma(\Vec{R})e^{i\Vec{k}\cdot\Vec{R}}
-\end{align*}
+\end{aligned}
+\end{equation}
 The $s$-orbital is spherical, so we have that $\alpha(\Vec{R})=\alpha(-\Vec{R})$. Moreover, the crystal has inversion symmetry:
 \[
 \Delta U(\Vec{r})=\Delta U(-\Vec{r})\Rightarrow\gamma(\Vec{R})=\gamma(-\Vec{R})
@@ -1224,7 +1227,7 @@ The dispersion band now takes the form:
 \]
 For bcc and fcc things get complicated just by the fact that one has to consider more nearest neighbours.
 % The difference between the maximum and the minimum value of the considered band is called \textbf{bandwidth} and it is proportional to the small overlap integral $\gamma$. If $\gamma$ is too large, i.e. the band is too dispersive, the tight-binding method does not apply very well: there could be some overlap between different electronic crystal bands. This behaviour is typical of metals, since valence electrons are not so tightly bound to the ions. In the limit of vanishing overlap, the bandwidth also vanishes and the band becomes degenerate, corresponding to the case in which the electron simply resides on any one of the isolated atoms.
-\subsection{Polyacetylene Bands}
+\subsection{Polyacetylene Bands Structure}
 We now want to see the case of polyacetylene, which has a basis therefore one expects to have two bands.
 \begin{figure}[h]
     \centering
@@ -1251,7 +1254,7 @@ First of all, we project on $\phi_A$ and $\phi_B$:
 \[
 \left\{
 \begin{aligned}
-&\bra{\phi_A(x)}[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\bra{\phi_A(x)}\varepsilon_k\ket{\psi_{\Vec{k}}(x)}\\
+&\bra{\phi_A(x)}[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\bra{\phi_A(x)}\varepsilon_k\ket{\psi_k(x)}\\
 &\bra{\phi_B(x-a_0)}[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\bra{\phi_B(x-a_0)}\varepsilon_k\ket{\psi_k(x)}
 \end{aligned}
 \right.
@@ -1265,18 +1268,20 @@ Start with the first equation and compute the term relative to $H_{\text{at}}$:
 &+E_Ae^{ika}\int dx\phi_A^*(x)C_B\phi_B(x-a-a_0)\\
 =&E_AC_A
 \end{align*}
-Of the final six terms, only the first one survives because the other ones involve the product of wave functions centered at different sites, hence they are all equal to zero. Let's look now at the term with the potential:
+Referring to the previous scheme and working with nearest neighbours interactions only, when computing the product with $\phi_A(x-ma)$, only the interaction with $m=0$ takes place, while for $\phi_B(x-ma-a_0)$ we have $m=0,+1$. Of the final three terms, only the first one survives because the other ones involve the product of wave functions centered at different sites, hence they are all equal to zero.\\
+Let's look now at the term with the potential:
 \begin{align*}
 \bra{\phi_A(x)}\Delta U(x)\ket{\psi_k(x)}=&\sum_me^{ikma}\int dx\phi_A^*(x)\Delta U(x)[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
 =&\int dx\phi_A^*(x)\Delta U(x)C_A\phi_A(x)+\int dx\phi_A^*(x)\Delta U(x)C_B\phi_B(x-a_0)\\
 &+e^{ika}\int dx\phi_A^*(x)\Delta U(x)C_B\phi_B(x-a-a_0)\\
 =&-C_A\beta-C_B\gamma-e^{ika}C_B\gamma=-C_A\beta-C_B\gamma(1+e^{ika})
 \end{align*}
+The possible values of $m$ are the same as before and we introduced the quantity $\beta$ and $\gamma$ from \refeq{betagamma}.\\
 The term $\bra{\phi_A(x)}\varepsilon_k\ket{\psi_k(x)}$ is simply equal to $C_A\varepsilon_k$, so putting everything together we have:
 \[
 C_A[E_A-\varepsilon_k-\beta]-C_B\gamma[1+e^{ika}]=0
 \]
-Repeating exactly the same arguments for the projection on $\phi_B(x-a_0)$ we end up with:
+Repeating exactly the same arguments for the projection on $\phi_B(x-a_0)$, using $m=0,-1$, we end up with:
 \[
 C_B[E_B-\varepsilon_k-\beta]-C_B\gamma[1+e^{-ika}]=0
 \]
@@ -1305,7 +1310,97 @@ For $E_A=0$\,eV, $E_B=1$\,eV and $\gamma=1$\,eV in the \nth{1} Brillouin zone on
 \noindent
 Notice that if the valence band (in red) is completely filled and the conduction band (in blue) the material becomes as an insulator: electrons will not go spontaneously on the anti-bonding level. In reality, the the difference in energy between the two bands is small ($\sim$\,eV), so the material behaves more like a semiconductor since thermal excitation is enough to move the electrons to the conduction band.\\
 If instead of carbon there was lithium, with an odd valence, the valence band would be filled only by half of its occupation, making the material behaving as a conductor.
-\subsection{Graphene Bands}
+\newpage
+\subsection{Graphene Bands Structure}
+We move now to study the graphene band structure, whose orbital configuration is displayed in the picture below.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{graphene.png}
+    \label{fig:graphene}
+\end{figure}\\
+\noindent
+In the plane, we can see this schematically as a honeycomb lattice with a basis.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graphenescheme.pdf}
+    \label{fig:graphenescheme}
+\end{figure}\\
+\noindent
+The vectors $\Vec{a_1}$ and $\Vec{a_2}$ are defined as:
+\[
+\Vec{a_1}=\frac{a}{2}(\sqrt{3},1) \qquad \Vec{a_2}=\frac{a}{2}(\sqrt{3},-1)
+\]
+Things are more complicated than the previous case since now we are working with coordinates on a plane, instead of considering just a 1D lattice. The wave function in this case is given by:
+\[
+\psi_{\Vec{k}}(\Vec{r})=\sum_{l,m\in\mathbb{Z}}e^{i\Vec{k}\cdot(l\Vec{a_1}+m\Vec{a_2})}[C_A\phi_A(\Vec{r}-l\Vec{a_1}-m\Vec{a_2})+C_B\phi_B(\Vec{r}-l\Vec{a_1}-m\Vec{a_2}-a_0\hat{x})]
+\]
+Just like we did for the polyacetylene, we project on $\phi_A$ and $\phi_B$:
+\[
+\left\{
+\begin{aligned}
+&\bra{\phi_A(\Vec{r})}[H_{\text{at}}+\Delta U(x)]\ket{\psi_{\Vec{k}}(\Vec{r})}=\bra{\phi_A(\Vec{r})}\varepsilon_{\Vec{k}}\ket{\psi_{\Vec{k}}(\Vec{r})}\\
+&\bra{\phi_B(\Vec{r}-a_0)}[H_{\text{at}}+\Delta U(x)]\ket{\psi_{\Vec{k}}(\Vec{r})}=\bra{\phi_B(\Vec{r}-a_0)}\varepsilon_k\ket{\psi_{\Vec{k}}(\Vec{r})}
+\end{aligned}
+\right.
+\]
+Take as a reference the cell in the center of the scheme: for the atom labeled with $A$, the possible values of $l$ and $m$ connecting nearest neighbours are $(0,0), (-1,0)$ and $(0,-1)$. We then compute the first term:
+\begin{align*}
+\bra{\phi_A(\Vec{r})}H_{\text{at}}\ket{\psi_{\Vec{k}}(\Vec{r})}=&E_A\int d\Vec{r}\phi_A^*(\Vec{r})C_A\phi_A(\Vec{r})+E_A\int d\Vec{r}\phi_A^*(\Vec{r})C_B\phi_B(\Vec{r}-a_0\hat{x})\\
+&+E_Ae^{-i\Vec{k}\cdot\Vec{a_1}}\int d\Vec{r}\phi_A^*(\Vec{r})C_B\phi_B(\Vec{r}+\Vec{a_1}-a_0\hat{x})\\
+&+E_Ae^{-i\Vec{k}\cdot\Vec{a_2}}\int d\Vec{r}\phi_A^*(\Vec{r})C_B\phi_B(\Vec{r}+\Vec{a_2}-a_0\hat{x})\\
+&=C_AE_A
+\end{align*}
+The last three terms are equal to zero because they contain the product of wave functions centered at different sites.\\
+The term involving the potential gives us:
+\begin{align*}
+\bra{\phi_A(\Vec{r})}\Delta U(\Vec{r})\ket{\psi_{\Vec{k}}(\Vec{r})}=&\int d\Vec{r}\phi_A^*(\Vec{r})\Delta U(\Vec{r})C_A\phi_A(\Vec{r})+\int d\Vec{r}\phi_A^*(\Vec{r})\Delta U(\Vec{r})C_B\phi_B(\Vec{r}-a_0\hat{x})\\
+&+e^{-i\Vec{k}\cdot\Vec{a_1}}\int d\Vec{r}\phi_A^*(\Vec{r})\Delta U(\Vec{r})C_B\phi_B(\Vec{r}+\Vec{a_1}-a_0\hat{x})\\
+&+e^{-i\Vec{k}\cdot\Vec{a_2}}\int d\Vec{r}\phi_A^*(\Vec{r})\Delta U(\Vec{r})C_B\phi_B(\Vec{r}+\Vec{a_2}-a_0\hat{x})\\
+&=-C_A\beta-C_B\gamma-C_B\gamma e^{-i\Vec{k}\cdot\Vec{a_1}}-C_B\gamma e^{-i\Vec{k}\cdot\Vec{a_2}}\\
+&=-C_A\beta-C_B\gamma[1+e^{-i\Vec{k}\cdot\Vec{a_1}}+e^{-i\Vec{k}\cdot\Vec{a_2}}]
+\end{align*}
+The term $\bra{\phi_A(\Vec{r})}\varepsilon_{\Vec{k}}\ket{\psi_{\Vec{k}}(\Vec{r})}$ gives us $C_A\varepsilon_{\Vec{k}}$ so putting everything together we end up with:
+\[
+C_A[E_A-\varepsilon_{\Vec{k}}-\beta]-C_B\gamma[1+e^{-i\Vec{k}\cdot\Vec{a_1}}+e^{-i\Vec{k}\cdot\Vec{a_2}}]=0
+\]
+When projecting onto $\phi_B$ we do exactly the same with the only difference that now we take $(l,m)=(0,0),(1,0),(0,1)$, obtaining at the end:
+\[
+C_B[E_B-\varepsilon_{\Vec{k}}-\beta]-C_A\gamma[1+e^{+i\Vec{k}\cdot\Vec{a_1}}+e^{+i\Vec{k}\cdot\Vec{a_2}}]=0
+\]
+Under the assumption of equal transfer integrals $\gamma$ and setting $\beta=0$, we can compute the non-trivial solutions of this problem by imposing:
+\[
+\det\left(\begin{array}{cc}
+    E_A-\varepsilon_k & -\gamma[1+e^{-i\Vec{k}\cdot\Vec{a_1}}+e^{-i\Vec{k}\cdot\Vec{a_2}}]\\
+    -\gamma[1+e^{+i\Vec{k}\cdot\Vec{a_1}}+e^{+i\Vec{k}\cdot\Vec{a_2}}] & E_B-\varepsilon_k
+\end{array}\right)=0
+\]
+After some tedious calculations, one gets the following second order equation:
+\[
+\varepsilon_{\Vec{k}}^2-\varepsilon_{\Vec{k}}(E_A+E_B)+E_AE_B-\gamma^2\left[1+4\cos\left(\frac{k_xa\sqrt{3}}{2}\right)\cos\left(\frac{k_ya}{2}\right)+4\cos^2\left(\frac{k_ya}{2}\right)\right]=0
+\]
+The solution is:
+\[
+\varepsilon_{\Vec{k}}=\frac{E_A+E_B\pm\sqrt{(E_A-E_B)^2+4\gamma^2\left[1+4\cos\left(\frac{k_xa\sqrt{3}}{2}\right)\cos\left(\frac{k_ya}{2}\right)+4\cos^2\left(\frac{k_ya}{2}\right)\right]}}{2}
+\]
+By setting $E_A=E_B=E$, this gets simplified as:
+\[
+\varepsilon_{\Vec{k}}=E\pm\gamma\sqrt{1+4\cos\left(\frac{k_xa\sqrt{3}}{2}\right)\cos\left(\frac{k_ya}{2}\right)+4\cos^2\left(\frac{k_ya}{2}\right)}
+\]
+\begin{wrapfigure}{r}{0.45\textwidth}
+\includegraphics[width=0.45\textwidth]{brillouinzone.pdf}
+\end{wrapfigure}
+Check now the behaviour of this dispersion band in the \nth{1} Brillouin zone: for a 2D hexagonal lattice, the \nth{1} Brillouin zone corresponds to another hexagonal rotated by 90$^\circ$ of side $b=4\pi\sqrt{3}/9l$, where $l$ is the side of the hexagonal lattice. In our case, this corresponds to:
+\[
+b=\frac{4\pi\sqrt{3}}{9a_0}=\frac{4\pi}{3a}
+\]
+The high symmetry points illustrated in the picture have coordinates given by:
+\[
+\Gamma=(0,0) \qquad M=\left(\frac{b\sqrt{3}}{2},0\right)=\left(\frac{2\pi}{\sqrt{3}a},0\right) \qquad K=\left(\frac{b\sqrt{3}}{2},\frac{b}{2}\right)=\left(\frac{2\pi}{\sqrt{3}a},\frac{2\pi}{3a}\right)
+\]
+We then have:
+\[
+\varepsilon(\Gamma)=E\pm3\gamma \qquad \varepsilon(M)=E\pm\gamma \qquad \varepsilon(K)=E
+\]
 \newpage
 \section{Semiclassical Model of Electron Dynamics}
 In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions is calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
