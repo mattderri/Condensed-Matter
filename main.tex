@@ -1235,14 +1235,14 @@ We now want to see the case of polyacetylene, which has a basis therefore one ex
     \label{fig:polyacetylene}
 \end{figure}\\
 \noindent
-Given its electronic configuration, there are $sp^2$ orbitals in the plane and a $p_z$ orbital left free. The idea here is to decouple the $\sigma$-bands [$sp^2$] and the $p_z$ bands. The wave function is given by:
+Given its electronic configuration, for each atom there are 3 $sp^2$ orbitals in the plane and a $p_z$ orbital left free, hence a total of 6 $sp^2$ orbitals and 2 $p_z$. The idea here is to decouple the $\sigma$-bands [$sp^2$] and the $p_z$ bands. The wave function is given by:
 \[
 \psi_k(x)=\sum_{m\in\mathbb{Z}}e^{ikma}[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)] \qquad m=-1,0,+1
 \]
 On the plane, we can forget about the hydrogen atom and schematically represent the problem in the following way:
 \begin{figure}[h]
     \centering
-    \includegraphics{polyscheme.pdf}
+    \includegraphics[width=0.65\textwidth]{polyscheme.pdf}
     \label{fig:polyscheme}
 \end{figure}\\
 \noindent
@@ -1312,25 +1312,24 @@ Notice that if the valence band (in red) is completely filled and the conduction
 If instead of carbon there was lithium, with an odd valence, the valence band would be filled only by half of its occupation, making the material behaving as a conductor.
 \newpage
 \subsection{Graphene Bands Structure}
-We move now to study the graphene band structure, whose orbital configuration is displayed in the picture below.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.45\textwidth]{graphene.png}
-    \label{fig:graphene}
-\end{figure}\\
-\noindent
-In the plane, we can see this schematically as a honeycomb lattice with a basis.
+We move now to study the graphene band structure. Just like the polyacetylene, for each atom there are 3 $sp^2$ orbitals in the plane and a $p_z$ orbital left free. The complication here is due to the fact that the lattice is not 1D but we are in a plane, with the honeycomb lattice represented below.
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{graphene.png}
+%     \label{fig:graphene}
+% \end{figure}\\
+% \noindent
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{graphenescheme.pdf}
     \label{fig:graphenescheme}
 \end{figure}\\
 \noindent
-The vectors $\Vec{a_1}$ and $\Vec{a_2}$ are defined as:
+The size of the hexagon is taken to be $a_0=a/\sqrt{3}$ and the vectors $\Vec{a_1}, \Vec{a_2}$ are defined as:
 \[
 \Vec{a_1}=\frac{a}{2}(\sqrt{3},1) \qquad \Vec{a_2}=\frac{a}{2}(\sqrt{3},-1)
 \]
-Things are more complicated than the previous case since now we are working with coordinates on a plane, instead of considering just a 1D lattice. The wave function in this case is given by:
+The wave function in this case is given by:
 \[
 \psi_{\Vec{k}}(\Vec{r})=\sum_{l,m\in\mathbb{Z}}e^{i\Vec{k}\cdot(l\Vec{a_1}+m\Vec{a_2})}[C_A\phi_A(\Vec{r}-l\Vec{a_1}-m\Vec{a_2})+C_B\phi_B(\Vec{r}-l\Vec{a_1}-m\Vec{a_2}-a_0\hat{x})]
 \]
@@ -1379,17 +1378,18 @@ After some tedious calculations, one gets the following second order equation:
 \varepsilon_{\Vec{k}}^2-\varepsilon_{\Vec{k}}(E_A+E_B)+E_AE_B-\gamma^2\left[1+4\cos\left(\frac{k_xa\sqrt{3}}{2}\right)\cos\left(\frac{k_ya}{2}\right)+4\cos^2\left(\frac{k_ya}{2}\right)\right]=0
 \]
 The solution is:
-\[
-\varepsilon_{\Vec{k}}=\frac{E_A+E_B\pm\sqrt{(E_A-E_B)^2+4\gamma^2\left[1+4\cos\left(\frac{k_xa\sqrt{3}}{2}\right)\cos\left(\frac{k_ya}{2}\right)+4\cos^2\left(\frac{k_ya}{2}\right)\right]}}{2}
-\]
+\begin{equation}
+\label{bandform}
+\varepsilon_{\Vec{k}}=\frac{E_A+E_B}{2}\pm\frac{1}{2}\sqrt{(E_A-E_B)^2+4\gamma^2\left[1+4\cos\left(\frac{k_xa\sqrt{3}}{2}\right)\cos\left(\frac{k_ya}{2}\right)+4\cos^2\left(\frac{k_ya}{2}\right)\right]}
+\end{equation}
 By setting $E_A=E_B=E$, this gets simplified as:
 \[
 \varepsilon_{\Vec{k}}=E\pm\gamma\sqrt{1+4\cos\left(\frac{k_xa\sqrt{3}}{2}\right)\cos\left(\frac{k_ya}{2}\right)+4\cos^2\left(\frac{k_ya}{2}\right)}
 \]
-\begin{wrapfigure}{r}{0.45\textwidth}
+\begin{wrapfigure}[9]{r}{0.45\textwidth}
 \includegraphics[width=0.45\textwidth]{brillouinzone.pdf}
 \end{wrapfigure}
-Check now the behaviour of this dispersion band in the \nth{1} Brillouin zone: for a 2D hexagonal lattice, the \nth{1} Brillouin zone corresponds to another hexagonal rotated by 90$^\circ$ of side $b=4\pi\sqrt{3}/9l$, where $l$ is the side of the hexagonal lattice. In our case, this corresponds to:
+Check now the behaviour of this dispersion band in the \nth{1} Brillouin zone: for a 2D hexagonal lattice, the \nth{1} Brillouin zone corresponds to another hexagon rotated by 90$^\circ$ of side $b=4\pi\sqrt{3}/9l$, where $l$ is the side of the hexagonal lattice. In our case, this corresponds to:
 \[
 b=\frac{4\pi\sqrt{3}}{9a_0}=\frac{4\pi}{3a}
 \]
@@ -1401,6 +1401,56 @@ We then have:
 \[
 \varepsilon(\Gamma)=E\pm3\gamma \qquad \varepsilon(M)=E\pm\gamma \qquad \varepsilon(K)=E
 \]
+Along the $\Gamma-M$ direction, $k_y$ is fixed to zero and the only component which varies is $k_x$:
+\[
+\varepsilon_{\Gamma-M}(k_x)=E\pm\gamma\sqrt{5+4\cos\left(\frac{k_xa\sqrt{3}}{2}\right)} \qquad k_x\in\left[0,\frac{2\pi}{\sqrt{3}a}\right]
+\]
+Moving now in the $M-K$ direction, $k_x$ is fixed and $k_y$ varies:
+\[
+\varepsilon_{M-K}(k_y)=E\pm\gamma\sqrt{1-4\cos\left(\frac{k_ya}{2}\right)+4\cos^2\left(\frac{k_ya}{2}\right)} \qquad k_y\in\left[0,\frac{2\pi}{3a}\right]
+\]
+Going from $K$ to $\Gamma$, we have $k_x=k\cos(30^\circ)=k\sqrt{3}/2$ and $k_y=k\sin(30^\circ)=k/2$:
+\[
+\varepsilon_{K-\Gamma}(k)=E\pm\gamma\sqrt{1+4\cos\left(\frac{3ka}{4}\right)\cos\left(\frac{ka}{4}\right)+4\cos^2\left(\frac{ka}{4}\right)} \qquad k\in\left[0,\frac{4\pi}{3a}\right]
+\]
+Putting everything together and setting $E=0$\,eV, $\gamma=1$\,eV we get the following bands:
+\begin{figure}[h]
+    \centering
+    \includegraphics{graphenebands.pdf}
+    \label{fig:graphenebands}
+\end{figure}\\
+\noindent
+Take now \refeq{bandform} and expand it around $K$, i.e. around the point where the two dispersion curves meet.
+Define the following quantities:
+\[
+\varepsilon_x:=\left(k_x-\frac{2\pi}{\sqrt{3}a}\right)a \qquad \varepsilon_y:=\left(k_y-\frac{2\pi}{3a}\right)a
+\]
+Writing the dispersion relation in terms of these newly defined quantities one gets:
+\[
+\left\{
+\begin{aligned}
+&\cos\left[\left(\frac{\varepsilon_x}{a}+\frac{2\pi}{\sqrt{3}a}\right)\frac{a\sqrt{3}}{2}\right]=\cos\left(\frac{\varepsilon_x\sqrt{3}}{2}+\pi\right)=-\cos\left(\frac{\varepsilon_x\sqrt{3}}{2}\right)\simeq-\left(1-\frac{3\varepsilon_x^2}{8}\right)\\
+&\cos\left[\left(\frac{\varepsilon_y}{a}+\frac{2\pi}{3a}\right)\frac{a}{2}\right]=\cos\left(\frac{\varepsilon_y}{2}+\frac{\pi}{3}\right)=\frac{1}{2}\cos\left(\frac{\varepsilon_y}{2}\right)-\frac{\sqrt{3}}{2}\sin\left(\frac{\varepsilon_y}{2}\right)\simeq\frac{1}{2}-\frac{\varepsilon_y^2}{16}-\frac{\sqrt{3}\varepsilon_y}{4}
+\end{aligned}
+\right.
+\]
+Plugging this in \refeq{bandform} and performing some slighlty annoying calculations, one gets:
+\[
+\varepsilon_{\Vec{k}}\simeq\pm\frac{\gamma\sqrt{3}}{2}\sqrt{\varepsilon_x^2+\varepsilon_y^2}
+\]
+From the definitions, it follows that:
+\[
+\varepsilon=(\varepsilon_x,\varepsilon_y)=a(\Vec{k}-\Vec{K})
+\]
+so $\varepsilon_{\Vec{k}}$ becomes:
+\[
+\varepsilon_{\Vec{k}}\simeq\pm\frac{\sqrt{3}}{2}\gamma\sqrt{\varepsilon_x^2+\varepsilon_y^2}=\pm\frac{\sqrt{3}}{2}\gamma a|\Vec{k}-\Vec{K}|=\pm\frac{\sqrt{3}}{2}\gamma a\Delta k
+\]
+What kind of particles have energy which depends linearly on $k$? For relativistic particles, we know that:
+\[
+E=\sqrt{p^2c^2+m^2c^4} \qquad p=\hbar k
+\]
+which exhibits a linear dependence on $k$ for $m=0$: these are dispersion curves for \textbf{massless Dirac fermions}.
 \newpage
 \section{Semiclassical Model of Electron Dynamics}
 In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions is calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
