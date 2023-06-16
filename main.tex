@@ -238,23 +238,38 @@ d=n_1a(1,0,0)\frac{\frac{2\pi}{a}(h,k,l)}{\frac{2\pi}{a}\sqrt{h^2+k^2+l^2}}\unde
 
 \newpage
 \section{Diffraction}
-When waves propagates through a crystal with wavelength of the same order of the primitive cell dimensions, there will be the phenomenon of \textbf{diffraction}. Different type of waves can propagates through the crystal:
+Suppose now to take a function $\rho(\Vec{r}+\Vec{R})=\rho(\Vec{r})$, where $\rho(\Vec{r})\neq\delta(\Vec{r})$ and it is in general non-zero on an extended region of space. In this region, one can identify a second vector $\Vec{r'}$ inside the lattice site, so that $\Vec{r}=\Vec{R}+\Vec{r'}$. We take the Fourier transform of this object:
+\[
+\text{FT}[\rho(\Vec{r})]=\sum_{\Vec{R}}\int_\Omega d\Vec{r'}e^{i\Vec{k}\cdot(\Vec{r'}+\Vec{R})}\rho(\Vec{r'}+\Vec{R})=\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\int_\Omega d\Vec{r'}e^{i\Vec{k}\cdot\Vec{r'}}\rho(\Vec{r'})=\frac{(2\pi)^3}{\Omega}\sum_{\Vec{G}}\delta(\Vec{k}-\Vec{G})S(\Vec{k})
+\]
+$S(\Vec{k})$ is the Fourier transform of the electrical charge distribution which modulates the intensity and it is the object we can experimentally measure. But how? The idea is to let a flux of particles pass through a monochromator, which selects specific energies and wave vectors, before they hit a sample of material we want to study. Particles will scatter elastically from the sample and get collected by a detector in order to perform the analysis. What we are interested in is to know whether the material displays some symmetry or if it has a basis.\\
+In crystals, typical interatomic distances are of the order of $\sim5$\,\AA\, therefore we need probes, i.e. particles, with such wavelength. There are three options:
 \begin{itemize}
-    \item Electromagnetic waves (X-rays)
-    \item Charged particles (electrons)
-    \item Neutral particles (neutrons)
+    \item \textbf{Photons} The dispersion relation is simply:
+    \[
+    E=\hbar\omega=\hbar\frac{2\pi c}{\lambda}\Rightarrow\lambda\,[\text{\AA}]=\frac{2\pi\hbar c}{E}\simeq\frac{12398.5}{E\,[\text{eV}]}
+    \]
+    In order to have the desired wavelength, it has to be $E\sim(10-50)\,$keV: photons of such energy are \textbf{X-rays}. Being them neutral, they won't be affected by the electromagnetic force and interact with the nucleus and electrons as well.
+    \item \textbf{Neutrons} The dispersion relation in this case is:
+    \[
+    E=\frac{\hbar^2k^2}{2m_n}\Rightarrow\lambda\,[\text{\AA}]=\frac{2\pi\hbar}{\sqrt{2m_nE}}\simeq\frac{0.2862}{\sqrt{E\,[\text{eV}]}}
+    \]
+    In order to have $\lambda\sim1$\,\AA\, it has to be $E\sim80$\,meV. Notice that at room temperature, $k_BT\sim30$\,meV: this means that neutrons can measure not only the lattice constant but also provide information about the vibrational modes of the crystal.
+    \item \textbf{Electrons} The dispersion relation is the same seen for neutrons, with the only difference in the masses of the particles. This means:
+    \[
+    \lambda\,[\text{\AA}]=\frac{2\pi\hbar}{\sqrt{2m_eE}}\simeq\frac{12.264}{\sqrt{E\,[\text{eV}]}}
+    \]
+    It follows that $E\sim150$\,eV to have $\lambda\sim1$\,\AA\,. Because they interact with the charge of the atom, electrons do not penetrate much in the material therefore they are used to study the surface of the material.
 \end{itemize}
-For X-rays, diffraction is caused by the electrons in the crystal, for charged particles it is due to electrons and nuclei while for neutral particles is produced essentially by the nuclei in the crystal.\\
-Typical interatomic distances in a solid are on the order of an angstrom $(10^{-8}$\,cm). An electromagnetic probe of the microscopic structure must have a wavelength at least this short, corresponding to an energy of $\sim10^3$\,eV: these are characteristic X-ray energies.
+The scheme is the following: suppose to have a lattice and a wave scattering on a certain lattice point $\Vec{\rho}$. Let $\Vec{k}$ be the wave vector of the incoming wave and $\Vec{k'}$ the wave vector of the outgoing wave. We make two important assumptions here: being the source far away, the incoming wave can be approximated as a plane wave and under the hypothesis of elastic scattering the two waves have the same wave vector, $|\Vec{k}|=|\Vec{k'|}$.\\
 \begin{figure}[h]
     \centering
     \includegraphics{diffraction.pdf}
-     
     \label{fig:diffraction}
 \end{figure}\\
-In every scattering phenomenon from a point $\Vec{\rho}$, the amplitude of the diffused wave in the point identified by $\Vec{r}$ is proportional to the amplitude of the incoming wave in the scattering point (which can be approximated as a plane wave being the source far away) and to the amplitude of the outgoing spherical wave:
+In every scattering phenomenon from a point $\Vec{\rho}$, the amplitude of the diffused wave in the point identified by $\Vec{r}$ is proportional to the amplitude of the incoming plane wave in the scattering point and to the amplitude of the outgoing spherical wave:
 \[
-\text{Incoming plane wave:}\;\; F_0e^{i\Vec{k}\cdot\Vec{\rho}} \qquad \text{Outgoing spherical wave:}\;\; D\frac{e^{i\Vec{k'}\cdot\Vec{r}}}{\Vec{r}}
+\text{Incoming plane wave:}\;\; F_0e^{i\Vec{k}\cdot\Vec{\rho}} \qquad \text{Outgoing spherical wave:}\;\; D\frac{e^{ikr}}{r}
 \]
 In the case X-rays are used, the points $\Vec{\rho}$ indicate the position of all the electrons in the crystal, which are the only scattering centers being much lighter than the nuclei. The proportional factor $D$ is given by:
 \[
@@ -263,15 +278,15 @@ D=\frac{e^2}{mc^2}\sqrt{\frac{1+\cos^2\phi}{2}}
 where $\phi$ is the incident angle between the incoming direction and the diffusion one.\\
 Scattering from different centers in different points gives place to interference which will be constructive only in specific directions, depending on the crystal periodicity and the wavelength. Consider now the scattering of plane waves from a crystal point $\Vec{\rho}$ towards an external point defined by $\Vec{R}$ from the origin. Using the following approximations:
 \[
-\Vec{R}=\Vec{r}+\Vec{\rho} \quad \Vec{R},\Vec{r}\gg\Vec{\rho} \quad \Vec{r}\simeq\Vec{R}-\Vec{\rho}\cos\theta
+\Vec{R}=\Vec{r}+\Vec{\rho} \quad R,r\gg\rho \quad r\simeq R-\rho\cos\theta
 \]
 the amplitude of the scattered wave then becomes:
 \[
-A\propto\frac{e^{i\Vec{k}\cdot\Vec{\rho}}e^{i\Vec{k'}\cdot(\Vec{R}-\Vec{\rho}\cos\theta)}}{\Vec{R}}
+A\propto\frac{e^{i\Vec{k}\cdot\Vec{\rho}}e^{ik(R-\rho\cos\theta)}}{R}
 \]
-The factor $e^{i\Vec{k'}\cdot\Vec{R}}$ does not depend on the diffusion point, hence it can be treated as a constant. The factor $e^{-i\Vec{k'}\Vec{\rho}\cos\theta}$ can be written as:
+The factor $e^{ikR}$ does not depend on the diffusion point, hence it can be treated as a constant. The factor $e^{-ik\rho\cos\theta}$ can be written as:
 \[
-e^{-i\Vec{k'}\Vec{\rho}\cos\theta}\simeq e^{-i\Vec{k'}\Vec{\rho}\frac{\Vec{R}}{|\Vec{R}|}}\approx e^{-i\Vec{k'}\Vec{\rho}\cdot\Vec{\hat{r}}}=e^{-i\Vec{k'}\cdot\Vec{\rho}}
+e^{-ik\rho\cos\theta}\simeq e^{-i\Vec{k}\Vec{\rho}\frac{\Vec{R}}{|\Vec{R}|}}\approx e^{-i\Vec{k}\Vec{\rho}\cdot\Vec{\hat{r}}}=e^{-i\Vec{k'}\cdot\Vec{\rho}}
 \]
 $\Vec{k'}$ defines the direction of the scattered wave. It follows that we have an amplitude of the type:
 \[
@@ -279,9 +294,8 @@ A\propto e^{i\Vec{k}\cdot\Vec{\rho}}e^{-i\Vec{k}'\cdot\Vec{\rho}}=e^{-i\Vec{\rho
 \]
 Considering all the terms we have:
 \[
-A=\frac{e^2}{mc^2}\sqrt{\frac{1+\cos^2\phi}{2}}\frac{F_0}{\Vec{R}}e^{i\Vec{k'}\cdot\Vec{R}}e^{-i\Vec{\rho}\cdot\Delta\Vec{k}}=C(\phi)e^{-i\Vec{\rho}\cdot\Delta\Vec{k}}
+A=\frac{e^2}{mc^2}\sqrt{\frac{1+\cos^2\phi}{2}}\frac{F_0}{R}e^{ikR}e^{-i\Vec{\rho}\cdot\Delta\Vec{k}}=C(\phi)e^{-i\Vec{\rho}\cdot\Delta\Vec{k}}
 \]
-The wave vector of the scattered wave $\Vec{k'}$ and the wave vector of the incoming wave $\Vec{k}$ must have equal modulus because we are considering elastic scattering.\\
 If the points $\Vec{\rho}$ belong to a crystal lattice, it is possible to relate them to the points $\Vec{\rho_0}$ of the primitive cell:
 \[
 \Vec{\rho}=\Vec{\rho_0}+n_1\Vec{t_1}+n_2\Vec{t_2}+n_3\Vec{t_3}
@@ -291,11 +305,6 @@ The relative total contribution will then be proportional to:
 \label{rhozero}
 e^{-i\Vec{\rho_0}\cdot\Delta\Vec{k}}\sum_{n_1n_2n_3}e^{-i(n_1\Vec{t_1}+n_2\Vec{t_2}+n_3\Vec{t_3})\cdot\Delta\Vec{k}}
 \end{equation}
-Summing over the translations will give e meaningful contribution only if the terms are equal to 1, i.e.:
-\[
-e^{-i\Vec{t_n}\cdot\Delta\Vec{k}}=1
-\]
-Using the definition of reciprocal lattice, this can be written as $\Delta\Vec{k}=\Vec{G}$ where $\Vec{G}$ is a generic vector of the reciprocal lattice. This is the \textbf{Laue law}.\\
 It is possible to show that when the number of lattice points is large enough, there will be scattering of noticeable intensity only in the directions defined by the Laue condition. The scattered intensity is proportional to the product of three terms of the form:
 \[
 \left|\sum_{n=0}^{N-1}e^{-in\Vec{t}\cdot\Delta\Vec{k}}\right|^2=\left|\frac{1-e^{-iN\Vec{t}\cdot\Delta\Vec{k}}}{1-e^{-i\Vec{t}\cdot\Delta\Vec{k}}}\right|^2=\frac{\sin^2(N\Vec{t}\cdot\Delta\Vec{k}/2)}{\sin^2(\Vec{t}\cdot\Delta\Vec{k}/2)}
@@ -304,7 +313,7 @@ Functions of this type are oscillating function of $\Vec{t}\cdot\Delta\Vec{k}$, 
 \[
 \Vec{t_1}\cdot\Delta\Vec{k}=2\pi n \quad \Vec{t_2}\cdot\Delta\Vec{k}=2\pi m \quad \Vec{t_3}\cdot\Delta\Vec{k}=2\pi r
 \]
-where $n,m$ and $r$ are integer numbers. These are the Laue equations for lattice diffraction.\\
+where $n,m$ and $r$ are integer numbers. Using the definition of reciprocal lattice, this can be written as $\Delta\Vec{k}=\Vec{G}$ where $\Vec{G}$ is a generic vector of the reciprocal lattice. This is the \textbf{Laue law}.\\
 So far, we have not considered the structure of the primitive cell but only the effect of translation symmetry. To get the total amplitude, the contribution from \hyperref[rhozero]{Equation (\ref{rhozero})} have to be summed over all the points $\Vec{\rho}$ and take into account the density of scattering particles. In the case of a large number of elementary cells, it is possible to use the approximation:
 \[
 \frac{\sin^2(Nx/2)}{\sin^2(x/2)}\simeq2\pi N\delta(x)
@@ -343,29 +352,29 @@ This will obviously depend on the distribution $n_j(r)$:
 \[
 n_j(r)=\frac{Z}{4\pi r^3/3}\to f_j(\Vec{G})=Z \qquad n_j(r)=\frac{e^{-2r/a_0}}{\pi a_0^3}\to f_j(\Vec{G})=\frac{16}{(4\pi G^2a_0^2)^2}
 \]
-From Laue diffraction conditions it is possible to obtain the \textbf{Bragg law} by considering the family of parallel lattice planes associated to every reciprocal lattice vector.\\
-Take now a set of wave vectors of reciprocal lattice $\Vec{G}$ orthogonal to the family of planes $(hkl)$:
+From Laue diffraction condition it is possible to obtain the \textbf{Bragg law}:
 \[
-\Vec{G}=h\Vec{b_1}+k\Vec{b_2}+l\Vec{b_3}
-\]
-Apply the Laue law to it:
-\[
-\Vec{k}'-\Vec{k}=\Vec{G}\to\cancel{|\Vec{k}'|^2}=\cancel{|\Vec{k}|^2}+|\Vec{G}|^2+2\Vec{k}\cdot\Vec{G}\Rightarrow\frac{|\Vec{G}|^2}{2}=-\Vec{k}\cdot\Vec{G}
+\Vec{k}'-\Vec{k}=\Vec{G}\to\hat{G}\cdot\frac{2\pi}{\lambda}(\hat{k'}-\hat{k})=\Vec{G}\cdot\hat{G}
 \]
 This can be written as:
 \[
-k\sin\theta=\frac{1}{2}G\to\frac{2\pi}{\lambda}\sin\theta=\frac{1}{2}\frac{2\pi n}{d}\Rightarrow2d\sin\theta=n\lambda
+\frac{2\pi}{\lambda}(\sin\theta+\sin\theta)=|\Vec{G}|=\frac{2n\pi}{d}\Rightarrow2d\sin\theta=n\lambda
 \]
-This could have been obtained, without using reciprocal lattice vectors, by considering the path difference between the incoming and the scattered ray equal to $2d\sin\theta$, where $\theta$ is the angle of incidence. In order to have a constructive interference, this path difference must be an integral number of wavelengths:
-\[
-n\lambda=2d\sin\theta
-\]
+which is exactly the Bragg law.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.45\textwidth]{bragg.png}
-     
+    \includegraphics[width=0.45\textwidth]{bragg.pdf}
     \label{fig:bragg}
 \end{figure}
+% This could have been obtained, without using reciprocal lattice vectors, by considering the path difference between the incoming and the scattered ray equal to $2d\sin\theta$, where $\theta$ is the angle of incidence. In order to have a constructive interference, this path difference must be an integral number of wavelengths:
+% \[
+% n\lambda=2d\sin\theta
+% \]
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.45\textwidth]{bragg.png}
+%     \label{fig:bragg}
+% \end{figure}
 % The von Laue approach regards the crystal as composed of identical microscopic objects places at the sites $\Vec{R}$ of a Bravais lattice, each of which can radiate incident radiation in all directions. Sharp peaks are observed only in directions and at wavelengths for which the rays scattered from all lattice points interfere constructively.\\
 % Consider now two scatterers separated by a displacement vector $\Vec{d}$. Let an X-ray be incident from very far away along a direction $\hat{n}$ with wavelength $\lambda$ and wave vector $\Vec{k}=2\pi\hat{n}/\lambda$. A scattered ray in the direction $\hat{n}'$ with wavelength $\lambda$ and wave vector $\Vec{k}'=2\pi\hat{n}'/\lambda$. The path difference between the two rays is:
 % \[
@@ -392,6 +401,7 @@ n\lambda=2d\sin\theta
 % where $f_j$ is known as the \textbf{atomic form factor} and it is entirely determined by the internal structure of the ion that occupies position $\Vec{d_j}$ in the basis. Identical ions have identical form factors, so in the monoatomic case this reduces back to the geometrical structure factor multiplied by the common value of the form factors.
 \newpage
 \section{Lattice Dynamics of Crystals}
+So far we have considered atoms as static but this does not correspond to reality. In X-rays diffraction, peaks spread because of thermal excitation. To face this problem, one uses the Born-Oppenheimer approximation.
 \subsection{The Born-Oppenheimer Approximation}
 In a system of many particles interacting via electromagnetic forces, the general problem is to solve the Schr\"odinger equation:
 \[
@@ -489,7 +499,7 @@ This set of differential equations can be solved by looking for periodic solutio
 -M\omega^2A=-\sum_{n'=1}^ND_{nn'}e^{-iq(na-n'a')}A\Rightarrow M\omega^2(q)=D(q) \quad D(q)=\sum_{n'=1}^ND_{nn'}e^{-iq(na-n'a')}
 \]
 The Fourier transform $D(q)$ of the force constant matrix elements does not depend on the specific value $n$ because of translational symmetry.\\
-We now apply this analysis to the case of a linear chain of atoms with \textbf{nearest neighbour interactions} only. This condition means that the only force constants different from zero are $D_{nn}, D_{nn+1}$ and $D_{n-1n}$ and from propertty 3) of the force constants there is a unique independent parameter, $C$:
+We now apply this analysis to the case of a linear chain of atoms with \textbf{nearest neighbour interactions} only. This condition means that the only force constants different from zero are $D_{nn}, D_{nn+1}$ and $D_{n-1n}$ and from property 3) of the force constants there is a unique independent parameter, $C$:
 \[
 D_{nn}=2C \qquad D_{nn+1}=D_{n-1n}=-C
 \]
@@ -636,6 +646,46 @@ The $(+)$ and $(-)$ solutions, i.e. respectively the optical and acoustic branch
 \right.
 \]
 In the acoustic branch in the long wavelength limit, the atoms vibrate in phase and with the same amplitude and the frequency $\omega$ is proportional to the wave number $q$. In the optical branch, $A_u$ and $A_v$ have opposite signs and the group velocity vanishes: the two atoms in the unit cell move in opposite directions while the \textit{center of mass} of the unit cell remains fixed.
+\subsection{Lattice Dynamics in 3D}
+The lattice dynamics discussed before was the one of a 1D crystal, now we address the general problem of a 3D crystal. Consider a general 3D crystal with $N$ unit cells, translation vectors $\Vec{t_n}$ and a basis of atoms in the positions $\Vec{d}_1,\Vec{d}_2,\cdots,\Vec{d}_n$. The generic position vector is given by $\Vec{t}_n+\Vec{d}_\nu+\Vec{u}_{n\nu}$ and the energy of the electronic-nuclear system is denoted by $E_0(\{\Vec{u}_{n\nu}\})$. The expansion up to second order gives us:
+\[
+E_0(\{\Vec{u}_{n\nu}\})=E_0(0)+\frac{1}{2}\sum_{n\nu\alpha,n'\nu'\alpha'}D_{n\nu\alpha,n'\nu'\alpha'}u_{n\nu\alpha}u_{n'\nu'\alpha'}
+\]
+where $\alpha,\alpha'=x,y,z$; $\nu,\nu'=1,\cdots,\nu_b$ where $\nu_b$ is the number of atoms forming the basis of the unit cell and $n=1,\cdots,N$. Explicitly, the interatomic force constants are defined as:
+\[
+D_{n\nu\alpha,n'\nu'\alpha'}=\frac{\partial^2E_0}{\partial u_{n\nu\alpha}\partial u_{n'\nu'\alpha'}}\Bigr|_{\substack{0}}
+\]
+The matrix $D$ is called the \textbf{dynamical matrix of the crystal in real space} and it has some properties:
+\begin{mybox}
+3D dynamical matrix properties
+\hrule
+\begin{enumerate}\renewcommand{\labelenumi}{\arabic{enumi})}
+    \item It is real and symmetric: $D_{n\nu\alpha,n'\nu'\alpha'}=D_{n'\nu'\alpha',n\nu\alpha}$
+    \item Translational symmetry implies: 
+    \[
+    D_{n\nu\alpha,n'\nu'\alpha'}=D_{m\nu\alpha,m'\nu'\alpha'} \quad\text{if}\; \Vec{t}_n-\Vec{t}_{n'}=\Vec{t}_m-\Vec{t}_{m'}
+    \]
+    \item Sum rule: $\sum_{n'\nu'}=D_{n\nu\alpha,n'\nu'\alpha'}=0$
+\end{enumerate}
+\end{mybox}
+\noindent
+In the harmonic approximation, the classical equations of motion read:
+\[
+M_\nu\Ddot{u}_{n\nu\alpha}=-\sum_{n'\nu'\alpha'}D_{n\nu\alpha,n'\nu'\alpha'}u_{n'\nu'\alpha'}
+\]
+Again, this set of differential equations is solved by looking for solutions in the form:
+\[
+\Vec{u}_{n\nu}(t)=\Vec{A}_\nu(\Vec{q},\omega)e^{i(\Vec{q}\cdot\Vec{t}_n-\omega t)}
+\]
+Replacing this solution in the equation above gives us:
+\[
+-M_\nu\omega^2A_{\nu\alpha}=-\sum_{n'\nu'\alpha'}D_{n\nu\alpha,n'\nu'\alpha'}A_{\nu'\alpha'}e^{-i\Vec{q}(\Vec{t}_n-\Vec{t}_{n'})}
+\]
+Non-trivial solutions are obtained by solving the following:
+\[
+\det[D_{\nu\alpha,\nu'\alpha'}(\Vec{q})-M_\nu\omega^2\delta_{\alpha\alpha'}\delta_{\nu\nu'}]=0 \quad \text{where}\;\; D_{\nu\alpha,\nu'\alpha'}(\Vec{q})=\sum_{n'}D_{n\nu\alpha,n'\nu'\alpha'}e^{-i\Vec{q}\cdot(\Vec{t}_n-\Vec{t}_{n'})}
+\]
+The matrix $D(\Vec{q})$ has dimension $3\nu_b$, the secular equation produces $3\nu_b$ eigenvalues, called phonons or normal modes. At every vector $\Vec{q}$ there are $3\nu_b$ normal modes, giving rise to $3\nu_b$ phonon branches as $\Vec{q}$ varies inside the \nth{1} Brillouin zone. Let $\omega(\Vec{q},p)$ be the frequency of the $p$-th normal mode of wave vector $\Vec{q}$ and $\Vec{A}_\nu(\Vec{q},p)$ the corresponding polarization vectors. A mode $\omega(\Vec{q},p)$ is called \textbf{longitudinal} in case the polarization vectors $\Vec{A}_\nu(\Vec{q},p)$ are parallel to $\Vec{q}$, while it is called \textbf{transverse} if they are perpendicular to it.
 \subsection{Linear Chain Hamiltonian: \RN{1} Quantization}
 So far, we have considered the classical dynamics of a linear chain. Now we move to the quantum mechanical counterpart of the same problem. Working in the harmonic approximation and considering only nearest neighbour interactions, the Hamiltonian of the linear chain becomes:
 \begin{equation}
@@ -702,46 +752,6 @@ The Hamiltonian of \hyperref[H1]{Equation (\ref{H1})} can be expressed in second
 H=\sum_q\hbar\omega(q)\left(a_q^\dagger a_q+\frac{1}{2}\right)
 \]
 which can be seen as the sum of the Hamiltonians of $N$ independent linear harmonic oscillators of frequency $\omega(q)$.
-\subsection{Lattice Dynamics in 3D}
-The lattice dynamics discussed before was the one of a 1D crystal, now we address the general problem of a 3D crystal. Consider a general 3D crystal with $N$ unit cells, translation vectors $\Vec{t_n}$ and a basis of atoms in the positions $\Vec{d}_1,\Vec{d}_2,\cdots,\Vec{d}_n$. The generic position vector is given by $\Vec{t}_n+\Vec{d}_\nu+\Vec{u}_{n\nu}$ and the energy of the electronic-nuclear system is denoted by $E_0(\{\Vec{u}_{n\nu}\})$. The expansion up to second order gives us:
-\[
-E_0(\{\Vec{u}_{n\nu}\})=E_0(0)+\frac{1}{2}\sum_{n\nu\alpha,n'\nu'\alpha'}D_{n\nu\alpha,n'\nu'\alpha'}u_{n\nu\alpha}u_{n'\nu'\alpha'}
-\]
-where $\alpha,\alpha'=x,y,z$; $\nu,\nu'=1,\cdots,\nu_b$ where $\nu_b$ is the number of atoms forming the basis of the unit cell and $n=1,\cdots,N$. Explicitly, the interatomic force constants are defined as:
-\[
-D_{n\nu\alpha,n'\nu'\alpha'}=\frac{\partial^2E_0}{\partial u_{n\nu\alpha}\partial u_{n'\nu'\alpha'}}\Bigr|_{\substack{0}}
-\]
-The matrix $D$ is called the \textbf{dynamical matrix of the crystal in real space} and it has some properties:
-\begin{mybox}
-3D dynamical matrix properties
-\hrule
-\begin{enumerate}\renewcommand{\labelenumi}{\arabic{enumi})}
-    \item It is real and symmetric: $D_{n\nu\alpha,n'\nu'\alpha'}=D_{n'\nu'\alpha',n\nu\alpha}$
-    \item Translational symmetry implies: 
-    \[
-    D_{n\nu\alpha,n'\nu'\alpha'}=D_{m\nu\alpha,m'\nu'\alpha'} \quad\text{if}\; \Vec{t}_n-\Vec{t}_{n'}=\Vec{t}_m-\Vec{t}_{m'}
-    \]
-    \item Sum rule: $\sum_{n'\nu'}=D_{n\nu\alpha,n'\nu'\alpha'}=0$
-\end{enumerate}
-\end{mybox}
-\noindent
-In the harmonic approximation, the classical equations of motion read:
-\[
-M_\nu\Ddot{u}_{n\nu\alpha}=-\sum_{n'\nu'\alpha'}D_{n\nu\alpha,n'\nu'\alpha'}u_{n'\nu'\alpha'}
-\]
-Again, this set of differential equations is solved by looking for solutions in the form:
-\[
-\Vec{u}_{n\nu}(t)=\Vec{A}_\nu(\Vec{q},\omega)e^{i(\Vec{q}\cdot\Vec{t}_n-\omega t)}
-\]
-Replacing this solution in the equation above gives us:
-\[
--M_\nu\omega^2A_{\nu\alpha}=-\sum_{n'\nu'\alpha'}D_{n\nu\alpha,n'\nu'\alpha'}A_{\nu'\alpha'}e^{-i\Vec{q}(\Vec{t}_n-\Vec{t}_{n'})}
-\]
-Non-trivial solutions are obtained by solving the following:
-\[
-\det[D_{\nu\alpha,\nu'\alpha'}(\Vec{q})-M_\nu\omega^2\delta_{\alpha\alpha'}\delta_{\nu\nu'}]=0 \quad \text{where}\;\; D_{\nu\alpha,\nu'\alpha'}(\Vec{q})=\sum_{n'}D_{n\nu\alpha,n'\nu'\alpha'}e^{-i\Vec{q}\cdot(\Vec{t}_n-\Vec{t}_{n'})}
-\]
-The matrix $D(\Vec{q})$ has dimension $3\nu_b$, the secular equation produces $3\nu_b$ eigenvalues, called phonons or normal modes. At every vector $\Vec{q}$ there are $3\nu_b$ normal modes, giving rise to $3\nu_b$ phonon branches as $\Vec{q}$ varies inside the \nth{1} Brillouin zone. Let $\omega(\Vec{q},p)$ be the frequency of the $p$-th normal mode of wave vector $\Vec{q}$ and $\Vec{A}_\nu(\Vec{q},p)$ the corresponding polarization vectors. A mode $\omega(\Vec{q},p)$ is called \textbf{longitudinal} in case the polarization vectors $\Vec{A}_\nu(\Vec{q},p)$ are parallel to $\Vec{q}$, while it is called \textbf{transverse} if they are perpendicular to it.
 \newpage
 \section{Thermal Properties}
 We have seen that the energy of the states of the crystal is given by the eigenvalues of the Hamiltonian in \hyperref[H1]{Equation (\ref{H1})} from which it follows using the equipartition theorem that the internal energy per unit of volume is:
