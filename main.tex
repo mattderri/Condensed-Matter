@@ -982,7 +982,7 @@ The eigenvalues $c(\Vec{R})$ satisfies the following:
 \Rightarrow
 c(\Vec{R})c(\Vec{R}')=c(\Vec{R}+\Vec{R}')
 \]
-Let now $\Vec{a}_i$ be three primitive vectors for the Bravais lattice, the eigenvalue $c(\Vec{a}_i)$ can always be written as $c(\Vec{a}_i)=e^{2\pi ix_i}$ by a suitable choice of $x_i$. If $\Vec{R}$ is a generic Bravais lattice vector given by $\Vec{R}=n_1\Vec{a_1}+n_2\Vec{a_2}+n_3\Vec{a_3}$ then we have:
+Let now $\Vec{a}_i$ be three primitive vectors for the Bravais lattice, the eigenvalue $c(\Vec{a}_i)$ can always be written as $c(\Vec{a}_i)=e^{2\pi ix_i}$ by a suitable choice of $x_i$. Take a generic Bravais lattice vector $\Vec{R}$ given by $\Vec{R}=n_1\Vec{a_1}+n_2\Vec{a_2}+n_3\Vec{a_3}$. By successive applications of the property just proved one gets::
 \[
 c(\Vec{R})=c(\Vec{a_1})^{n_1}c(\Vec{a_2})^{n_2}c(\Vec{a_3})^{n_3}=e^{i\Vec{k}\cdot\Vec{R}}
 \]
@@ -1021,7 +1021,7 @@ It is convenient to write $\Vec{q}$ as $\Vec{q}=\Vec{k}-\Vec{G}$ where $\Vec{G}$
 \label{central}
 \left[\frac{\hbar^2}{2m}(\Vec{k}-\Vec{G})^2-E\right]C_{\Vec{k}-\Vec{G}}+\sum_{\Vec{G'}}U_{\Vec{G'}}C_{\Vec{k}-\Vec{G}-\Vec{G'}}=0
 \end{equation}
-For a fixed $\Vec{k}$ in the \nth{1} Brillouin zone, this set of equations for reciprocal lattice vectors $\Vec{G}$ couples only those coefficients $c_{\Vec{k}},c_{\Vec{k}-\Vec{G}},c_{\Vec{k}-\Vec{G'}}, c_{\Vec{k}-\Vec{G''}},\cdots$ whose wave vectors differ from $\Vec{k}$ by a reciprocal lattice vector. The original problem has been separated into $N$ different problems, one for each allowed value of $\Vec{k}$ in the \nth{1} Brillouin zone. The wave function will then be of the form:
+For a fixed $\Vec{k}$ in the \nth{1} Brillouin zone, this set of equations for reciprocal lattice vectors $\Vec{G}$ couples only those coefficients $C_{\Vec{k}},C_{\Vec{k}-\Vec{G}},C_{\Vec{k}-\Vec{G'}}, C_{\Vec{k}-\Vec{G''}},\cdots$ whose wave vectors differ from $\Vec{k}$ by a reciprocal lattice vector. The original problem has been separated into $N$ different problems, one for each allowed value of $\Vec{k}$ in the \nth{1} Brillouin zone. The wave function will then be of the form:
 \[
 \psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{i(\Vec{k}-\Vec{G})\cdot\Vec{r}}=e^{i\Vec{k}\cdot\Vec{r}}\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{-i\Vec{G}\cdot\Vec{r}}
 \]
@@ -1280,7 +1280,7 @@ First of all, we project on $\phi_A$ and $\phi_B$:
 Start with the first equation and compute the term relative to $H_{\text{at}}$:
 \begin{align*}
 \bra{\phi_A(x)}H_{\text{at}}\ket{\psi_k(x)}=&\sum_me^{ikma}\int dx\phi_A^*(x)H_{\text{at}}[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
-=&\sum_me^{ikma}\int dx[H_{\text{at}}\phi_A^*(x)]^*[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
+=&\sum_me^{ikma}\int dx[H_{\text{at}}\phi_A(x)]^*[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
 =&\sum_me^{ikma}E_A\int dx\phi_A^*(x)[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
 =&E_A\int dx\phi_A^*(x)C_A\phi_A(x)+E_A\int dx\phi_A^*(x)C_B\phi_B(x-a_0)\\
 &+E_Ae^{ika}\int dx\phi_A^*(x)C_B\phi_B(x-a-a_0)\\
@@ -1326,7 +1326,7 @@ For $E_A=0$\,eV, $E_B=1$\,eV and $\gamma=1$\,eV in the \nth{1} Brillouin zone on
     \label{fig:polybands}
 \end{figure}\\
 \noindent
-Notice that if the valence band (in red) is completely filled and the conduction band (in blue) the material becomes as an insulator: electrons will not go spontaneously on the anti-bonding level. In reality, the the difference in energy between the two bands is small ($\sim$\,eV), so the material behaves more like a semiconductor since thermal excitation is enough to move the electrons to the conduction band.\\
+Notice that if the valence band (in red) is completely filled and the conduction band (in blue) is empty, the material becomes as an insulator: electrons will not go spontaneously on the anti-bonding level. In reality, the difference in energy between the two bands is small ($\sim$\,eV), so the material behaves more like a semiconductor since thermal excitation is enough to move the electrons to the conduction band.\\
 If instead of carbon there was lithium, with an odd valence, the valence band would be filled only by half of its occupation, making the material behaving as a conductor.
 \newpage
 \subsection{Graphene Bands Structure}
@@ -1759,7 +1759,7 @@ The number density of holes is then:
 p_a=\Braket{p}N_a=\frac{N_a}{1+\frac{1}{2}e^{-\beta(E_a-\mu)}}
 \]
 Consider now a semiconductor doped with $N_d$ donor impurities and $N_a$ acceptor impurities per unit volume. To determine the carrier densities, we have to generalize the constraint $n_c=p_v$ seen in the intrinsic case.\\
-Start working at $T=0$ and assume $N_d\ge N_a$: $N_a$ of the $N_d$ electrons supplied by the donor impurities can drop from the donor in the acceptor levels. This gives a ground state in which band and acceptor levels are filled, $N_d-N_a$ of the donor levels are filled and the conduction band levels are empty. At thermal equilibrium, the electrons will be redistributed among these levels:
+Start working at $T=0$ and assume $N_d\ge N_a$: $N_a$ of the $N_d$ electrons supplied by the donor impurities can drop from the donor in the acceptor levels. This gives a ground state in which the valence band and acceptor levels are filled, $N_d-N_a$ of the donor levels are filled and the conduction band levels are empty. At thermal equilibrium, the electrons will be redistributed among these levels:
 \begin{equation}
 \label{ncnd}
 n_c+n_d=N_d-N_a+p_v+p_a
@@ -1835,10 +1835,32 @@ Finally, from \refeq{ncpv} it is possible to obtain the expression for $\mu$ in 
 \left\{
 \begin{aligned}
 &\bullet N_d>N_a: \quad n_c(T)=N_c(T)e^{-\beta(E_c-\mu)}\approx N_d-N_a\Rightarrow\mu=E_c+k_BT\ln\left[\frac{N_d-N_a}{N_c(T)}\right]\\
-&\bullet N_a>N_n: \quad n_c(T)=N_c(T)e^{-\beta(E_c-\mu)}\approx \frac{n_i^2}{N_a-N_d}\Rightarrow\mu=E_c+k_BT\ln\left[\frac{n_i^2}{N_c(T)(N_a-N_d)}\right]
+&\bullet N_a>N_d: \quad n_c(T)=N_c(T)e^{-\beta(E_c-\mu)}\approx \frac{n_i^2}{N_a-N_d}\Rightarrow\mu=E_c+k_BT\ln\left[\frac{n_i^2}{N_c(T)(N_a-N_d)}\right]
 \end{aligned}
 \right.
 \]
+The above discussion is valid only for high temperatures: the case $n_i\gg|N_d-N_a|/2$ takes place for extremely high temperatures, while $n_i\ll|N_d-N_a|/2$ happens when the temperature is not high enough to generate intrinsic carriers with a concentration larger than the ones of the impurities.\\
+We are now interested in studying the low-temperature limit, which means $p_v=0$ since there wasn't enough thermal energy to excite electrons from the valence band into the conduction band. For simplicity, set $N_a=p_a=0$. This is a n-type semiconductor, for the p-type (i.e. $N_d=n_d=n_c=0$) the reasoning is the same. In such conditions, we get:
+\[
+n_c=N_d-n_d\to N_ce^{-\beta(E_c-\mu)}=N_d-\frac{N_d}{1+\frac{1}{2}e^{\beta(E_d-\mu)}}=\frac{N_d}{2e^{-\beta(E_d-\mu)+1}}
+\]
+Define now:
+\[
+e^{-\beta E_c}:=\gamma \quad e^{\beta\mu}:=\lambda \quad \frac{N_d}{N_c}:=b \quad e^{-\beta E_d}:=\alpha
+\]
+The equation above can be written as:
+\[
+2\alpha\gamma\lambda^2+\gamma\lambda-b=0\to\lambda=\frac{1}{4\alpha}\left[-1+\sqrt{1+\frac{8\alpha b}{\gamma}}\right]
+\]
+At extremely low temperatures, $8\alpha b/\gamma\gg1$ so that we get:
+\[
+\lambda\sim\sqrt{\frac{b}{2\alpha\gamma}}\Rightarrow e^{\beta\mu}\sim\sqrt{\frac{N_d}{2N_ce^{-\beta(E_c+E_d)}}}
+\]
+From this, it follows that the expression for $\mu$ is given by:
+\[
+\mu\sim\frac{E_c+E_d}{2}+\frac{1}{2}k_BT\ln\left(\frac{N_d}{2N_c}\right)
+\]
+For $T\to0$, $\mu$ is exactly in between the minimum of the conduction band and the acceptor levels: this is because at very low $T$, all donors are occupied by electrons so the latest occupied levels are indeed the donor ones.
 \end{document} 
 % What is the temperature which separates the two cases? Assume that $n_i=(N_d-N_a)/2$ and $N_c(T)$ and $P_v(T)$ are constant with respect to the temperature.
 % \[
