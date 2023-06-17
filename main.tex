@@ -551,7 +551,7 @@ It seems like the question has been moved to \textit{what is the value of $\Delt
 \[
 u_n=Ae^{iqna}e^{-i\omega t}=u_{n+N}=Ae^{iq(n+N)a}e^{-i\omega t}\Rightarrow e^{iqNa}=1
 \]
-This is telling us that $qNA=2\pi m$, with $m\in\mathbb{Z}$, hence $\Delta q=2\pi/Na$ and therefore $\#q=N$.\\
+This is telling us that $qNa=2\pi m$, with $m\in\mathbb{Z}$, hence $\Delta q=2\pi/Na$ and therefore $\#q=N$.\\
 It is now possible to evaluate the number of of phononic states that can be accommodated in a unit volume. Starting from the definition of density of states $D(\omega)=\frac{dN}{d\omega}\frac{1}{V}$, we first compute $dN$:
 \[
 dN=\frac{2dq}{\Delta q}=\frac{2dq}{\frac{2\pi}{L}}=\frac{L}{\pi}dq
@@ -723,16 +723,16 @@ In every last passage of the relations above, we used the fact that $\frac{1}{N}
 The Hamiltonian of \hyperref[H]{Equation (\ref{H})} can now be written as:
 \begin{equation}
 \label{H1}
-H=\sum_q\frac{p_qp_{-q}}{2M}+\frac{1}{2}C\sum_qu_qu_{-q}(2-e^{-iqa}+e^{+iqa})=\sum_q\left[\frac{p_qp_{-q}}{2M}+\frac{1}{2}M\omega^2(q)u_qu_{-q}\right]
+H=\sum_q\frac{p_qp_{-q}}{2M}+\frac{1}{2}C\sum_qu_qu_{-q}(2-e^{-iqa }-e^{+iqa})=\sum_q\left[\frac{p_qp_{-q}}{2M}+\frac{1}{2}M\omega^2(q)u_qu_{-q}\right]
 \end{equation}
 where $\omega^2(q)$ is given by the following:
 \[
-\omega^2(q)=\frac{C}{M}(2-e^{-iqa}+e^{+iqa})=\frac{4C}{M}\sin^2(qa/2)
+\omega^2(q)=\frac{C}{M}(2-e^{-iqa}-e^{+iqa})=\frac{4C}{M}\sin^2(qa/2)
 \]
 This shows that the linear chain of $N$ coupled harmonic oscillators is equivalent to $N$ uncoupled normal modes.\\
 It is useful to define another canonical transformation to creation and destruction operators, so we define:
 \[
-a_q=\sqrt{\frac{m\omega(q)}{2\hbar}}u_q+i\sqrt{\frac{1}{2M\hbar\omega(q)}}p_{-q} \qquad a_q^\dagger=\sqrt{\frac{m\omega(q)}{2\hbar}}u_{-q}-i\sqrt{\frac{1}{2M\hbar\omega(q)}}p_q
+a_q=\sqrt{\frac{M\omega(q)}{2\hbar}}u_q+i\sqrt{\frac{1}{2M\hbar\omega(q)}}p_{-q} \qquad a_q^\dagger=\sqrt{\frac{M\omega(q)}{2\hbar}}u_{-q}-i\sqrt{\frac{1}{2M\hbar\omega(q)}}p_q
 \]
 The commutation rules are preserved:
 \[
@@ -754,15 +754,22 @@ H=\sum_q\hbar\omega(q)\left(a_q^\dagger a_q+\frac{1}{2}\right)
 which can be seen as the sum of the Hamiltonians of $N$ independent linear harmonic oscillators of frequency $\omega(q)$.
 \newpage
 \section{Thermal Properties}
-We have seen that the energy of the states of the crystal is given by the eigenvalues of the Hamiltonian in \hyperref[H1]{Equation (\ref{H1})} from which it follows using the equipartition theorem that the internal energy per unit of volume is:
+We have seen that the energy of the states of the crystal is given by the discrete eigenvalues of the Hamiltonian in \hyperref[H1]{Equation (\ref{H1})} and the system can be described in terms of its elementary excitations, i.e. lattice vibrations in terms of \textbf{phonons}.
+\subsection{Specific Heat}
+The quantity we are interested in is the specific heat. We know the classical limit from the equipartition theorem: we associate an energy of $k_BT/2$ to each degree of freedom. Think of the system as $N$ coupled oscillators, the Hamiltonian has $3N$ terms for the kinetic part and $3N$ terms for the elastic potential. The internal energy per unit of volume is then given by:
 \[
 u=\frac{1}{V}\left(\frac{1}{2}k_BT+\frac{1}{2}k_BT\right)3N=3nk_BT \quad \text{where}\;\;n=\frac{N}{V}
 \]
-From this, it is possible to obtain the specific heat $c_v$ by simply deriving with respect to the temperature:
+From this, it is possible to obtain the specific heat $c_V$ by simply deriving with respect to the temperature:
 \[
-c_v=\frac{\partial u}{\partial T}=3nk_B
+c_V=\frac{\partial u}{\partial T}=3nk_B
 \]
-which is not what it is observed experimentally. This is a purely classical result in which the discretization of the energy levels is neglected but at low temperatures the quantization of the amplitude of the lattice vibrations become important. We explicitly compute $u$ given by:
+which is not what it is observed experimentally. In fact, in metals and insulators we have:
+\[
+\text{Metals:}\;\;c_V=AT+BT^3 \qquad \text{Insulators:}\;\;c_V=BT^3
+\]
+Both have the phonons contributions, the extra term for metals comes from electrons.\\
+What we obtained is a purely classical result in which the discretization of the energy levels is neglected but at low temperatures the quantization of the amplitude of the lattice vibrations become important. We explicitly compute $u$ given by:
 \[
 u=\frac{1}{V}\frac{\sum_iE_ie^{-\beta E_i}}{\sum_ie^{-\beta E_i}}=-\frac{\partial f}{\partial\beta} \quad \text{where}\;\;f=\frac{1}{V}\ln{\sum_ie^{-\beta E_i}}
 \]
@@ -786,18 +793,19 @@ u=-\frac{\partial f}{\partial\beta}=\frac{1}{V}\sum_{\Vec{q}s}\hbar\omega_s(\Vec
 \]
 In the quantum theory of the harmonic solid, the specific heat is no longer constant but given by:
 \[
-c_v=\frac{\partial u}{\partial T}=\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega_s(\Vec{q})}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
+c_V=\frac{\partial u}{\partial T}=\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega_s(\Vec{q})}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
 \]
 In the limit $\beta\hbar\omega\ll1$, i.e. high-temperature limit, the specific heat can be approximated as:
 \[
-c_v\simeq\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega_s(\Vec{q})}{\beta\hbar\omega_s(\Vec{q})}=\frac{1}{V}\sum_{\Vec{q}s}k_B\frac{\partial T}{\partial T}=\frac{1}{V}3Nk_B=3nk_B
+c_V\simeq\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega_s(\Vec{q})}{\beta\hbar\omega_s(\Vec{q})}=\frac{1}{V}\sum_{\Vec{q}s}k_B\frac{\partial T}{\partial T}=\frac{1}{V}3Nk_B=3nk_B
 \]
-This tells us that the classical result is recovered in the high-temperature limit. On the other hand, moving to the low-temperature regime, i.e. $\beta\hbar\omega\gg1$, we observe that the set of discrete wave vectors which we summed over becomes dense on the scale over which the summand has an appreciable variation. Therefore, the sum is replaced by an integral:
+This tells us that the classical result is recovered in the high-temperature limit.\\
+On the other hand, moving to the low-temperature regime, i.e. $\beta\hbar\omega\gg1$, we observe that the set of discrete wave vectors which we summed over becomes dense on the scale over which the summand has an appreciable variation. Therefore, the sum is replaced by an integral:
 \begin{equation}
 \label{general}
-c_v=\frac{\partial}{\partial T}\sum_s\int_{\text{\RN{1}BZ}}\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar\omega_s(\Vec{q})}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
+c_V=\frac{\partial}{\partial T}\sum_s\int_{\text{\RN{1}BZ}}\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar\omega_s(\Vec{q})}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
 \end{equation}
-where the integral is taken over the \nth{1} Brillouin zone. At very low temperature, modes with $\hbar\omega_s(\Vec{q})\gg k_BT$ contribute negligibly to the integral, since the integrand will vanish exponentially. This condition will not be satisfied by acoustic modes of sufficiently long wavelength, since $\omega_s(\Vec{q})\to0$ as $\Vec{q}\to0$. These modes will continue to contribute appreciably to $c_v$. With this in mind, we can make some simplifications:
+where the integral is taken over the \nth{1} Brillouin zone. At very low temperature, modes with $\hbar\omega_s(\Vec{q})\gg k_BT$ contribute negligibly to the integral, since the integrand will vanish exponentially. This condition will not be satisfied by acoustic modes of sufficiently long wavelength, since $\omega_s(\Vec{q})\to0$ as $\Vec{q}\to0$. These modes will continue to contribute appreciably to $c_V$. With this in mind, we can make some simplifications:
 \begin{enumerate}
     \item It is possible to ignore the optical modes in the sum over $s$
     \item We can replace $\omega_s(\Vec{q})$ for the acoustic branches with its long wavelength form $c_s(\hat{\Vec{q}})q$
@@ -810,11 +818,11 @@ where the integral is taken over the \nth{1} Brillouin zone. At very low tempera
 \end{figure}
 With these approximations, at very low temperatures the expression for the specific heat gets simplified as:
 \[
-c_v=\frac{\partial}{\partial T}\sum_s\int\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar c_s(\hat{\Vec{q}})q}{e^{\beta\hbar c_s(\hat{\Vec{q}})q}-1}
+c_V=\frac{\partial}{\partial T}\sum_s\int\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar c_s(\hat{\Vec{q}})q}{e^{\beta\hbar c_s(\hat{\Vec{q}})q}-1}
 \]
 The integral gets evaluated in spherical coordinates, $d\Vec{q}=dqd\Omega q^2$, and by performing a change of variables $\beta\hbar c_s(\hat{\Vec{q}})q=x$.
 \[
-c_v=\frac{\partial}{\partial T}\sum_s\int\frac{d\Omega}{8\pi^3}\frac{(k_BT)^4}{(\hbar c_s)^3}\int_0^\infty dx\frac{x^3}{e^x-1}
+c_V=\frac{\partial}{\partial T}\sum_s\int\frac{d\Omega}{8\pi^3}\frac{(k_BT)^4}{(\hbar c_s)^3}\int_0^\infty dx\frac{x^3}{e^x-1}
 \]
 The sum on $s$ gives us the average of the long wavelength phase velocities of the three acoustic modes:
 \[
@@ -826,7 +834,7 @@ For the remaining two pieces, we have:
 \]
 Putting everything together we finally obtain:
 \[
-c_v=\frac{\partial}{\partial T}\frac{\pi^2}{10}\frac{(k_BT)^4}{(\hbar c)^3}=\frac{2\pi^2}{5}k_B\left(\frac{k_BT}{\hbar c}\right)^3\sim T^3
+c_V=\frac{\partial}{\partial T}\frac{\pi^2}{10}\frac{(k_BT)^4}{(\hbar c)^3}=\frac{2\pi^2}{5}k_B\left(\frac{k_BT}{\hbar c}\right)^3\sim T^3
 \]
 which agrees with the experimental results.
 \subsection{Debye-Einstein Model}
@@ -837,11 +845,11 @@ The \textbf{Debye model} replaces all branches of the vibrational spectrum with 
 \]
 As a result of this simplification, \hyperref[general]{Equation (\ref{general})} becomes:
 \[
-c_v=\frac{\partial}{\partial T}\sum_s\frac{\hbar c_s}{2\pi^2}\int_0^{q_D}dq\frac{q^3}{e^{\beta\hbar c_sq}-1}=\frac{3\hbar c}{2\pi^2}\int_0^{q_D}dq\frac{q^3}{(e^{\beta\hbar cq}-1)^2}e^{\beta\hbar cq}\frac{\hbar cq}{k_BT^2}
+c_V=\frac{\partial}{\partial T}\sum_s\frac{\hbar c_s}{2\pi^2}\int_0^{q_D}dq\frac{q^3}{e^{\beta\hbar c_sq}-1}=\frac{3\hbar c}{2\pi^2}\int_0^{q_D}dq\frac{q^3}{(e^{\beta\hbar cq}-1)^2}e^{\beta\hbar cq}\frac{\hbar cq}{k_BT^2}
 \]
 The integral is computed by performing a change of variables, defining $x=\hbar cq/k_BT=\beta\hbar cq$ and a Debye temperature $k_B\Theta_D=\hbar cq_D$:
 \[
-c_v=\frac{3k_B^4T^3}{2\pi^2(\hbar c)^3}\int_0^{x_D}dx\frac{x^4e^x}{(e^x-1)^2}=\frac{3k_B^4T^3q_D^3}{2\pi^2k_B^3\Theta_D^3}\int_0^{x_D}dx\frac{x^4e^x}{(e^x-1)^2}\underset{\mathclap{\tikz \node {$\uparrow$} node [below=1ex] {\footnotesize $q_D^3=6\pi^2n$};}}{=}9nk_B\left(\frac{T}{\Theta_D}\right)^3\int_0^{x_D}dx\frac{x^4e^x}{(e^x-1)^2}
+c_V=\frac{3k_B^4T^3}{2\pi^2(\hbar c)^3}\int_0^{x_D}dx\frac{x^4e^x}{(e^x-1)^2}=\frac{3k_B^4T^3q_D^3}{2\pi^2k_B^3\Theta_D^3}\int_0^{x_D}dx\frac{x^4e^x}{(e^x-1)^2}\underset{\mathclap{\tikz \node {$\uparrow$} node [below=1ex] {\footnotesize $q_D^3=6\pi^2n$};}}{=}9nk_B\left(\frac{T}{\Theta_D}\right)^3\int_0^{x_D}dx\frac{x^4e^x}{(e^x-1)^2}
 \]
 We can check the goodness of this model by looking at the high- and low-temperature limits:
 \[
@@ -888,7 +896,7 @@ d\Vec{q}=dS_\omega\cdot dq_\perp=\frac{dS_\omega}{|\Vec{\nabla}_{\Vec{q}}\omega|
 \]
 which gives a much more convenient expression for the density of states:
 \[
-D(\omega)d\omega=\frac{V}{(2\pi)^3}\left[\int_S\frac{dS_\omega}{|\Vec{v}_g|}\right] \quad \text{equivalently} \quad D(\omega)=\frac{V}{(2\pi)^3}\int d\Vec{q}\delta[\omega(\Vec{q})-\omega]
+D(\omega)=\frac{V}{(2\pi)^3}\left[\int_S\frac{dS_\omega}{|\Vec{v}_g|}\right] \quad \text{equivalently} \quad D(\omega)=\frac{V}{(2\pi)^3}\int d\Vec{q}\delta[\omega(\Vec{q})-\omega]
 \]
 Another way to compute $D(\omega)$ in 3D is to write:
 \[
@@ -1013,7 +1021,7 @@ It is convenient to write $\Vec{q}$ as $\Vec{q}=\Vec{k}-\Vec{G}$ where $\Vec{G}$
 \label{central}
 \left[\frac{\hbar^2}{2m}(\Vec{k}-\Vec{G})^2-E\right]C_{\Vec{k}-\Vec{G}}+\sum_{\Vec{G'}}U_{\Vec{G'}}C_{\Vec{k}-\Vec{G}-\Vec{G'}}=0
 \end{equation}
-For a fixed $\Vec{k}$ in the \nth{1} Brillouin zone, this set of equations for reciprocal lattice vectors $\Vec{G}$ couples only those coefficients $c_{\Vec{k}},c_{Vec{k}-\Vec{G}},c_{\Vec{k}-\Vec{G'}}, c_{\Vec{k}-\Vec{G''}},\cdots$ whose wave vectors differ from $\Vec{k}$ by a reciprocal lattice vector. The original problem has been separated into $N$ different problems, one for each allowed value of $\Vec{k}$ in the \nth{1} Brillouin zone. The wave function will then be of the form:
+For a fixed $\Vec{k}$ in the \nth{1} Brillouin zone, this set of equations for reciprocal lattice vectors $\Vec{G}$ couples only those coefficients $c_{\Vec{k}},c_{\Vec{k}-\Vec{G}},c_{\Vec{k}-\Vec{G'}}, c_{\Vec{k}-\Vec{G''}},\cdots$ whose wave vectors differ from $\Vec{k}$ by a reciprocal lattice vector. The original problem has been separated into $N$ different problems, one for each allowed value of $\Vec{k}$ in the \nth{1} Brillouin zone. The wave function will then be of the form:
 \[
 \psi_{\Vec{k}}(\Vec{r})=\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{i(\Vec{k}-\Vec{G})\cdot\Vec{r}}=e^{i\Vec{k}\cdot\Vec{r}}\sum_{\Vec{G}}C_{\Vec{k}-\Vec{G}}e^{-i\Vec{G}\cdot\Vec{r}}
 \]
