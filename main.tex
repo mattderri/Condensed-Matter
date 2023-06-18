@@ -630,7 +630,7 @@ A further simplification is given by the case in which $C_1=C_2=C$ and $M_1=M_2=
 \]
 The amplitudes $A_u$ and $A_v$ satisfies the relation:
 \[
-\frac{A_u}{A_v}=\frac{C_1+C_2e^{iqa}}{C_1+C_2-M_1\omega^2}=\frac{C_1+C_2-M_2\omega^2}{C_1+C_2e^{iqa}}
+\frac{A_u}{A_v}=\frac{C_1+C_2e^{-iqa}}{C_1+C_2-M_1\omega^2}=\frac{C_1+C_2-M_2\omega^2}{C_1+C_2e^{iqa}}
 \]
 Consider now the case in which $M_1=M_2=M$ but $C_1\neq C_2$ and work in the long wavelength limit, i.e. $qa\ll1$.
 \[
@@ -1365,7 +1365,7 @@ Take as a reference the cell in the center of the scheme: for the atom labeled w
 \bra{\phi_A(\Vec{r})}H_{\text{at}}\ket{\psi_{\Vec{k}}(\Vec{r})}=&E_A\int d\Vec{r}\phi_A^*(\Vec{r})C_A\phi_A(\Vec{r})+E_A\int d\Vec{r}\phi_A^*(\Vec{r})C_B\phi_B(\Vec{r}-a_0\hat{x})\\
 &+E_Ae^{-i\Vec{k}\cdot\Vec{a_1}}\int d\Vec{r}\phi_A^*(\Vec{r})C_B\phi_B(\Vec{r}+\Vec{a_1}-a_0\hat{x})\\
 &+E_Ae^{-i\Vec{k}\cdot\Vec{a_2}}\int d\Vec{r}\phi_A^*(\Vec{r})C_B\phi_B(\Vec{r}+\Vec{a_2}-a_0\hat{x})\\
-&=C_AE_A
+=&C_AE_A
 \end{align*}
 The last three terms are equal to zero because they contain the product of wave functions centered at different sites.\\
 The term involving the potential gives us:
