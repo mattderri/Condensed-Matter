@@ -477,7 +477,7 @@ F_n=-\frac{\partial E_0}{\partial u_n}=-\sum_{n'}D_{nn'}u_{n'}
 \]
 From the definition, it is possible to obtain some immediate properties of the matrix $D$.
 \begin{mybox}
-Dynamical matrix properties
+\textbf{Dynamical Matrix Properties}
 \hrule
 \begin{enumerate}\renewcommand{\labelenumi}{\arabic{enumi})}
     \item Real and symmetric: $D_{nn'}=D_{n'n}$
@@ -657,7 +657,7 @@ D_{n\nu\alpha,n'\nu'\alpha'}=\frac{\partial^2E_0}{\partial u_{n\nu\alpha}\partia
 \]
 The matrix $D$ is called the \textbf{dynamical matrix of the crystal in real space} and it has some properties:
 \begin{mybox}
-3D dynamical matrix properties
+\textbf{3D Dynamical Matrix Properties}
 \hrule
 \begin{enumerate}\renewcommand{\labelenumi}{\arabic{enumi})}
     \item It is real and symmetric: $D_{n\nu\alpha,n'\nu'\alpha'}=D_{n'\nu'\alpha',n\nu\alpha}$
@@ -943,7 +943,7 @@ H\psi(\Vec{r})=\left[-\frac{\hbar^2}{2m}\Vec{\nabla}^2+U(\Vec{r})\right]\psi(\Ve
 \]
 One important theorem regarding plane-wave functions in a periodic potential is the \textbf{Bloch's Theorem}.
 \begin{mybox}
-Bloch's Theorem{\color{blue!30}{g}}
+\textbf{Bloch's Theorem{\color{blue!30}{g}}}
 \hrule
 \vspace{0.25cm}
 The eigenstates $\psi$ of the one-electron Hamiltonian with periodic potential can be chosen to have the form of a plane-wave times a function with the periodicity of the Bravais lattice:
@@ -1266,7 +1266,7 @@ On the plane, we can forget about the hydrogen atom and schematically represent 
 \noindent
 The problem we have to solve is:
 \[
-[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\varepsilon_{\Vec{k}}\ket{\psi_k}(x)
+[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\varepsilon_{\Vec{k}}\ket{\psi_k(x)}
 \]
 First of all, we project on $\phi_A$ and $\phi_B$:
 \[
@@ -1470,61 +1470,107 @@ E=\sqrt{p^2c^2+m^2c^4} \qquad p=\hbar k
 \]
 which exhibits a linear dependence on $k$ for $m=0$: these are dispersion curves for \textbf{massless Dirac fermions}.
 \newpage
-\section{Semiclassical Model of Electron Dynamics}
-In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions is calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
-\begin{equation}
-\label{eqmot1}
-\hbar\Vec{\Dot{k}}=-e(\Vec{E}+\Vec{v}\times\Vec{B}) %\quad \Vec{\Dot{r}}=\frac{\hbar\Vec{k}}{m}
-\end{equation}
-This describes the behaviour of a wave packet of free electron levels:
+\section{Semiclassical Model of Electrons Dynamics}
+There are essentially three models which can be used to treat electrons dynamics: 
+\begin{itemize}
+    \item \textbf{Drude:} it does not work, since it considers classical electrons
+    \item \textbf{Sommerfeld:} it is no longer a classical theory but a quantum one, where energy and wave function are given by:
+    \[
+    \varepsilon(\Vec{k})=\frac{\hbar^2k^2}{2m} \qquad \psi_{\Vec{k}}(\Vec{r})=\frac{1}{\sqrt{V}}e^{i\Vec{k}\cdot\Vec{r}}
+    \]
+    Plus periodic boundary conditions in order to have the correct number of degrees of freedom. This theory applies reasonably in metals but it cannot explain insulators
+    \item \textbf{Bloch:} this model considers quantum gas in a periodic potential, $\Vec{k}$ is still a good quantum number but there is also the band index $n$, being the structure organized into bands. The Bloch wave function is given by:
+    \[
+    \psi_{n\Vec{k}}(\Vec{r})=u_{n\Vec{k}}(\Vec{r})e^{i\Vec{k}\cdot\Vec{r}}
+    \]
+    while the velocity depends now on the band index as well:
+    \[
+    \Vec{v}_n(\Vec{k})=\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}
+    \]
+\end{itemize}
+If we think about a static space, in principle there should be no velocity. Velocity appears when we introduce periodic boundary conditions, allowing a wave to travel through the crystal. To introduce the concept of velocity of an electron, a better approach is to think in terms of \textbf{wave packets}. What we actually do when moving an electron in a crystal is to create some wave packet and let it propagate through the crystal. Strictly speaking, this is no longer an eigenstate of the crystal.
+% In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions is calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
+% \begin{equation}
+% \label{eqmot1}
+% \hbar\Vec{\Dot{k}}=-e(\Vec{E}+\Vec{v}\times\Vec{B}) %\quad \Vec{\Dot{r}}=\frac{\hbar\Vec{k}}{m}
+% \end{equation}
+The wave packet is the following:
 \[
-\psi(\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k'})e^{i\left(\Vec{k'}\cdot\Vec{r}-\frac{\hbar k'^2t}{2m}\right)} \quad \text{with}\;\;g(\Vec{k'})\approx0\;\text{for}\;|\Vec{k'}-\Vec{k}|>\Delta k
+\psi_n(\Vec{k},\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k},\Vec{k'})u_{n\Vec{k}}(\Vec{r})e^{i\left(\Vec{k'}\cdot\Vec{r}-\frac{\varepsilon_n(\Vec{k'})t}{\hbar}\right)} 
+%\quad \text{with}\;\;g(\Vec{k'})\approx0\;\text{for}\;|\Vec{k'}-\Vec{k}|>\Delta k
 \]
-This approach has a simple generalization to electrons in a general periodic potential, known as the \textbf{semiclassical model}. Consider now a wave packet of Bloch levels from a given band, constructed in analogy to the free electron wave packet:
+The term $\varepsilon_n(\Vec{k'})t/\hbar$ has been added in order to take into account the time evolution of the wave function. The wave packet is then a superposition of Bloch wave functions with some weight functions $g(\Vec{k},\Vec{k'})$ peaked around some $\Vec{k}$ as a function of $\Vec{k'}$. We want to take advantage of this fact and approximate $\psi$ for $\Vec{k}\approx\Vec{k'}$:
+\begin{align*}
+\psi_n(\Vec{k},\Vec{r},t)&\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize $\Vec{k'}=\Vec{k}+(\Vec{k'}-\Vec{k})$};}}{\approx} u_{n\Vec{k}}(\Vec{r})e^{i\left(\Vec{k}\cdot\Vec{r}-\frac{\varepsilon_n(\Vec{k})t}{\hbar}\right)}\sum_{\Vec{k'}}g(\Vec{k},\Vec{k'})\exp{i\left[(\Vec{k}-\Vec{k'})\cdot\Vec{r}-\frac{1}{\hbar}\frac{\partial\varepsilon_{n\Vec{k}}}{\partial\Vec{k}}(\Vec{k'}-\Vec{k})t\right]}\\
+&\approx u_{n\Vec{k}}(\Vec{r})e^{i\left(\Vec{k}\cdot\Vec{r}-\frac{\varepsilon_n(\Vec{k})t}{\hbar}\right)}\sum_{\Vec{k'}}g(\Vec{k},\Vec{k'})\exp{i\left[(\Vec{k}-\Vec{k'})\cdot(\Vec{r}-\Vec{v}_{n\Vec{k}}t)\right]}
+\end{align*}
+The factor outside the sum is just an overall phase factor, hence irrelevant. If we now take $g(\Vec{k},\Vec{k'})$ to be a Gaussian, what we have inside the sum is nothing but the Fourier transform of a Gaussian, which gives a Gaussian in real space located at $(\Vec{r}-\Vec{v}_{n\Vec{k}}t)$, so it moves with a velocity which is essentially the group one.\\
+So far we have encountered two length scales: the lattice spacing $a$ and the wavelength $\lambda$ of the electromagnetic radiation used to investigate the crystal. If we want to have a semiclassical theory we need some conditions fixing the relation between $a, \lambda$ and $\Delta k=k'-k$. First of all, we require $\lambda\gg a$ because if it was $\lambda\sim a$ the electrons cannot be treated as wave packets anymore, because the electromagnetic field will change a lot on the scale of the wave packet. Moreover, we want wave packets with a reasonably well defined momentum, hence a small $\Delta k$, i.e. a large spread in real space. This condition can be written by claiming that the wave packet will spread along several primitive cells:
 \[
-\psi_n(\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k'})\psi_{n\Vec{k'}}(\Vec{r})e^{-\frac{i}{h}E_n(\Vec{k'})t} \quad \text{with}\;
+\Delta k\ll\frac{1}{a} \qquad \frac{1}{\Delta k}\gg a
+\]
+$\Delta k$ is much smaller than the size of the Brillouin zone and the spread of wave packet in real space is much larger than the unit cell. The limits of applicability of this theory can be stated as:
+\[
+a\le\frac{1}{\Delta k}\le\lambda
+\]
+The wave packet under the influence of the electromagnetic field will obey the following semiclassical equations:
+\begin{equation}
+\label{eqmot}
 \left\{
 \begin{aligned}
-&\psi_{n\Vec{k}}(\Vec{r})=u_{n\Vec{k}}(\Vec{r})e^{i\Vec{k}\cdot\Vec{r}}\\
-&u(\Vec{r}+\Vec{R})=u(\Vec{r})
+&\Dot{\Vec{r}}=\Vec{v}_n(\Vec{k})=\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}\\
+&\hbar\Vec{\Dot{k}}=-e(\Vec{E}+\Vec{v}\times\Vec{B}) %\quad \Vec{\Dot{r}}=\frac{\hbar\Vec{k}}{m}
 \end{aligned}
 \right.
-\]
-Let the spread in wave vector $\Delta k$ be small compared with the dimensions of the Brillouin zone, i.e. $|\Delta k|\ll\pi/a$. This is not a big assumption, in fact if $|\Delta k|\simeq\pi/a$ one is considering electrons with all possible wave vectors which is not a physically interesting circumstance. In according with the usual uncertainty rule for wave packets $\Delta k\Delta r\sim2\pi$ this implies that $\Delta r\simeq1/\Delta k\gg a$. We are making this assumption because we want the wave packet to have a well defined $n$ in the \nth{1} Brillouin zone.\\
-The semiclassical model describes the response of electrons to externally applied electric and magnetic fields that vary slowly over the dimensions of such wave packet. The main problem is describing the motion of Bloch electrons between collisions, where the index of band $n$ is a constant. This means that only intra-band transitions can occur, if the band is completely filled then no transition happens. The mean velocity of an electron in a definite Bloch level is given by:
-\begin{equation}
-\label{eqmot2}
-\Vec{v}_n(\Vec{k})=\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}
 \end{equation}
-This can be seen as the familiar group velocity of a wave packet $\partial\omega/\partial\Vec{k}=(\partial/\partial\Vec{k})(E/\hbar)$.\\
+% This approach has a simple generalization to electrons in a general periodic potential, known as the \textbf{semiclassical model}. Consider now a wave packet of Bloch levels from a given band, constructed in analogy to the free electron wave packet:
+% \[
+% \psi_n(\Vec{r},t)=\sum_{\Vec{k'}}g(\Vec{k'})\psi_{n\Vec{k'}}(\Vec{r})e^{-\frac{i}{h}E_n(\Vec{k'})t} \quad \text{with}\;
+% \left\{
+% \begin{aligned}
+% &\psi_{n\Vec{k}}(\Vec{r})=u_{n\Vec{k}}(\Vec{r})e^{i\Vec{k}\cdot\Vec{r}}\\
+% &u(\Vec{r}+\Vec{R})=u(\Vec{r})
+% \end{aligned}
+% \right.
+% \]
+% Let the spread in wave vector $\Delta k$ be small compared with the dimensions of the Brillouin zone, i.e. $|\Delta k|\ll\pi/a$. This is not a big assumption, in fact if $|\Delta k|\simeq\pi/a$ one is considering electrons with all possible wave vectors which is not a physically interesting circumstance. In according with the usual uncertainty rule for wave packets $\Delta k\Delta r\sim2\pi$ this implies that $\Delta r\simeq1/\Delta k\gg a$. We are making this assumption because we want the wave packet to have a well defined $n$ in the \nth{1} Brillouin zone.\\
+% The semiclassical model describes the response of electrons to externally applied electric and magnetic fields that vary slowly over the dimensions of such wave packet. The main problem is describing the motion of Bloch electrons between collisions, where the index of band $n$ is a constant. This means that only intra-band transitions can occur, if the band is completely filled then no transition happens. The mean velocity of an electron in a definite Bloch level is given by:
+% \begin{equation}
+% \label{eqmot2}
+% \Vec{v}_n(\Vec{k})=\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}
+% \end{equation}
+% This can be seen as the familiar group velocity of a wave packet $\partial\omega/\partial\Vec{k}=(\partial/\partial\Vec{k})(E/\hbar)$.\\
+A first consequence of these equations of motion is that the band index $n$ is fixed. This means that if we have a Bloch electron in a given band it will remain there, without changing band. In general, this depends on the distance between bands: if it is small enough, nothing forbids the electromagnetic field to supply enough energy to the electron to jump on the other band. It follows that the electromagnetic field has to be sufficiently slow and sufficiently weak.\\
 In the limit of zero periodic potential, the semiclassical model must break down, because in that limit the electron will be a free electron which can continuously increase its kinetic energy in a uniform electric field. However, the model forbids interband transitions, requiring that the energy of any electron remains confined within the limits of a band in which the electron originally is. It follows that there must be some minimum strength to the periodic potential before the model can be applied. 
 \[
 e\Vec{E}a\ll \varepsilon_g \qquad\qquad \hbar\omega_c\ll \varepsilon_g 
 \]
 with $\varepsilon_g$ being the energy gap between two nearest bands and $\omega_c=e\Vec{B}/m$.\\
-Suppose to have a metal with a resistivity $\rho=10\;\Omega\,\cdot$\,m and a current density $\Vec{J}=10^2$\,A/cm$^2$: the electric field will be $\Vec{E}=\rho\cdot\Vec{J}=10^7$\,V/m. For $a\sim10^{-10}$\,m we will have $e\Vec{E}a\sim1$\,meV$\ll1$\,eV which is the typical energy gap of the insulators. On the other hand, the condition on the magnetic field strength is not difficult to violate: for $\Vec{B}=10^4$\,G$=1$\,T the energy $\hbar\omega_c$ is of order $10^{-4}$\,eV and the condition fails for $\varepsilon_g\sim10^{-2}$\,eV. When this condition fails to hold, electrons may not follow the orbits determined by the semiclassical equations of motion. In addition to these two, there are other two conditions:
-\[
-\hbar\omega\ll \varepsilon_g \qquad \qquad \lambda\ll a
-\]
-The first one prevents a single photon to supply enough energy to produce an interband transition while the second is required in order to have meaningful wave packets.\\
+Suppose to have a metal with a resistivity $\rho=10\;\Omega\,\cdot$\,m and a current density $\Vec{J}=10^2$\,A/cm$^2$: the electric field will be $\Vec{E}=\rho\cdot\Vec{J}=10^7$\,V/m. For $a\sim10^{-10}$\,m we will have $e\Vec{E}a\sim1$\,meV$\ll1$\,eV which is the typical energy gap of the insulators. On the other hand, the condition on the magnetic field strength is not difficult to violate: for $\Vec{B}=10^4$\,G$=1$\,T the energy $\hbar\omega_c$ is of order $10^{-4}$\,eV and the condition fails for $\varepsilon_g\sim10^{-2}$\,eV. When this condition fails to hold, electrons may not follow the orbits determined by the semiclassical equations of motion.\\
+%In addition to these two, there are other two conditions:
+% \[
+% \hbar\omega\ll \varepsilon_g \qquad \qquad \lambda\ll a
+% \]
+% The first one prevents a single photon to supply enough energy to produce an interband transition while the second is required in order to have meaningful wave packets.\\
 % Electrons in a filled band with wave vectors in a region of $k$-space of volume $d\Vec{k}$ contribute $d\Vec{k}/4\pi^3$ to the total electronic density:
 % \[
 % \frac{d\Vec{k}}{4\pi^3}f[E_n(\Vec{k})]=\frac{d\Vec{k}/4\pi^3}{e^{\beta[E_n(\Vec{k})-\mu]}+1}
 % \]
 % The number of such electrons in a region of position space of volume $d\Vec{r}$ will then be $d\Vec{r}d\Vec{k}/4\pi^3$. A filled band can be characterized semiclassically by the fact that the density of electrons in a six-dimensional $rk$-space is $1/4\pi^3$. The equations of motion imply that a filled band remains a filled band at any time, therefore if the phase space density is $1/4\pi^3$ at time zero it must remain so at all times: semiclassical motion between collisions cannot alter the configuration of a filled band. 
-A completely filled band cannot contribute to an electrical or thermal current. To see this, take the current:
+Now we can ask ourselves: \textit{what is the contribution of the filled bands to the dynamics?} Without interband transitions, it is possible to show that a completely filled band cannot contribute to an electrical or thermal current.
 \[
-\Vec{J}:=-\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize Pauli principle };}}{2}e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{(2\pi)^3}\overbrace{\left(\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}\right)}^{\Vec{v}_n}\underset{\mathclap{\tikz \node {$\uparrow$} node [below=1ex] {\footnotesize Fermi-Dirac distribution};}}{f[\varepsilon_n(\Vec{k})]}
+\Vec{J}:=-\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize Pauli principle };}}{2}e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{(2\pi)^3}\overbrace{\left(\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}\right)}^{\Vec{v}_{n\Vec{k}}}\underset{\mathclap{\tikz \node {$\uparrow$} node [below=1ex] {\footnotesize Fermi-Dirac distribution};}}{f[\varepsilon_n(\Vec{k})]}
 \]
 The integral is performed over the \nth{1} Brillouin zone because we are assuming that the band is completely filled. Moreover, assume to be $\sim0$\,K so that $f[E_n(\Vec{k}]=1$.
 \[
-\Vec{J}=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}\stackrel{?}{=}0
+\Vec{J}=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}
 \]
-Consider now a periodic function in direct space: its integral over the cell is constant under translation.
-\[
-I(\Vec{r'})=\int_Cd\Vec{r}f(\Vec{r}+\Vec{r'})\Rightarrow\Vec{\nabla'}I(\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla'}f(\Vec{r}+\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla}f(\Vec{r}+\Vec{r'})
-\]
-In the case $\Vec{r'}=0$, then the last integral is equal to zero. This holds true in reciprocal space as well and we get that $\Vec{J}=0$. This result holds true for completely filled bands because in this case the phase-space density is \textbf{constant} and this is related to Liouville's Theorem: since two regions of the phase space linked together by the semiclassical equations of motion [\refeq{eqmot1} and \refeq{eqmot2}] have the same number of electrons, they will have the same density.
+Because of the periodicity of $\varepsilon_n(\Vec{k})$ the integrand is zero, therefore $\Vec{J}=0$: in a filled band, no electric current is carried by electrons.
+% Consider now a periodic function in direct space: its integral over the cell is constant under translation.
+% \[
+% I(\Vec{r'})=\int_Cd\Vec{r}f(\Vec{r}+\Vec{r'})\Rightarrow\Vec{\nabla'}I(\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla'}f(\Vec{r}+\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla}f(\Vec{r}+\Vec{r'})
+% \]
+% In the case $\Vec{r'}=0$, then the last integral is equal to zero. This holds true in reciprocal space as well and we get that $\Vec{J}=0$. This result holds true for completely filled bands because in this case the phase-space density is \textbf{constant} and this is related to Liouville's Theorem: since two regions of the phase space linked together by the semiclassical equations of motion [\refeq{eqmot1} and \refeq{eqmot2}] have the same number of electrons, they will have the same density.
 \subsection{Contribution of the Holes}
 The contribution to all electrons in a given band to the current density is then:
 \[
@@ -1534,7 +1580,7 @@ where the integral is over all occupied levels in the band. By exploiting the fa
 \[
 0=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})=-e\int_{\text{occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})+(-e)\int_{\text{non occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})\Rightarrow\Vec{J}=e\int_{\text{non occ}}\frac{d\Vec{k}}{4\pi^3}\Vec{v}(\Vec{k})
 \]
-The current produced by occupying with electrons a specified set of levels is exactly the same as the current that would be produced if the specified levels were unoccupied and all the other levels in the band were occupied with particles of charge $+e$.\\
+The current produced by occupying with electrons a specified set of levels is exactly the same as the current that would be produced if the specified levels were unoccupied and all the other levels in the band were occupied with particles of charge $+e$. The two descriptions, in terms of electrons or in terms of holes, are equivalent.\\
 In equilibrium and in configurations that do not deviate substantially from equilibrium, the unoccupied levels usually lie near the top of the band. If the band energy $\varepsilon(\Vec{k})$ has its maximum value at $\Vec{k_0}$ and $\Vec{k}$ is sufficiently close to $\Vec{k_0}$, it is possible to perform an expansion. The linear term in $(\Vec{k}-\Vec{k_0})$ vanishes at a maximum, so that one has:
 \[
 \varepsilon(\Vec{k})\simeq \varepsilon(\Vec{k_0})-A(\Vec{k}-\Vec{k_0})^2 \qquad\text{with}\;\; A=\frac{\hbar^2}{2m^*}
