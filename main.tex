@@ -605,8 +605,8 @@ Substituting them in the equations above gives us:
 This system of equations have a non-trivial solution if the determinant of the coefficient matrix of $A_u$ and $A_v$ is zero.
 \[
 \det\left(\begin{array}{cc}
-    C_1+C_2-M_1\omega^2 & C_1+C_2e^{iqa} \\
-    C_1+C_2e^{-iqa} & C_1+C_2-M_2\omega^2
+    C_1+C_2-M_1\omega^2 & C_1+C_2e^{-iqa} \\
+    C_1+C_2e^{iqa} & C_1+C_2-M_2\omega^2
 \end{array}\right)=0
 \]
 Imposing the determinant to be equal to 0 gives us a second degree equation in $\omega^2$ whose solutions are:
@@ -769,7 +769,7 @@ which is not what it is observed experimentally. In fact, in metals and insulato
 \text{Metals:}\;\;c_V=AT+BT^3 \qquad \text{Insulators:}\;\;c_V=BT^3
 \]
 Both have the phonons contributions, the extra term for metals comes from electrons.\\
-What we obtained is a purely classical result in which the discretization of the energy levels is neglected but at low temperatures the quantization of the amplitude of the lattice vibrations become important. We explicitly compute $u$ given by:
+What we obtained is a purely classical result in which the discretization of the energy levels is neglected but at low temperatures the quantization of the amplitude of the lattice vibrations becomes important. We explicitly compute $u$ given by:
 \[
 u=\frac{1}{V}\frac{\sum_iE_ie^{-\beta E_i}}{\sum_ie^{-\beta E_i}}=-\frac{\partial f}{\partial\beta} \quad \text{where}\;\;f=\frac{1}{V}\ln{\sum_ie^{-\beta E_i}}
 \]
@@ -785,7 +785,7 @@ where $n_{\Vec{q}s}$ is the excitation number of the mode. The term $\sum_ie^{-\
 \end{align*}
 Here we are treating the phonons as bosons. At the end of the day one gets:
 \[
-f=\frac{1}{V}\ln{\prod_{\Vec{q}s}\frac{e^{-\beta\hbar\omega_s(\Vec{q})/2}}{1-e^{-\beta\hbar\omega_s(\Vec{q})}}}=\frac{1}{V}\sum_{\Vec{q}s}\ln{\frac{e^{-\beta\hbar\omega_s(\Vec{q})/2}}{1-e^{-\beta\hbar\omega_s(\Vec{q})}}}
+f=\frac{1}{V}\ln{\left[\prod_{\Vec{q}s}\frac{e^{-\beta\hbar\omega_s(\Vec{q})/2}}{1-e^{-\beta\hbar\omega_s(\Vec{q})}}\right]}=\frac{1}{V}\sum_{\Vec{q}s}\ln{\left[\frac{e^{-\beta\hbar\omega_s(\Vec{q})/2}}{1-e^{-\beta\hbar\omega_s(\Vec{q})}}\right]}
 \]
 By differentiating $f$ with respect to $\beta$, the internal energy density $u$ assumes the form:
 \[
@@ -800,7 +800,7 @@ In the limit $\beta\hbar\omega\ll1$, i.e. high-temperature limit, the specific h
 c_V\simeq\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega_s(\Vec{q})}{\beta\hbar\omega_s(\Vec{q})}=\frac{1}{V}\sum_{\Vec{q}s}k_B\frac{\partial T}{\partial T}=\frac{1}{V}3Nk_B=3nk_B
 \]
 This tells us that the classical result is recovered in the high-temperature limit.\\
-On the other hand, moving to the low-temperature regime, i.e. $\beta\hbar\omega\gg1$, we observe that the set of discrete wave vectors which we summed over becomes dense on the scale over which the summand has an appreciable variation. Therefore, the sum is replaced by an integral:
+On the other hand, moving to the low-temperature regime, i.e. $\beta\hbar\omega\gg1$, we observe that in the limit of a large crystal the set of discrete wave vectors which we summed over becomes dense on the scale over which the summand has an appreciable variation. Therefore, the sum is replaced by an integral:
 \begin{equation}
 \label{general}
 c_V=\frac{\partial}{\partial T}\sum_s\int_{\text{\RN{1}BZ}}\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar\omega_s(\Vec{q})}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
