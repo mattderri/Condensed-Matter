@@ -243,7 +243,10 @@ Suppose now to take a function $\rho(\Vec{r}+\Vec{R})=\rho(\Vec{r})$, where $\rh
 \text{FT}[\rho(\Vec{r})]=\sum_{\Vec{R}}\int_\Omega d\Vec{r'}e^{i\Vec{k}\cdot(\Vec{r'}+\Vec{R})}\rho(\Vec{r'}+\Vec{R})=\sum_{\Vec{R}}e^{i\Vec{k}\cdot\Vec{R}}\int_\Omega d\Vec{r'}e^{i\Vec{k}\cdot\Vec{r'}}\rho(\Vec{r'})=\frac{(2\pi)^3}{\Omega}\sum_{\Vec{G}}\delta(\Vec{k}-\Vec{G})S(\Vec{k})
 \]
 $S(\Vec{k})$ is the Fourier transform of the electrical charge distribution which modulates the intensity and it is the object we can experimentally measure. But how? The idea is to let a flux of particles pass through a monochromator, which selects specific energies and wave vectors, before they hit a sample of material we want to study. Particles will scatter elastically from the sample and get collected by a detector in order to perform the analysis. What we are interested in is to know whether the material displays some symmetry or if it has a basis.\\
-In crystals, typical interatomic distances are of the order of $\sim5$\,\AA\, therefore we need probes, i.e. particles, with such wavelength. There are three options:
+In crystals, typical interatomic distances are of the order of $\sim5$\,\AA\, therefore we need probes, i.e. particles, with such wavelength. 
+\begin{mybox}
+\textbf{Scattering Probes}
+\hrule
 \begin{itemize}
     \item \textbf{Photons} The dispersion relation is simply:
     \[
@@ -261,7 +264,8 @@ In crystals, typical interatomic distances are of the order of $\sim5$\,\AA\, th
     \]
     It follows that $E\sim150$\,eV to have $\lambda\sim1$\,\AA\,. Because they interact with the charge of the atom, electrons do not penetrate much in the material therefore they are used to study the surface of the material.
 \end{itemize}
-The scheme is the following: suppose to have a lattice and a wave scattering on a certain lattice point $\Vec{\rho}$. Let $\Vec{k}$ be the wave vector of the incoming wave and $\Vec{k'}$ the wave vector of the outgoing wave. We make two important assumptions here: being the source far away, the incoming wave can be approximated as a plane wave and under the hypothesis of elastic scattering the two waves have the same wave vector, $|\Vec{k}|=|\Vec{k'|}$.\\
+\end{mybox}\noindent
+The scheme is the following: suppose to have a lattice and a wave scattering on a certain lattice point $\Vec{\rho}$. Let $\Vec{k}$ be the wave vector of the incoming wave and $\Vec{k'}$ the wave vector of the outgoing wave. We make two important assumptions here: being the source far away, the incoming wave can be approximated as a \textbf{plane wave} and under the hypothesis of \textbf{elastic scattering} the two waves have the same wave vector, $|\Vec{k}|=|\Vec{k'|}$.\\
 \begin{figure}[h]
     \centering
     \includegraphics{diffraction.pdf}
@@ -305,15 +309,19 @@ The relative total contribution will then be proportional to:
 \label{rhozero}
 e^{-i\Vec{\rho_0}\cdot\Delta\Vec{k}}\sum_{n_1n_2n_3}e^{-i(n_1\Vec{t_1}+n_2\Vec{t_2}+n_3\Vec{t_3})\cdot\Delta\Vec{k}}
 \end{equation}
-It is possible to show that when the number of lattice points is large enough, there will be scattering of noticeable intensity only in the directions defined by the Laue condition. The scattered intensity is proportional to the product of three terms of the form:
+It is possible to show that when the number of lattice points is large enough, there will be scattering of noticeable intensity only in certain directions. The scattered intensity is proportional to the product of three terms of the form:
 \[
 \left|\sum_{n=0}^{N-1}e^{-in\Vec{t}\cdot\Delta\Vec{k}}\right|^2=\left|\frac{1-e^{-iN\Vec{t}\cdot\Delta\Vec{k}}}{1-e^{-i\Vec{t}\cdot\Delta\Vec{k}}}\right|^2=\frac{\sin^2(N\Vec{t}\cdot\Delta\Vec{k}/2)}{\sin^2(\Vec{t}\cdot\Delta\Vec{k}/2)}
 \]
-Functions of this type are oscillating function of $\Vec{t}\cdot\Delta\Vec{k}$, with a maximum in $(2n+1)\pi/N$ and a minimum corresponding to zero in $2n\pi/N$. Taking into account the product of three factors of that type, the scattered intensity is different from zero only around those points where the function has a maximum value. The maximum intensity condition can be written as:
+Functions of this type are oscillating function of $\Vec{t}\cdot\Delta\Vec{k}$, with a maximum in $(2m+1)\pi/N$ and a minimum corresponding to zero in $2m\pi/N$. Taking into account the product of three factors of that type, the scattered intensity is noticeably different from zero only around those points where the function has a maximum value. 
+\begin{mybox}
+\textbf{Laue Condition{\color{blue!30}{g}}}
+\hrule
 \[
-\Vec{t_1}\cdot\Delta\Vec{k}=2\pi n \quad \Vec{t_2}\cdot\Delta\Vec{k}=2\pi m \quad \Vec{t_3}\cdot\Delta\Vec{k}=2\pi r
+\Vec{t_1}\cdot\Delta\Vec{k}=2\pi l \quad \Vec{t_2}\cdot\Delta\Vec{k}=2\pi m \quad \Vec{t_3}\cdot\Delta\Vec{k}=2\pi n
 \]
-where $n,m$ and $r$ are integer numbers. Using the definition of reciprocal lattice, this can be written as $\Delta\Vec{k}=\Vec{G}$ where $\Vec{G}$ is a generic vector of the reciprocal lattice. This is the \textbf{Laue law}.\\
+where $l,m$ and $n$ are integer numbers. Using the definition of reciprocal lattice, this can be written as $\Delta\Vec{k}=\Vec{G}$ where $\Vec{G}$ is a generic vector of the reciprocal lattice.
+\end{mybox}\noindent
 So far, we have not considered the structure of the primitive cell but only the effect of translation symmetry. To get the total amplitude, the contribution from \hyperref[rhozero]{Equation (\ref{rhozero})} have to be summed over all the points $\Vec{\rho}$ and take into account the density of scattering particles. In the case of a large number of elementary cells, it is possible to use the approximation:
 \[
 \frac{\sin^2(Nx/2)}{\sin^2(x/2)}\simeq2\pi N\delta(x)
@@ -352,6 +360,11 @@ This will obviously depend on the distribution $n_j(r)$:
 \[
 n_j(r)=\frac{Z}{4\pi r^3/3}\to f_j(\Vec{G})=Z \qquad n_j(r)=\frac{e^{-2r/a_0}}{\pi a_0^3}\to f_j(\Vec{G})=\frac{16}{(4\pi G^2a_0^2)^2}
 \]
+\begin{wrapfigure}[9]{r}{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.45\textwidth]{bragg.pdf}
+    \label{fig:bragg}
+\end{wrapfigure}
 From Laue diffraction condition it is possible to obtain the \textbf{Bragg law}:
 \[
 \Vec{k}'-\Vec{k}=\Vec{G}\to\hat{G}\cdot\frac{2\pi}{\lambda}(\hat{k'}-\hat{k})=\Vec{G}\cdot\hat{G}
@@ -361,11 +374,6 @@ This can be written as:
 \frac{2\pi}{\lambda}(\sin\theta+\sin\theta)=|\Vec{G}|=\frac{2n\pi}{d}\Rightarrow2d\sin\theta=n\lambda
 \]
 which is exactly the Bragg law.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.45\textwidth]{bragg.pdf}
-    \label{fig:bragg}
-\end{figure}
 % This could have been obtained, without using reciprocal lattice vectors, by considering the path difference between the incoming and the scattered ray equal to $2d\sin\theta$, where $\theta$ is the angle of incidence. In order to have a constructive interference, this path difference must be an integral number of wavelengths:
 % \[
 % n\lambda=2d\sin\theta
@@ -433,7 +441,7 @@ The last term $C_e^{\text{rel}}$ accounts for relativistic corrections on electr
 \[
 \Psi_{nv}(\Vec{r},\Vec{R})=F_{n,v}(\Vec{R})\psi_n(\Vec{r},\Vec{R})
 \]
-$\Vec{r}$ denotes the electronic coordinates while $\Vec{R}$ the nuclear ones. This approximation is due to the enormous difference in speed between nuclei and electrons. For electrons, the speed can be computed by using the virial theorem:
+$\Vec{r}$ denotes the electronic coordinates while $\Vec{R}$ the nuclear ones. This separation goes under the name of \textbf{adiabatic approximation} and it is due to the enormous difference in velocity between nuclei and electrons. For electrons, the velocity can be computed by using the virial theorem:
 \[
 \frac{m_ev^2}{2}\sim\frac{Ze^2}{4\pi\varepsilon_0a_0}\Rightarrow v\sim\sqrt{\frac{Ze^2}{4\pi\varepsilon_0m_e{\color{red}{a_0}}}}=\sqrt{\frac{Ze^2}{4\pi\varepsilon_0m_e}{\color{red}{\frac{Zm_ec\alpha}{\hbar}}}}=Z\alpha c
 \]
@@ -461,10 +469,15 @@ Dividing everything by $F_{n,v}(\Vec{R})\psi_n(\Vec{r},\Vec{R})$ this gets simpl
 \[
 \underbrace{-\frac{\hbar^2}{2m}\frac{\nabla_r^2\psi_n(\Vec{r},\Vec{R})}{\psi_n(\Vec{r},\Vec{R})}+V_{ee}+V_{eN}+C_e^{\text{rel}}}_{=E_n(\Vec{R})}-\frac{\hbar^2}{2M}\frac{\nabla_R^2F_{n,v}(\Vec{R})}{F_{n,v}(\Vec{R})}+V_{NN}=E
 \]
-There is a situation of the type $f(x,y)+g(y)=$constant, hence it follows that $f(x,y)=f(y)$. In our case, it means that the first four terms must be independent on $\Vec{r}$ and form a function of $\Vec{R}$ only, denoted with $E_n(\Vec{R})$. We then have:
+There is a situation of the type $f(x,y)+g(y)=$ constant, hence it follows that $f(x,y)=f(y)$. In our case, it means that the first four terms must be independent on $\Vec{r}$ and form a function of $\Vec{R}$ only, denoted with $E_n(\Vec{R})$. We then have:
+\begin{mybox}
+\textbf{Born-Oppenheimer Approximation}
+\hrule
+\vspace{0.2cm}
 \[
 -\frac{\hbar^2}{2M}\frac{\nabla_R^2F_{n,v}(\Vec{R})}{F_{n,v}(\Vec{R})}+V_{NN}+E_n(\Vec{R})=E
 \]
+\end{mybox}\noindent
 The fundamental state will be given by the minimal energy configuration, i.e. the one corresponding to the minimum of the potential: $V_0:=V_{NN}+E_0(\Vec{R})$.
 \subsection{Dynamical Matrix of a Linear Chain}
 Consider now a 1D chain of lattice constant $a$ formed by a large number $N$ of atoms of mass $M$. Denote with $u_n$ the longitudinal displacement of the $n$-th atom from the equilibrium position $t_n=na$. Fix the nuclei in the positions $R_n=na+u_n$ and indicate with $E_0(\{u_n\})$ the total ground state energy of the electron-nuclear system. In the study of small oscillations, it is convenient to expand the energy in powers of the displacement $u_n$:
@@ -721,10 +734,15 @@ It is now possible to express the original Hamiltonian in terms of the new displ
 \]
 In every last passage of the relations above, we used the fact that $\frac{1}{N}\sum_ne^{i(q+q')t_n}=\delta(q-q')$.\\
 The Hamiltonian of \hyperref[H]{Equation (\ref{H})} can now be written as:
+\begin{mybox}
+\textbf{\RN{1} Quantization{\color{blue!30}{g}}}
+\hrule
+\vspace{0.2cm}
 \begin{equation}
 \label{H1}
 H=\sum_q\frac{p_qp_{-q}}{2M}+\frac{1}{2}C\sum_qu_qu_{-q}(2-e^{-iqa }-e^{+iqa})=\sum_q\left[\frac{p_qp_{-q}}{2M}+\frac{1}{2}M\omega^2(q)u_qu_{-q}\right]
 \end{equation}
+\end{mybox}\noindent
 where $\omega^2(q)$ is given by the following:
 \[
 \omega^2(q)=\frac{C}{M}(2-e^{-iqa}-e^{+iqa})=\frac{4C}{M}\sin^2(qa/2)
@@ -748,9 +766,14 @@ The displacements and the conjugated momenta gets now written in the form:
 \right.
 \]
 The Hamiltonian of \hyperref[H1]{Equation (\ref{H1})} can be expressed in second quantization form:
+\begin{mybox}
+\textbf{\RN{2} Quantization{\color{blue!30}{g}}}
+\hrule
+\vspace{0.2cm}
 \[
 H=\sum_q\hbar\omega(q)\left(a_q^\dagger a_q+\frac{1}{2}\right)
 \]
+\end{mybox}\noindent
 which can be seen as the sum of the Hamiltonians of $N$ independent linear harmonic oscillators of frequency $\omega(q)$.
 \newpage
 \section{Thermal Properties}
@@ -801,11 +824,17 @@ c_V\simeq\frac{1}{V}\sum_{\Vec{q}s}\frac{\partial}{\partial T}\frac{\hbar\omega_
 \]
 This tells us that the classical result is recovered in the high-temperature limit.\\
 On the other hand, moving to the low-temperature regime, i.e. $\beta\hbar\omega\gg1$, we observe that in the limit of a large crystal the set of discrete wave vectors which we summed over becomes dense on the scale over which the summand has an appreciable variation. Therefore, the sum is replaced by an integral:
+\begin{mybox}
+\textbf{Specific Heat General Form{\color{blue!30}{g}}}
+\hrule
+\vspace{0.2cm}
 \begin{equation}
 \label{general}
 c_V=\frac{\partial}{\partial T}\sum_s\int_{\text{\RN{1}BZ}}\frac{d\Vec{q}}{(2\pi)^3}\frac{\hbar\omega_s(\Vec{q})}{e^{\beta\hbar\omega_s(\Vec{q})}-1}
 \end{equation}
-where the integral is taken over the \nth{1} Brillouin zone. At very low temperature, modes with $\hbar\omega_s(\Vec{q})\gg k_BT$ contribute negligibly to the integral, since the integrand will vanish exponentially. This condition will not be satisfied by acoustic modes of sufficiently long wavelength, since $\omega_s(\Vec{q})\to0$ as $\Vec{q}\to0$. These modes will continue to contribute appreciably to $c_V$. With this in mind, we can make some simplifications:
+The integral is taken over the \nth{1} Brillouin zone.
+\end{mybox}\noindent
+At very low temperature, modes with $\hbar\omega_s(\Vec{q})\gg k_BT$ contribute negligibly to the integral, since the integrand will vanish exponentially. This condition will not be satisfied by acoustic modes of sufficiently long wavelength, since $\omega_s(\Vec{q})\to0$ as $\Vec{q}\to0$. These modes will continue to contribute appreciably to $c_V$. With this in mind, we can make some simplifications:
 \begin{enumerate}
     \item It is possible to ignore the optical modes in the sum over $s$
     \item We can replace $\omega_s(\Vec{q})$ for the acoustic branches with its long wavelength form $c_s(\hat{\Vec{q}})q$
@@ -917,7 +946,7 @@ E(\Vec{k})\simeq\frac{\hbar^2k^2}{2m_e}
 \]
 To determine the energy density $u$, one has to solve the Sommerfeld's integral, which is itself an approximation:
 \[
-u=\int_\mathbb{R}dEg(E)f(E)E=\int_\mathbb{R}dE\frac{D(E)}{V}\frac{1}{e^{\beta(E-\mu)}-1}E
+u=\int_\mathbb{R}dEg(E)f(E)E=\int_\mathbb{R}dE\frac{D(E)}{V}\frac{1}{e^{\beta(E-\mu)}+1}E
 \]
 One may take a shortcut and compute:
 \[
@@ -1008,13 +1037,27 @@ We now substitute the expressions for $\psi(\Vec{r})$ and $U(\Vec{r})$ in the Ha
 \left\{
 \begin{aligned}
 &-\frac{\hbar^2}{2m}\Vec{\nabla}^2\psi(\Vec{r})=\sum_{\Vec{q}}\frac{\hbar^2q^2}{2m}C_{\Vec{q}}e^{i\Vec{q}\cdot\Vec{r}}\\
-&U(\Vec{r})\psi(\Vec{r})=\sum_{\Vec{G}}U_{\Vec{G}}e^{i\Vec{G}\cdot\Vec{r}}\sum_{\Vec{q}}C_{\Vec{q}}e^{i\Vec{q}\cdot\Vec{r}}=\sum_{\Vec{G}\Vec{q}}U_{\Vec{G}}C_{\Vec{q}}e^{i(\Vec{G}+\Vec{q})\cdot\Vec{r}}=\sum_{\Vec{G}\Vec{q'}}U_{\Vec{G}}C_{\Vec{q'}-\Vec{G}}e^{i\Vec{q'}\cdot\Vec{r}}
+&U(\Vec{r})\psi(\Vec{r})=\sum_{\Vec{G}}U_{\Vec{G}}e^{i\Vec{G}\cdot\Vec{r}}\sum_{\Vec{q}}C_{\Vec{q}}e^{i\Vec{q}\cdot\Vec{r}}=\sum_{\Vec{G}\Vec{q}}U_{\Vec{G}}C_{\Vec{q}}e^{i(\Vec{G}+\Vec{q})\cdot\Vec{r}}
+%=\sum_{\Vec{G}\Vec{q'}}U_{\Vec{G}}C_{\Vec{q'}-\Vec{G}}e^{i\Vec{q'}\cdot\Vec{r}}
 \end{aligned}
 \right.
 \]
 The Schr\"odinger equation now gives us:
 \[
-\left(\frac{\hbar^2q^2}{2m}-E\right)C_{\Vec{q}}+\sum_{\Vec{G'}}U_{\Vec{G'}}C_{\Vec{q}-\Vec{G'}}=0
+\sum_{\Vec{q}}\left(\frac{\hbar^2q^2}{2m}-E\right)C_{\Vec{q}}e^{i\Vec{q}\cdot\Vec{r}}+\sum_{\Vec{G}\Vec{q}}U_{\Vec{G}}C_{\Vec{q}}e^{i(\Vec{G}+\Vec{q})\cdot\Vec{r}}=0
+\]
+If the set $\{\Vec{q}\}$ and $\{\Vec{q}+\Vec{G}\}$ do not coincide, the exponential functions in the two terms on the left hand side of the above equation are linearly independent, and the only way in which that equation can be satisfied is to have $C_{\Vec{q}}=0$, i.e. $\psi(\Vec{r})=0$.\\
+If, instead, the sets $\{\Vec{q}\}$ and $\{\Vec{q}+\Vec{G}\}$ are equal, in other words $\{\Vec{q}\}$ is invariant for translations of reciprocal lattice vectors, it is possible to relabel $\Vec{q}+\Vec{G}$ as $\Vec{q}$ and rewrite the second term as:
+\[
+\sum_{\Vec{G}\Vec{q}}U_{\Vec{G}}C_{\Vec{q}-\Vec{G}}e^{i\Vec{q}\cdot\Vec{r}}
+\]
+The Schr\"odinger equation takes the form:
+\[
+\sum_{\Vec{q}}e^{i\Vec{q}\cdot\Vec{r}}\left[\left(\frac{\hbar^2q^2}{2m}-E\right)C_{\Vec{q}}+\sum_{\Vec{G}}U_{\Vec{G}}C_{\Vec{q}-\Vec{G}}\right]=0
+\]
+The plane waves satisfying the Born-von Karman boundary condition are an orthogonal set, so the coefficient of each separate term in the above equation must vanish, giving us:
+\[
+\left(\frac{\hbar^2q^2}{2m}-E\right)C_{\Vec{q}}+\sum_{\Vec{G}}U_{\Vec{G}}C_{\Vec{q}-\Vec{G}}=0
 \]
 It is convenient to write $\Vec{q}$ as $\Vec{q}=\Vec{k}-\Vec{G}$ where $\Vec{G}$ is a reciprocal lattice vector chosen so that $\Vec{k}$ lies in the \nth{1} Brillouin zone.
 \begin{equation}
@@ -1103,7 +1146,8 @@ Fix now $\Vec{k}$ and consider a particular reciprocal lattice vector $\Vec{G_1}
 \label{assumption}
 |E^0_{\Vec{k}-\Vec{G_1}}-E^0_{\Vec{k}-\Vec{G}}|\gg U \quad \forall\;\Vec{G}\neq\Vec{G_1}
 \end{equation}
-The idea is to investigate the effect of the potential on that free electron level given by:
+We are assuming here that the free electron energy $E^0_{\Vec{k}-\Vec{G_1}}$ is far from the values of $E^0_{\Vec{k}-\Vec{G}}$ for all other $\Vec{G}$ compared with $U$.\\
+The idea is now to investigate the effect of the potential on that free electron level given by:
 \[
 E=E^0_{\Vec{k}-\Vec{G_1}} \quad C_{\Vec{k}-\Vec{G}}=0 \quad \Vec{G}\neq\Vec{G_1}
 \]
@@ -1125,10 +1169,15 @@ Putting this in \refeq{sub} gives us:
 \label{nodeg}
 (E-E^0_{\Vec{k}-\Vec{G_1}})C_{\Vec{k}-\Vec{G_1}}=\sum_{\Vec{G}\neq\Vec{G_1}}\frac{U_{\Vec{G}-\Vec{G_1}}U_{\Vec{G_1}-\Vec{G}}}{E-E^0_{\Vec{k}-\Vec{G}}}C_{\Vec{k}-\Vec{G_1}}+\mathcal{O}(U^3)
 \end{equation}
-The perturbed energy level $E$ differs from the free electron value $E^0_{\Vec{k}-\Vec{G_1}}$ by terms of order $U^2$, therefore it is sufficient to replace $E$ appearing in the denominator on the right hand side by $E^0_{\Vec{k}-\Vec{G_1}}$ :
+The perturbed energy level $E$ differs from the free electron value $E^0_{\Vec{k}-\Vec{G_1}}$ by terms of order $U^2$, therefore it is sufficient to replace $E$ appearing in the denominator on the right hand side by $E^0_{\Vec{k}-\Vec{G_1}}$:
+\begin{mybox}
+\textbf{Non-Degenerate Perturbation}
+\hrule
+\vspace{0.2cm}
 \[
 E=E^0_{\Vec{k}-\Vec{G_1}}+\sum_{\Vec{G}}\frac{|U_{\Vec{G}-\Vec{G_1}}|^2}{E^0_{\Vec{k}-\Vec{G_1}}-E^0_{\Vec{k}-\Vec{G}}}+\mathcal{O}(U^3)
 \]
+\end{mybox}\noindent
 This is telling us that weakly perturbed non-degenerate bands repel each other. Moreover, the most important feature is that the shift in energy from the free electron value is of second order in $U$.\\\\
 \textbf{Degenerate case}\\\\
 Suppose now that the value of $\Vec{k}$ is that there are reciprocal lattice vectors $\Vec{G_1},\cdots, \Vec{G_m}$ with $E^0_{\Vec{k}-\Vec{G_1}},\cdots,E^0_{\Vec{k}-\Vec{G_m}}$ all within order $U$ of each other but far apart from the other $E^0_{\Vec{k}-\Vec{G}}$:
@@ -1148,10 +1197,15 @@ Since $C_{\Vec{k}-\Vec{G}}$ will be at most of order $U$, the second term in the
 (E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}+\sum_{j=1}^m\left[\sum_{\Vec{G}\neq\Vec{G_1},\cdots,\Vec{G_m}}\frac{U_{\Vec{G}-\Vec{G_i}}U_{\Vec{G_j}-\Vec{G}}}{E-E^0_{\Vec{k}-\Vec{G}}}\right]C_{\Vec{k}-\Vec{G_j}}+\mathcal{O}(U^3)
 \]
 Compare this with the result obtained in \refeq{nodeg} for the non-degenerate case: previously, we found an explicit expression for the shift in energy to order $U^2$, now to an accuracy of order $U^2$ the determination of the shifts in $m$ nearly degenerate levels reduces to the solution of $m$ equations for $C_{\Vec{k}-\Vec{G_i}}$. The coefficients in the second term on the right hand side are of higher order in $U$ than those in the first term, therefore we can use a simpler form:
+\begin{mybox}
+\textbf{Degenerate Perturbation}
+\hrule
+\vspace{0.2cm}
 \[
 (E-E^0_{\Vec{k}-\Vec{G_i}})C_{\Vec{k}-\Vec{G_i}}=\sum_{j=1}^mU_{\Vec{G_j}-\Vec{G_i}}C_{\Vec{k}-\Vec{G_j}}
 \]
 which are $m$ general equations for a system of $m$ quantum levels. 
+\end{mybox}
 \newpage
 \section{The Tight-Binding Method}
 In developing the tight-binding approximation we assume that in the vicinity of each lattice point, the full periodic crystal Hamiltonian $H$ can be approximated by the Hamiltonian $H_{\text{at}}$ of a single atom located at the lattice point. We also assume that the bound levels of $H_{\text{at}}$ are well localized, i.e. if $\psi_n$ is a bound level of $H_{\text{at}}$:
@@ -1230,7 +1284,11 @@ Putting these observations together, one can write:
 \varepsilon(\Vec{k})=E_s-\beta-\sum_{\text{n.n.}}\gamma(\Vec{R})e^{i\Vec{k}\cdot\Vec{R}}
 \]
 where the sum runs only over those $\Vec{R}$ in the Bravais lattice that connect the origin to its nearest neighbours.\\
-For example, in the simple cubic case there are 6 nearest neighbours, identified by:
+\begin{mybox}
+\textbf{Example: Simple Cubic} 
+\hrule
+\vspace{0.2cm}
+In the simple cubic case there are 6 nearest neighbours, identified by:
 \[
 (\pm a,0,0) \qquad (0,\pm a,0) \qquad (0,0,\pm a)
 \]
@@ -1244,6 +1302,7 @@ The dispersion band now takes the form:
 \varepsilon(\Vec{k})=E_s-\beta-2\gamma\left[\cos(k_xa)+\cos(k_ya)+\cos(k_za)\right]
 \]
 For bcc and fcc things get complicated just by the fact that one has to consider more nearest neighbours.
+\end{mybox}
 % The difference between the maximum and the minimum value of the considered band is called \textbf{bandwidth} and it is proportional to the small overlap integral $\gamma$. If $\gamma$ is too large, i.e. the band is too dispersive, the tight-binding method does not apply very well: there could be some overlap between different electronic crystal bands. This behaviour is typical of metals, since valence electrons are not so tightly bound to the ions. In the limit of vanishing overlap, the bandwidth also vanishes and the band becomes degenerate, corresponding to the case in which the electron simply resides on any one of the isolated atoms.
 \subsection{Polyacetylene Bands Structure}
 We now want to see the case of polyacetylene, which has a basis therefore one expects to have two bands.
@@ -1257,6 +1316,11 @@ Given its electronic configuration, for each atom there are 3 $sp^2$ orbitals in
 \[
 \psi_k(x)=\sum_{m\in\mathbb{Z}}e^{ikma}[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)] \qquad m=-1,0,+1
 \]
+What we have to solve is:
+\[
+[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\varepsilon_{\Vec{k}}\ket{\psi_k(x)}
+\]
+\newpage\noindent
 On the plane, we can forget about the hydrogen atom and schematically represent the problem in the following way:
 \begin{figure}[h]
     \centering
@@ -1264,10 +1328,6 @@ On the plane, we can forget about the hydrogen atom and schematically represent 
     \label{fig:polyscheme}
 \end{figure}\\
 \noindent
-The problem we have to solve is:
-\[
-[H_{\text{at}}+\Delta U(x)]\ket{\psi_k(x)}=\varepsilon_{\Vec{k}}\ket{\psi_k(x)}
-\]
 First of all, we project on $\phi_A$ and $\phi_B$:
 \[
 \left\{
@@ -1472,6 +1532,9 @@ which exhibits a linear dependence on $k$ for $m=0$: these are dispersion curves
 \newpage
 \section{Semiclassical Model of Electrons Dynamics}
 There are essentially three models which can be used to treat electrons dynamics: 
+\begin{mybox}
+\textbf{Electrons Dynamics Model}
+\hrule
 \begin{itemize}
     \item \textbf{Drude:} it does not work, since it considers classical electrons
     \item \textbf{Sommerfeld:} it is no longer a classical theory but a quantum one, where energy and wave function are given by:
@@ -1487,7 +1550,12 @@ There are essentially three models which can be used to treat electrons dynamics
     \[
     \Vec{v}_n(\Vec{k})=\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}
     \]
+    The function $u_{n\Vec{k}}(\Vec{r})$ and the energy $\varepsilon_n(\Vec{k})$ have no explicit form, the only relevant property they have is the periodicity in direct and reciprocal lattice, respectively:
+    \[
+    u_{n\Vec{k}}(\Vec{r}+\Vec{R})=u_{n\Vec{k}}(\Vec{r}) \qquad \varepsilon_n(\Vec{k}+\Vec{G})=\varepsilon_n(\Vec{k})
+    \]
 \end{itemize}
+\end{mybox}\noindent
 If we think about a static space, in principle there should be no velocity. Velocity appears when we introduce periodic boundary conditions, allowing a wave to travel through the crystal. To introduce the concept of velocity of an electron, a better approach is to think in terms of \textbf{wave packets}. What we actually do when moving an electron in a crystal is to create some wave packet and let it propagate through the crystal. Strictly speaking, this is no longer an eigenstate of the crystal.
 % In principle, one could calculate the dynamic behaviour of the free electron gas using classical mechanics. The trajectory of each electron between collisions is calculated according to the usual equations of motion for a free particle of momentum $\hbar\Vec{k}$:
 % \begin{equation}
@@ -1501,8 +1569,9 @@ The wave packet is the following:
 \]
 The term $\varepsilon_n(\Vec{k'})t/\hbar$ has been added in order to take into account the time evolution of the wave function. The wave packet is then a superposition of Bloch wave functions with some weight functions $g(\Vec{k},\Vec{k'})$ peaked around some $\Vec{k}$ as a function of $\Vec{k'}$. We want to take advantage of this fact and approximate $\psi$ for $\Vec{k}\approx\Vec{k'}$:
 \begin{align*}
-\psi_n(\Vec{k},\Vec{r},t)&\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize $\Vec{k'}=\Vec{k}+(\Vec{k'}-\Vec{k})$};}}{\approx} u_{n\Vec{k}}(\Vec{r})e^{i\left(\Vec{k}\cdot\Vec{r}-\frac{\varepsilon_n(\Vec{k})t}{\hbar}\right)}\sum_{\Vec{k'}}g(\Vec{k},\Vec{k'})\exp{i\left[(\Vec{k}-\Vec{k'})\cdot\Vec{r}-\frac{1}{\hbar}\frac{\partial\varepsilon_{n\Vec{k}}}{\partial\Vec{k}}(\Vec{k'}-\Vec{k})t\right]}\\
-&\approx u_{n\Vec{k}}(\Vec{r})e^{i\left(\Vec{k}\cdot\Vec{r}-\frac{\varepsilon_n(\Vec{k})t}{\hbar}\right)}\sum_{\Vec{k'}}g(\Vec{k},\Vec{k'})\exp{i\left[(\Vec{k}-\Vec{k'})\cdot(\Vec{r}-\Vec{v}_{n\Vec{k}}t)\right]}
+\psi_n(\Vec{k},\Vec{r},t)&\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize $\Vec{k'}=\Vec{k}+(\Vec{k'}-\Vec{k})$};}}{\approx} u_{n\Vec{k}}(\Vec{r})e^{i\left(\Vec{k}\cdot\Vec{r}-\frac{\varepsilon_n(\Vec{k})t}{\hbar}\right)}\sum_{\Vec{k'}}g(\Vec{k},\Vec{k'})\exp{i\left[(\Vec{k'}-\Vec{k})\cdot\Vec{r}-\frac{1}{\hbar}\frac{\partial\varepsilon_{n\Vec{k}}}{\partial\Vec{k}}(\Vec{k'}-\Vec{k})t\right]}\\
+&\approx u_{n\Vec{k}}(\Vec{r})e^{i\left(\Vec{k}\cdot\Vec{r}-\frac{\varepsilon_n(\Vec{k})t}{\hbar}\right)}\sum_{\Vec{k'}}g(\Vec{k},\Vec{k'})\exp{i\left[(\Vec{k'
+}-\Vec{k})\cdot(\Vec{r}-\Vec{v}_{n\Vec{k}}t)\right]}
 \end{align*}
 The factor outside the sum is just an overall phase factor, hence irrelevant. If we now take $g(\Vec{k},\Vec{k'})$ to be a Gaussian, what we have inside the sum is nothing but the Fourier transform of a Gaussian, which gives a Gaussian in real space located at $(\Vec{r}-\Vec{v}_{n\Vec{k}}t)$, so it moves with a velocity which is essentially the group one.\\
 So far we have encountered two length scales: the lattice spacing $a$ and the wavelength $\lambda$ of the electromagnetic radiation used to investigate the crystal. If we want to have a semiclassical theory we need some conditions fixing the relation between $a, \lambda$ and $\Delta k=k'-k$. First of all, we require $\lambda\gg a$ because if it was $\lambda\sim a$ the electrons cannot be treated as wave packets anymore, because the electromagnetic field will change a lot on the scale of the wave packet. Moreover, we want wave packets with a reasonably well defined momentum, hence a small $\Delta k$, i.e. a large spread in real space. This condition can be written by claiming that the wave packet will spread along several primitive cells:
@@ -1561,16 +1630,31 @@ Now we can ask ourselves: \textit{what is the contribution of the filled bands t
 \[
 \Vec{J}:=-\overset{\mathclap{\tikz \node {$\downarrow$} node [above=1ex] {\footnotesize Pauli principle };}}{2}e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{(2\pi)^3}\overbrace{\left(\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}\right)}^{\Vec{v}_{n\Vec{k}}}\underset{\mathclap{\tikz \node {$\uparrow$} node [below=1ex] {\footnotesize Fermi-Dirac distribution};}}{f[\varepsilon_n(\Vec{k})]}
 \]
-The integral is performed over the \nth{1} Brillouin zone because we are assuming that the band is completely filled. Moreover, assume to be $\sim0$\,K so that $f[E_n(\Vec{k}]=1$.
+The integral is performed over the \nth{1} Brillouin zone because we are assuming that the band is completely filled. Moreover, assume to be $\sim0$\,K so that $f[\varepsilon_n(\Vec{k}]=1$.
 \[
 \Vec{J}=-e\int_{\text{\RN{1}BZ}}\frac{d\Vec{k}}{4\pi^3}\frac{1}{\hbar}\frac{\partial \varepsilon_n(\Vec{k})}{\partial\Vec{k}}
 \]
-Because of the periodicity of $\varepsilon_n(\Vec{k})$ the integrand is zero, therefore $\Vec{J}=0$: in a filled band, no electric current is carried by electrons.
-% Consider now a periodic function in direct space: its integral over the cell is constant under translation.
-% \[
-% I(\Vec{r'})=\int_Cd\Vec{r}f(\Vec{r}+\Vec{r'})\Rightarrow\Vec{\nabla'}I(\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla'}f(\Vec{r}+\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla}f(\Vec{r}+\Vec{r'})
-% \]
-% In the case $\Vec{r'}=0$, then the last integral is equal to zero. This holds true in reciprocal space as well and we get that $\Vec{J}=0$. This result holds true for completely filled bands because in this case the phase-space density is \textbf{constant} and this is related to Liouville's Theorem: since two regions of the phase space linked together by the semiclassical equations of motion [\refeq{eqmot1} and \refeq{eqmot2}] have the same number of electrons, they will have the same density.
+%Because of the periodicity of $\varepsilon_n(\Vec{k})$ the integrand is zero, therefore $\Vec{J}=0$: in a filled band, no electric current is carried by electrons.
+\begin{mybox}
+\textbf{Green's Theorem for Periodic Functions{\color{blue!30}{g}}}
+\hrule
+\vspace{0.2cm}
+To see why this integral vanishes,
+consider a function $f(\Vec{r})$ with the periodicity of the Bravais lattice and integrate over a primitive cell $C$.
+\[
+I(\Vec{r'})=\int_Cd\Vec{r}f(\Vec{r}+\Vec{r'})
+\]
+This integral is independent on $\Vec{r'}$, in particular:
+\[
+\Vec{\nabla'}I(\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla'}f(\Vec{r}+\Vec{r'})=\int_Cd\Vec{r}\Vec{\nabla}f(\Vec{r}+\Vec{r'})=0
+\]
+Evaluating this at $\Vec{r'}=0$, one finds that any periodic function $f$ satisfies:
+\[
+\int_Cd\Vec{r}\Vec{\nabla}f(\Vec{r})=0
+\]
+\end{mybox}\noindent
+This holds true in reciprocal space as well and we get that $\Vec{J}=0$, so when calculating the electronic properties of a solid only partially filled bands have to be taken into account.\\  
+This result holds true for completely filled bands because in this case the phase-space density is \textbf{constant} and this is related to Liouville's Theorem: since two regions of the phase space linked together by the semiclassical equations of motion [\refeq{eqmot}] have the same number of electrons, they will have the same density.
 \subsection{Contribution of the Holes}
 The contribution to all electrons in a given band to the current density is then:
 \[
@@ -1647,10 +1731,15 @@ P_v(T)=\cdots=\frac{1}{4}\left(\frac{2k_BTm_v}{\pi\hbar^2}\right)^{3/2}
 \]
 $m_c$ is taken as the product of the principal values of the conduction band effective mass tensor [\refeq{masstensor}], i.e. its determinant, and $m_v$ is similarly defined.\\
 It is still not possible to infer $n_c(T)$ and $p_v(T)$ until the value of $\mu$ is known but one can observe that the $\mu$ dependence disappears if we take the product of the two densities:
+\begin{mybox}
+\textbf{Law of Mass Action{\color{blue!30}{g}}}
+\hrule
+\vspace{0.2cm}
 \begin{align*}
 n_c(T)p_v(T)&=N_c(T)e^{-\beta(E_c-\mu)}P_v(T)e^{-\beta(\mu-E_v)}\\
 &=N_c(T)P_v(T)e^{-\beta(E_c-E_v)}=N_c(T)P_v(T)e^{-\beta E_g}
 \end{align*}
+\end{mybox}\noindent
 This goes under the name of \textbf{law of mass action} and it is telling us that at a given temperature it is sufficient to know the density of one type of carrier to determine the density of the other one.
 \subsection{Intrinsic case}
 The intrinsic case takes place if the crystal is so pure that impurities contribute negligibly to the carrier densities. Conduction band electrons can only have come from formerly occupied valence band levels leaving hole behind them. The number of conduction band electrons is then equal to the number of valence band holes:
@@ -1669,8 +1758,9 @@ Using the fact that $n_i(T)=n_c(T)$ we get:
 -\beta \frac{1}{2}E_g+\frac{1}{2}\ln\left[\frac{P_v(T)}{N_c(T)}\right]&=-\beta E_c+\beta\mu_i
 \end{aligned}
 \]
+It then follows that:
 \[
-\Rightarrow\mu_i=E_c-\frac{1}{2}E_g+\frac{1}{2}k_BT\ln\left[\frac{P_v(T)}{N_c(T)}\right]=E_c-\frac{1}{2}E_g+\frac{3}{4}k_BT\ln\left(\frac{m_v}{m_c}\right)
+\mu_i=E_c-\frac{1}{2}E_g+\frac{1}{2}k_BT\ln\left[\frac{P_v(T)}{N_c(T)}\right]=E_c-\frac{1}{2}E_g+\frac{3}{4}k_BT\ln\left(\frac{m_v}{m_c}\right)
 \]
 where $\mu_i$ denotes the value of the chemical potential in the intrinsic case.\\
 For $T\to0$, $\mu_i$ lies precisely in the middle of the energy gap. Furthermore, since $\ln(m_v/m_c)$ is a number of order unity, $\mu_i$ will not wander from the center of the energy gap by more than order $k_BT$. Consequently, at temperatures such that $k_BT$ is small compared to $E_g$, $\mu_i$ will be found far from the boundaries and the conditions for non-degeneracy [\refeq{nondeg}] will be satisfied.
