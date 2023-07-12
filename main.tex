@@ -959,7 +959,7 @@ g(E)=\frac{1}{(2\pi)^3}2\int\frac{dS_E}{\norm{\Vec{\nabla}_{\Vec{k}}E}}=\frac{2 
 \end{equation}
 Substituting this in the previous expression for $u$, one obtains:
 \[
-u=\int_0^{+\infty}dEE\frac{m}{\pi^2\hbar^3}\sqrt{2mE}\frac{1}{e^{\beta(E-\mu)}-1}
+u=\int_0^{+\infty}dEE\frac{m}{\pi^2\hbar^3}\sqrt{2mE}\frac{1}{e^{\beta(E-\mu)}+1}
 \]
 which is the exact expression giving Sommerfeld's result.
 \newpage
@@ -1343,31 +1343,31 @@ Start with the first equation and compute the term relative to $H_{\text{at}}$:
 =&\sum_me^{ikma}\int dx[H_{\text{at}}\phi_A(x)]^*[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
 =&\sum_me^{ikma}E_A\int dx\phi_A^*(x)[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
 =&E_A\int dx\phi_A^*(x)C_A\phi_A(x)+E_A\int dx\phi_A^*(x)C_B\phi_B(x-a_0)\\
-&+E_Ae^{ika}\int dx\phi_A^*(x)C_B\phi_B(x-a-a_0)\\
+&+E_Ae^{-ika}\int dx\phi_A^*(x)C_B\phi_B(x+a-a_0)\\
 =&E_AC_A
 \end{align*}
-Referring to the previous scheme and working with nearest neighbours interactions only, when computing the product with $\phi_A(x-ma)$, only the interaction with $m=0$ takes place, while for $\phi_B(x-ma-a_0)$ we have $m=0,+1$. Of the final three terms, only the first one survives because the other ones involve the product of wave functions centered at different sites, hence they are all equal to zero.\\
+Referring to the previous scheme and working with nearest neighbours interactions only, when computing the product with $\phi_A(x-ma)$, only the interaction with $\phi_A(x)$, i.e. $m=0$, takes place, while for $\phi_B(x-ma-a_0)$ we have $\phi_B(x-a_0)$ and $\phi_B(x+a-a_0)$, hence $m=0,-1$. Of the final three terms, only the first one survives because the other ones involve the product of wave functions centered at different sites, hence they are all equal to zero.\\
 Let's look now at the term with the potential:
 \begin{align*}
 \bra{\phi_A(x)}\Delta U(x)\ket{\psi_k(x)}=&\sum_me^{ikma}\int dx\phi_A^*(x)\Delta U(x)[C_A\phi_A(x-ma)+C_B\phi_B(x-ma-a_0)]\\
 =&\int dx\phi_A^*(x)\Delta U(x)C_A\phi_A(x)+\int dx\phi_A^*(x)\Delta U(x)C_B\phi_B(x-a_0)\\
-&+e^{ika}\int dx\phi_A^*(x)\Delta U(x)C_B\phi_B(x-a-a_0)\\
-=&-C_A\beta-C_B\gamma-e^{ika}C_B\gamma=-C_A\beta-C_B\gamma(1+e^{ika})
+&+e^{-ika}\int dx\phi_A^*(x)\Delta U(x)C_B\phi_B(x+a-a_0)\\
+=&-C_A\beta-C_B\gamma-e^{-ika}C_B\gamma=-C_A\beta-C_B\gamma(1+e^{-ika})
 \end{align*}
 The possible values of $m$ are the same as before and we introduced the quantity $\beta$ and $\gamma$ from \refeq{betagamma}.\\
 The term $\bra{\phi_A(x)}\varepsilon_k\ket{\psi_k(x)}$ is simply equal to $C_A\varepsilon_k$, so putting everything together we have:
 \[
-C_A[E_A-\varepsilon_k-\beta]-C_B\gamma[1+e^{ika}]=0
+C_A[E_A-\varepsilon_k-\beta]-C_B\gamma[1+e^{-ika}]=0
 \]
-Repeating exactly the same arguments for the projection on $\phi_B(x-a_0)$, using $m=0,-1$, we end up with:
+Repeating exactly the same arguments for the projection on $\phi_B(x-a_0)$, interacting with the nearest neighbours $\phi_A(x), \phi_A(x-a)$ and $\phi_B(x-a_0)$, we end up with:
 \[
-C_B[E_B-\varepsilon_k-\beta]-C_B\gamma[1+e^{-ika}]=0
+C_B[E_B-\varepsilon_k-\beta]-C_A\gamma[1+e^{+ika}]=0
 \]
 In both cases we made the assumption to have equal transfer integrals $\gamma$. $\beta$ represents just an offset, so it is possible to set it equal to zero. Non-trivial solutions are found by imposing:
 \[
 \det\left(\begin{array}{cc}
-    E_A-\varepsilon_k & -\gamma(1+e^{ika}) \\
-    -\gamma(1+e^{-ika}) & E_B-\varepsilon_k
+    E_A-\varepsilon_k & -\gamma(1+e^{-ika}) \\
+    -\gamma(1+e^{+ika}) & E_B-\varepsilon_k
 \end{array}\right)=0
 \]
 This gives us the following second order equation:
@@ -1420,7 +1420,7 @@ Just like we did for the polyacetylene, we project on $\phi_A$ and $\phi_B$:
 \end{aligned}
 \right.
 \]
-Take as a reference the cell in the center of the scheme: for the atom labeled with $A$, the possible values of $l$ and $m$ connecting nearest neighbours are $(0,0), (-1,0)$ and $(0,-1)$. We then compute the first term:
+Take as a reference the cell in the center of the scheme: for the atom labeled with $A$, the possible values of $l$ and $m$ connecting nearest neighbours are $(0,0)$ for the atoms $A$ and $B$ of the same cell and $(-1,0);(0,-1)$ for the two atoms $B$ of adjacent cells. We then compute the first term:
 \begin{align*}
 \bra{\phi_A(\Vec{r})}H_{\text{at}}\ket{\psi_{\Vec{k}}(\Vec{r})}=&E_A\int d\Vec{r}\phi_A^*(\Vec{r})C_A\phi_A(\Vec{r})+E_A\int d\Vec{r}\phi_A^*(\Vec{r})C_B\phi_B(\Vec{r}-a_0\hat{x})\\
 &+E_Ae^{-i\Vec{k}\cdot\Vec{a_1}}\int d\Vec{r}\phi_A^*(\Vec{r})C_B\phi_B(\Vec{r}+\Vec{a_1}-a_0\hat{x})\\
